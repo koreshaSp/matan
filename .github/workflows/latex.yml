@@ -5,9 +5,12 @@ jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
-      - name: Get current date
-        id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d-%H-%M')"
+      - name: Get current time
+        uses: josStorer/get-current-time@v2
+        id: current-time
+        with:
+          format: YYYYMMDD-HHmm
+          utcOffset: "+03:00"
       - name: Set up Git repository
         uses: actions/checkout@v2
       - name: Compile LaTeX document
@@ -21,8 +24,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.date.outputs.date }}
-          release_name: Release ${{ steps.date.outputs.date }}
+          tag_name: ${{ steps.current-time.outputs.formattedTime }}
+          release_name: Release ${{ steps.current-time.outputs.formattedTime }}
           draft: false
           prerelease: false
 
