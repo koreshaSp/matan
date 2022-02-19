@@ -1,142 +1,304 @@
-\section{Лекция 14}
+\section{Интегральное исчисление функций}
 
-\subsection{Монотонность и экстремумы функций}
+\subsection{Первообразная и неопределенный интеграл}
 
-\begin{theorem} 
-    $f: \useg{a, b} \to \R, f $ -- непрерывна на $\useg{a, b}$, $f$ диффиренцируема на $(a, b)$
+\begin{definition}
+    $f : (a, b) \rightarrow \R, F : (a, b) \rightarrow \R$, $F$ -- первообразная $f$ на $(a, b)$ если $F' = f$
+\end{definition}
 
+
+\begin{theorem}
+    $f, F : (a, b) \rightarrow \R$, $F$ -- первообразная $f$ 
     \begin{enumerate}
-        \item $f$ возрастает на $\useg{a, b} \Longleftrightarrow f' \geqslant 0 $ на $(a, b)$ 
-        \item $f$ убывает на $\left\langle {a,b} \right\rangle \Longleftrightarrow f'  \leqslant 0 $ на $(a, b)$ 
-        \item $f$ постоянна на $\left\langle {a,b} \right\rangle  \Longleftrightarrow f' = 0 $ на $(a, b)$ 
+    \item $\Rightarrow F + c$ - первообразная $f$
+    \item $G : (a,b)$ - первообразная $f \Rightarrow F - G = const$ 
     \end{enumerate}
-
 \end{theorem}
 
 \begin{proof} \quad
     \begin{enumerate}
-        \item $\ola$ $f \inc \Longleftrightarrow \forall x, y \in \useg{a, b} \,\, \frac{f(x) - f(y)}{x - y} \geqslant 0 \Rightarrow f' \geqslant 0$. \\\\
-        $\ora$ $f' \geqslant 0 \Rightarrow \frac{f(x)-f(y)}{x-y} = f'(\theta), \theta \in (a, b)$ (по теореме Лагранжа).
-        \item[2--3.] Аналогично
+        \item Очевидно.
+        \item $F' = f, G' = f \Rightarrow (F - G)' = 0 \Rightarrow (F - G) = const$(т.к. $g(a) - g(b) = g'(\theta)(a - b) = 0$ 
+        по теореме Лагранжа)
     \end{enumerate}
 \end{proof}
 
-\begin{remark}
-    Как описать строгое возрастание? 
-\end{remark}
-
-$\ok$ $f' > 0$ на $(a, b) \Rightarrow f $ строго возрастает на $\useg{a, b} $
-\\\\
-$\but$ $f' > 0$ на $(a, b) \not\Leftarrow f $ строго возрастает на $\useg{a, b} ($контрпример $f(x) = x ^ 3)$ 
-
-\begin{flalign*}
-    f \text{\,строго возрастает} 
-    \Longleftrightarrow
-    \begin{cases}
-        \forall I \subset (a, b) \; \exists \; x \in I : f'(x) > 0 \\
-        f'(x) \geqslant 0
-    \end{cases} && 
-\end{flalign*}  
-
-\quad 
-
-\quad 
-
-\quad
-\subsection{Выпуклые функции}
-
 \begin{definition}
-    $f : \useg{a, b} \to \R $ -- выпуклая на $\useg{a,b}$, если $\forall x_1, x_2 \in \useg{a,b}, \forall \lambda \in (0, 1) \Rightarrow  \\f(\lambda x_1 + (1 - \lambda) x _ 2) \leqslant \lambda f(x_1) + (1 - \lambda) f (x _ 2)$
+    $ \int f dx = $ {множество всех первообразных $f$} 
 \end{definition}
 
+\begin{properties}
+    \item $\int f + g dx = \int f dx + \int g dx$
+    
+    \item $\int \lambda f dx = \lambda \int f dx, \lambda \neq 0$
+        
+    \item $\int \alpha f(x) + \beta g(x) dx = \alpha \int f(x) dx + \beta g(x) dx, \alpha^2 + \beta^2 \neq 0$
+        
+    \item (замена переменной в неопр. интеграле) \\
+    $f : (a, b) \rightarrow \R, F$ - первообразная $f$, $\phi:(c, d) \rightarrow (a, b), 
+    \phi$ - дифференцируема. \\
+    $\Rightarrow \int f(\phi(x))\phi'(x) dx = F(\phi(x)) + c$
+    \begin{remark}
+        $\phi(x) = y, \phi'(x)dx = dy \Rightarrow \int f(y) dy = F(y) + c$
+    \end{remark}
+
+    \item(формула интегрирования по частям) \\
+    \[f, g\text{ -- дифф на }(a, b) \Rightarrow \int f(x)g'(x)dx = fg - \int f'(x)g(x)dx\]
+    \begin{proof}
+        $(fg)' = fg' + f'g$
+    \end{proof}
+
+\end{properties}
 
 
 
-\quad
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
-%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+\subsection{Площадь и псевдоплощадь}
 
-%Shape: Axis 2D [id:dp13272711467424314] 
-\draw  (50,248.6) -- (406,248.6)(85.6,65) -- (85.6,269) (399,243.6) -- (406,248.6) -- (399,253.6) (80.6,72) -- (85.6,65) -- (90.6,72)  ;
-%Shape: Parabola [id:dp976320101259972] 
-\draw  [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][line width=3]  (39,106) .. controls (163.67,255.33) and (288.33,255.33) .. (413,106) ;
-%Straight Lines [id:da25515767039946025] 
-\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ]   (115,178) -- (340,176) ;
-%Shape: Circle [id:dp5228763574022932] 
-\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][fill={rgb, 255:red, 208; green, 2; blue, 27 }  ,fill opacity=1 ] (110.5,178) .. controls (110.5,175.51) and (112.51,173.5) .. (115,173.5) .. controls (117.49,173.5) and (119.5,175.51) .. (119.5,178) .. controls (119.5,180.49) and (117.49,182.5) .. (115,182.5) .. controls (112.51,182.5) and (110.5,180.49) .. (110.5,178) -- cycle ;
-%Shape: Circle [id:dp6463819878430874] 
-\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][fill={rgb, 255:red, 208; green, 2; blue, 27 }  ,fill opacity=1 ] (335.5,176) .. controls (335.5,173.51) and (337.51,171.5) .. (340,171.5) .. controls (342.49,171.5) and (344.5,173.51) .. (344.5,176) .. controls (344.5,178.49) and (342.49,180.5) .. (340,180.5) .. controls (337.51,180.5) and (335.5,178.49) .. (335.5,176) -- cycle ;
-%Straight Lines [id:da0562686555250248] 
-\draw  [dash pattern={on 0.84pt off 2.51pt}]  (115,178) -- (115,249) ;
-%Straight Lines [id:da3535183278825579] 
-\draw  [dash pattern={on 0.84pt off 2.51pt}]  (340,176) -- (340,247) ;
-%Straight Lines [id:da20443057247970886] 
-\draw  [dash pattern={on 0.84pt off 2.51pt}]  (226,177) -- (226,251) ;
-%Shape: Circle [id:dp9860332203810883] 
-\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][fill={rgb, 255:red, 208; green, 2; blue, 27 }  ,fill opacity=1 ] (221.5,177) .. controls (221.5,174.51) and (223.51,172.5) .. (226,172.5) .. controls (228.49,172.5) and (230.5,174.51) .. (230.5,177) .. controls (230.5,179.49) and (228.49,181.5) .. (226,181.5) .. controls (223.51,181.5) and (221.5,179.49) .. (221.5,177) -- cycle ;
-%Shape: Circle [id:dp32402271264214066] 
-\draw  [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=1 ] (221.5,218) .. controls (221.5,215.51) and (223.51,213.5) .. (226,213.5) .. controls (228.49,213.5) and (230.5,215.51) .. (230.5,218) .. controls (230.5,220.49) and (228.49,222.5) .. (226,222.5) .. controls (223.51,222.5) and (221.5,220.49) .. (221.5,218) -- cycle ;
-
-% Text Node
-\draw (107,250.4) node [anchor=north west][inner sep=0.75pt]    {$x_{1}$};
-% Text Node
-\draw (332,248.4) node [anchor=north west][inner sep=0.75pt]    {$x_{2}$};
-% Text Node
-\draw (171,255.4) node [anchor=north west][inner sep=0.75pt]    {$\lambda x_{1} +( 1-\lambda ) x_{2}$};
-
-
-\end{tikzpicture}
-
-\quad
+\begin{definition}
+    Определение площади: $S : 2 ^ {\R ^ 2} \rightarrow [0, +\infty)$
+    \begin{enumerate}
+        \item $S((a_1, b_1) \times (a_2, b_2)) = (b_1 - a_1) \cdot (b_2 - a_2)$
+        \item $S(E_1 \sqcup E_2) = S(E_1) + S(E_2)$
+    \end{enumerate}
+\end{definition}
 
 \begin{remark}
-    Геометрический смысл выпуклой функции -- надграфик - выпуклое множество.
+    Такая функция не существует.
 \end{remark}
 
-\begin{remark}
-    У выпуклой функции график функции ниже хорды.
+\begin{definition}(Псевдоплощадь) $\sigma : F \rightarrow [0, +\infty]$, где $F$ это ограниченные подмножества $R^2$
+    \begin{enumerate}
+        \item $\sigma(\langle a_1, b_1\rangle \times \langle a_2, b_2\rangle) = (b_1 - a_1) \cdot (b_2 - a_2)$
+
+        \item $\sigma(E) = \sigma(E_-) + \sigma(E_+)$ если $E = E_- \sqcup E_+$ и $E_-, E_+$ получены разрезанием $E$ вертикальной или
+        горизонтальной линией.
+
+        \item $E_1 \supset E_2 \Rightarrow \sigma(E_1) \geq \sigma(E_2)$ 
+    \end{enumerate}
+    
+\end{definition}
+
+\begin{remark} 
+
+    \begin{enumerate} 
+        \item Не важно куда относить точки прямой, т.к. площадь прямой равна 0 \\
+        \tikzset{every picture/.style={line width=0.5pt}} %set default line width to 0.75pt        
+        \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.75,xscale=0.75]
+        %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+        
+        %Shape: Free Drawing [id:dp7628728695496989] 
+        \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=3] [line join = round][line cap = round] (146.33,63.67) .. controls (136.73,63.67) and (135.51,59.39) .. (124.33,55.67) .. controls (113.51,52.06) and (98.23,50.72) .. (87.33,51.67) .. controls (79.49,52.35) and (72.38,64.62) .. (67.33,69.67) .. controls (47.68,89.32) and (34.42,122.83) .. (59.33,145.67) .. controls (89.45,173.27) and (145.78,137.25) .. (162.33,109.67) .. controls (165.06,105.12) and (163.56,98.3) .. (164.33,93.67) .. controls (164.49,92.74) and (166.24,92.61) .. (166.33,91.67) .. controls (166.93,85.36) and (167.63,78.87) .. (166.33,72.67) .. controls (164.68,64.75) and (143.8,59.67) .. (138.33,59.67) ;
+        %Shape: Free Drawing [id:dp2860373614820697] 
+        \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=3] [line join = round][line cap = round] (111.33,22.67) .. controls (100.18,56.13) and (103.91,94.37) .. (102.33,130.67) .. controls (102.08,136.41) and (95.91,157.36) .. (94.33,163.67) .. controls (94.1,164.58) and (92.38,164.73) .. (92.33,165.67) .. controls (91.7,178.32) and (92.33,191) .. (92.33,203.67) ;
+        %Shape: Free Drawing [id:dp08947191931178611] 
+        \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=3] [line join = round][line cap = round] (99.33,215.67) .. controls (107.27,215.67) and (119.57,211.43) .. (124.33,206.67) .. controls (126.86,204.14) and (129.54,190.09) .. (125.33,189.67) .. controls (101.17,187.25) and (115.33,216.77) .. (115.33,234.67) ;
+        %Shape: Free Drawing [id:dp9334586901493984] 
+        \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=3] [line join = round][line cap = round] (165.33,23.67) .. controls (165.33,32.82) and (163.33,42.46) .. (163.33,51.67) ;
+        %Shape: Free Drawing [id:dp04768711693928851] 
+        \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=3] [line join = round][line cap = round] (170.33,27.67) .. controls (173,27.67) and (175.95,26.47) .. (178.33,27.67) .. controls (179.53,28.26) and (178.33,30.33) .. (178.33,31.67) ;
+        %Shape: Free Drawing [id:dp5274114829816234] 
+        \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=3] [line join = round][line cap = round] (170.33,38.67) .. controls (171.8,38.67) and (177.33,38.74) .. (177.33,40.67) ;
+        %Shape: Free Drawing [id:dp6570628135366894] 
+        \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=3] [line join = round][line cap = round] (163.33,49.67) .. controls (169.95,49.67) and (176.03,51.67) .. (182.33,51.67) ;
+        %Shape: Free Drawing [id:dp8681341271113268] 
+        \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=3] [line join = round][line cap = round] (116.33,87.67) .. controls (116.33,94.92) and (118.33,102.33) .. (118.33,109.67) ;
+        %Shape: Free Drawing [id:dp6050366900451063] 
+        \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=3] [line join = round][line cap = round] (126.33,86.67) .. controls (133.01,86.67) and (139.66,85.67) .. (146.33,85.67) ;
+        %Shape: Free Drawing [id:dp7624577504469063] 
+        \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=3] [line join = round][line cap = round] (128.33,97.67) .. controls (132.39,97.67) and (140.33,95.61) .. (140.33,99.67) ;
+        %Shape: Free Drawing [id:dp6175909634779915] 
+        \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=3] [line join = round][line cap = round] (120.33,111.67) .. controls (128.09,111.67) and (131.2,108.67) .. (138.33,108.67) ;
+        %Shape: Free Drawing [id:dp110598214336876] 
+        \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=3] [line join = round][line cap = round] (143.33,107.67) .. controls (152.66,107.67) and (142.07,117.6) .. (142.33,117.67) .. controls (150.18,119.63) and (150.17,115.67) .. (156.33,115.67) ;
+        %Shape: Free Drawing [id:dp36668561089277496] 
+        \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=3] [line join = round][line cap = round] (62.33,91.67) .. controls (62.33,98.21) and (64.33,104.94) .. (64.33,111.67) ;
+        %Shape: Free Drawing [id:dp2428588068124462] 
+        \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=3] [line join = round][line cap = round] (64.33,93.67) .. controls (69.02,91.79) and (74.29,91.67) .. (79.33,91.67) ;
+        %Shape: Free Drawing [id:dp21516400666861557] 
+        \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=3] [line join = round][line cap = round] (69.33,99.67) .. controls (73.39,99.67) and (81.33,97.61) .. (81.33,101.67) ;
+        %Shape: Free Drawing [id:dp3834606938145779] 
+        \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=3] [line join = round][line cap = round] (70.33,109.67) .. controls (73.02,109.67) and (75.65,110.67) .. (78.33,110.67) ;
+        %Shape: Free Drawing [id:dp5890643945584151] 
+        \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=3] [line join = round][line cap = round] (82.33,112.67) .. controls (85.3,112.67) and (92,110.83) .. (94.33,109.67) .. controls (95.18,109.25) and (95.91,106.82) .. (96.33,107.67) .. controls (96.99,108.98) and (92.33,123.09) .. (92.33,124.67) ;
+    
+        \end{tikzpicture}
+
+        \item Псевдоплощадь существует, но не единственна.
+    \end{enumerate}
 \end{remark}
 
 \begin{example}
-    $f(x) = x ^ 2$ - выпуклая функция
+    $E \in F$ \\
+    $P_j$ это прямоугольник со сторонами параллельными осям координат, но произвольных размеров.
+    \begin{enumerate}
+        \item $\sigma_1(E) = \inf \left\{ \sum \sigma_1(P_j) \mid E \subset \bigcup\limits_{j=1}^N P_j \right\}$
+        \item $\sigma_2(E) = \inf \left\{ \sum \sigma_2(P_j) \mid E \subset \bigcup\limits_{j=1}^\infty P_j \right\}$
+    \end{enumerate}
+    \begin{remark}
+        $\sigma_1(E) \geq \sigma_2(E)$ и если $K = ([0, 1] \cap \Q) \times [0, 1] \Rightarrow \sigma_1(K) = 1, \sigma_2(K) = 0$
+    \end{remark}
 \end{example}
 
-\begin{proof}
-\begin{equation*}
-\begin{aligned}
-    f(\lambda x_1 + (1-\lambda) x_2) &\leqslant \lambda f(x_1) + (1 - \lambda) f(x_2) \\
-    \lambda ^ 2 x_1 ^ 2 + (1 - \lambda) ^ 2 x_2 ^ 2 + 2 \lambda (1 - \lambda) x_1 x_2 &\leqslant \lambda x_1^2 + (1 - \lambda) x_2^2 \\
-    2 \lambda (1 - \lambda) x_1 x_2 &\leqslant \lambda (1 - \lambda)  (x_1^2 +  x_2^2) \\
-    2 x_1 x_2 &\leqslant (x_1^2 +  x_2^2) \\
-\end{aligned}
-\end{equation*}
-\end{proof}
+\begin{theorem}
+    $\sigma_1$ -- псевдоплощадь. 
+\end{theorem}
 
-\subsection*{}
-\begin{namedlemma}{Переформулировки определения}
-    $f : \useg{a, b} \to \R $ -- выпуклая на $\useg{a,b}$, если
+\begin{proof}
     \begin{enumerate}
-        \item  $\forall x_1, x_2 \in \useg{a,b}, \forall \lambda \in (0, 1) \Rightarrow  f(\lambda x_1 + (1 - \lambda) x _ 2) \leqslant \lambda f(x_1) + (1 - \lambda) f (x _ 2)$
-        \item  $\forall u < v < w \in \useg{a,b} \Rightarrow  (w - u) f(v) \leqslant (w - v) f(u) + (v - u) f(w)$
-        \item  $\forall u < v < w \in \useg{a,b} \Rightarrow  \frac{f(v) - f(u)}{v - u} \leqslant \frac{f(w) - f(v)}{w - v}$
+        \item Если прямоугольник покрыть конечным числом прямоугольников, то у покрытия сумма площадей не меньше площади прямоугольника.
+        (Т.к. можно провести все вертикальные и горизонтальные линии и разбить на дизъюнктивное объединение)
+
+        \item 
+        \circled{$\geq$} $\sigma_1(E) \stackrel{?}{=} \sigma_1(E_-) + \sigma_1(E_+)$ \\
+        $E \subset P_1 \cup \ldots \cup P_n$,  $P_j = P_j^- \cup P_j^+$,  $\sigma_1(P_j) = \sigma_1(P_j^-) + \sigma_1(P_j^+)$ \\
+        Тогда $\sum\limits_{j=1}^N \sigma_1(P_j) = \sum\limits_{j=1}^n \sigma_1(P_j^-) + \sum\limits_{j=1}^n \sigma_1(P_j^+) \geq \sigma_1(E_-) + \sigma_1(E_+)$ \\
+        $\Rightarrow \sigma_1(E) \geq \sigma_1(E_-) + \sigma_1(E_+)$ \\
+        
+        \circled{$\leq$} $P_1, \ldots, P_k$ - покрытие $E_-$ с точность $\epsilon$,  \\
+        $P_{k + 1}, \ldots, P_n$ - покрытие $E_+$ с точность $\epsilon$ \\
+        $\Rightarrow \sigma_1(E_-) + \epsilon \geq \sigma_1(P_1) + \ldots + \sigma_1(P_k)$ \\
+        $\sigma_1(E_+) + \epsilon \geq \sigma_1(P_{k + 1}) + \ldots + \sigma_1(P_n)$ \\
+        $\Rightarrow \sigma_1(E_-) + \sigma_1(E_+) + 2\epsilon \geq \sum\limits_{j = 1}^N \sigma_1(P_j) \geq \sigma_1(E)$
+
+        \item Покрытие большего является покрытием меньшего.
+        
+         
     \end{enumerate}
-\end{namedlemma}
-
-
-\begin{proof}
-    Очевидно
 \end{proof}
 
-\begin{namedlemma}{О трёх хордах} 
-    $f$ - выпуклая на $\useg{a, b}$, $u < v < w \in \useg{a, b} \Longrightarrow \\ \frac{f(v) - f(u)}{v - u} \leqslant \frac{f(w) - f(u)}{w - u} \leqslant \frac{f(w) - f(v)}{w - v} $
-\end{namedlemma}
+\begin{theorem}
+    Псевдоплощадь инварианта относительно сдвигов.
+\end{theorem}
 
 \begin{proof}
-    $\letus\; b, d > 0, \; \letus \; \frac{a}{b} \leqslant \frac{c}{d} \Rightarrow \frac{a}{b} \leqslant \frac{a + c}{b + d} \leqslant \frac{c}{d}$.
+    Покрытие также сдвинется.
 \end{proof}
 
+\begin{remark}
+    Проверить то же самое для $\sigma_2$.
+\end{remark}
 
-haboh boh
-haboh boh
+
+
+ 
+
+\subsection{Определенный интеграл.}
+
+Считаем, что зафиксирована псевдоплощадь $\sigma$.
+
+
+\begin{definition}
+    $a \in \R \Rightarrow a_+ = \max(a, 0), a_- = \max(-a, 0)$ \\
+    $a_+ + a_- = |a|, a_+ - a_- = a$ \\
+    Аналогично для функции $f$. \\
+
+    $\Gamma_f = \left\{(x, f(x)) \in \R^2\right\}$ \\
+    Для $f \geq 0 \  P_f = \left\{ (x, y) : y \in [0, f(x)]\right\}$ - подграфик f. \\
+    Для $f \geq 0$ на $[a, b], P_f[a, b] = \left\{ (x, y) : x \in [a, b], y \in [0, f(x)]\right\}$ - подграфик f.
+\end{definition}
+
+\begin{remark}
+    $f$ - непр $\Rightarrow f_+, f_-$ - непр.
+\end{remark}
+
+\begin{definition}
+    $f$ - непр. на $[a, b]$, тогда \\
+    \[\int_a^b f(x) dx = \sigma(P_{f_+} [a, b]) - \sigma(P_{f_-}[a, b])\]
+\end{definition}
+
+\begin{properties}
+    \item $\int_a^a f \ dx = 0$
+    \item $\int_a^b 0 \  dx = 0$
+    \item $f \geq 0$ на $[a, b] \Rightarrow \int_a^b f \ dx \geq 0$
+    \item $\int_a^b - f \ dx = -\int_a^b f \ dx$
+    \item $\int_a^b c \ dx = c \cdot (b - a)$
+    \item $f \geq 0$ на $[a, b] \wedge \int_a^b f \ dx = 0 \Rightarrow f = 0$ на $[a, b]$
+    \begin{proof}
+        Т.к. функция непрерывна, то если существует точка $f$ со значением не 0,
+            то можно найти окрестность со значением $>$ 0 и там будет ненулевая площадь
+    \end{proof}
+
+    \item(Аддитивность интеграла) $c \in [a, b] \Rightarrow \int_a^b f dx = 
+    \int_a^c f dx +\int_c^b f dx$
+    
+    \begin{proof}
+        Следует из аддитивности псевдоплощади.
+    \end{proof}
+
+    \begin{remark}
+        Соглашение: $\int_a^b f dx = - \int_b^a f dx \Rightarrow$ аддитивность верна и 
+        для $c \not \in [a, b]$
+    \end{remark}
+
+    \item(Монотонность) $f \geq g$ на $[a ,b] \Rightarrow \int_a^b f dx \geq 
+    \int_a^b g dx$
+    
+    \begin{proof}
+        $f \geq g \Rightarrow f_+ \geq g_+ \wedge f_- \leq g_-$
+    \end{proof}
+
+    \item $(b - a) \min\limits_{[a, b]} f \leq \int_a^b f dx \leq (b - a) \max\limits_{[a, b]} f$
+    \item(Теорема о среднем) $\exists c \in [a, b] : \int_a^b f dx = f(c) \cdot (b-a)$
+    \begin{proof}
+    \[\frac {\int_a^b f dx} {b - a} \in [\min f, \max f] \Rightarrow \exists c\]
+    \end{proof}
+
+    \item(Теорема Барроу) $\Phi(x) = \int_a^x f(t) dt, \Psi(x) = \int_x^b f(t) dt$ \\
+    $\Phi$ - интеграл с переменным верхним пределом, $\Psi$ - нижним \\
+    $\Phi' = f, \Psi' = -f$
+    \begin{proof}
+        $x_1, x_2$ 
+        \[\frac {\Phi(x_1) - \Phi(x_2)} {x_1 - x_2}
+        = \frac {\int_{x_1}^{x_2} f(t) dt} {x_1 - x_2}  
+        \stackrel{x_1- fix}{\Rightarrow} \lim_{x_2 \to x_1} \frac {\Phi(x_1) - \Phi(x_2)} {x_1 - x_2}
+        = \lim_{x_2 \to x_1} \frac {\int_{x_1}^{x_2} f(t) dt} {x_1 - x_2}
+        = \lim_{x_2 \to x_1} f(\theta)\] \\
+        где $\theta$ лежит между $x_1$ и $x_2$ \\
+        $\Rightarrow \Phi(x_1) = f(x_1)$ \\
+        $\Phi + \Psi = const \Rightarrow \Psi' = -f$
+    \end{proof}
+
+    \item(формула Ньютона-Лейбница) $F$ - первообразная $\Rightarrow$ \\
+    $\int_a^b f(x) dx = F(b) - F(a) = F|_a^b$
+    \begin{proof}
+        \[ \Phi(x) = \int_a^x f \Rightarrow F = \Phi + c \Rightarrow F(b) - F(a)
+        = \Phi(b) - \Phi(a) = \int_a^b f \]
+    \end{proof}
+
+    \item(Линейность интеграла) \[f, g \in C[a, b], \alpha, \beta \in R \Rightarrow
+    \int_a^b (\alpha f + \beta g) dx = \alpha \int_a^b f dx + \beta \int_a^b g dx \] 
+    \begin{proof}
+        Следует из существования первообразной.
+    \end{proof}
+    \item $|\int_a^b f dx| \leq \int_a^b |f| dx$
+    \begin{proof}
+        \[ \left|\int_a^b f\right| = \left|\int_a^b f_+ - \int_a^b f_-\right| \leq
+            \int_a^b f_+ + \int_a^b f_- = \int_a^b |f| \]
+    \end{proof}
+    
+    \item(формула интегрирования по частям)
+    \[f, x \in C^1[a, b] \Rightarrow
+    \int_a^b f(x) g'(x) dx = f(x)g(x)\bigg|_a^b - \int_a^b f'(x)g(x) dx \]
+
+    \begin{proof}
+        Следует из формулы Ньютона-Лейбница и формулы интегрирования по частям для неопределенного интеграла.
+    \end{proof}
+
+    \item(Замена переменной) $ f:[a, b] \to \R, \phi [c, d] \to [a, b], \phi \in C^1[c, d]$ 
+    \[\Rightarrow
+    \forall p, q \in [c, d] \int_p^q f(\phi(t)) \phi'(t) dt
+    = \int_{\phi(t)}^{\phi(q)} f(x) dx\]
+
+    \begin{example}
+        \begin{enumerate}
+            \item \[ \int_0^1 e^{\sin(x)} \cos(x) \ dx = [\sin(x) = y, dy = \cos(x) dx] 
+            = \int_{\sin(0)}^{sin(1)} e^y \ dy = \ldots \]
+            \item \[ \int_0^1 \sqrt{1 - x^2} \ dx = [x = \sin(y), dx 
+            = \cos(y) dy] = \int_0^{\arcsin(1)} \sqrt{1 - \sin^2(y)} \cos(y) \ dy 
+            = \int_0^{\frac \pi 2} \cos^2(y) \ dy \] 
+            \[ = \int_0^{\frac \pi 2} \frac {1 + \cos^2(y)} 2 \ dy
+            = \int_0^{\frac \pi 2} \frac 1 2 \ dy = \frac \pi 4\]
+        \end{enumerate}
+    \end{example}
+\end{properties}
