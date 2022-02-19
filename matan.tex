@@ -32,6 +32,9 @@
 \usepackage{bookmark}
 \usepackage{pgfplots}
 \usepackage{tikzsymbols}
+\usepackage{ tipa }
+\usepackage{enumitem}
+\usepackage{forloop}
 \linespread{1.5}
 \graphicspath{ {./images/} }
 %%
@@ -142,6 +145,23 @@
 }
 {\end{mdframed}}
 
+\newenvironment{properties}[1][,]
+{
+  \quad
+  \textbf{Свойства:}
+  \begin{enumerate}[#1]\raggedright
+}
+{
+  \end{enumerate}
+}
+
+% \newlist{properties}{enumerate}{3}
+% \setlist[properties]{before=\raggedright}
+% \quad
+% \begin{mdframed}[linewidth=0.6pt]
+        % \textbf{Свойства:}
+% }
+% {\end{mdframed}}
 
 \newenvironment{namedlemma}[1]
 {
@@ -259,7 +279,7 @@
    \par\pushQED{\qed}\normalfont%
    \topsep6\p@\@plus6\p@\relax
    \trivlist\item[\hskip\labelsep\bfseries#1\@addpunct{.}]%
-   \ignorespaces
+   \ignorespaces\hfill\break$\square$
 }{%
    \popQED\endtrivlist\@endpefalse
 }
@@ -361,8 +381,10 @@
 \begin{normalsize}
 \setcounter{section}{0}
 
-\import{sections/}{1.tex}
-$ $
+\newcounter{i}
+\forloop{i}{1}{\value{i} < 2}{
+  \include{sections/\arabic{i}}
+}
 
 \end{normalsize}
 \end{document} 
