@@ -3,6 +3,7 @@
  
 %Russian-specific packages
 %--------------------------------------
+\usepackage{bigints}
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[russian]{babel}
@@ -381,10 +382,14 @@
 \begin{normalsize}
 \setcounter{section}{0}
 
-\newcounter{i}
-\forloop{i}{1}{\value{i} < 2}{
-  \include{sections/\arabic{i}}
-}
+% \newcounter{i}
+% \forloop{i}{0}{\value{i} < 6}{
+%   \include{sections/\arabic{i}}
+% }
+
+\include{sections/1.tex}
+
+\include{sections/5.tex}
 
 \end{normalsize}
 \end{document} 
