@@ -46,6 +46,7 @@
 \usepackage{graphicx}
 
 \makeatletter
+\newcommand{\ceq}{\mathbin{\mathpalette\make@smallcircled=}}
 \newcommand{\ok}{\mathbin{\mathpalette\make@smallcircled\checkmark}}
 \newcommand{\ola}{\mathbin{\mathpalette\make@circled\Longleftarrow}}
 \newcommand{\ora}{\mathbin{\mathpalette\make@circled\Longrightarrow}}
@@ -389,7 +390,12 @@
 
 \include{sections/1.tex}
 
+\include{sections/2.tex}
+
 \include{sections/5.tex}
+
+\import{sections/}{new.tex}
+$ $
 
 \end{normalsize}
 \end{document} 
