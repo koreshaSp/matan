@@ -3,7 +3,11 @@
 \contentsline {subsection}{\numberline {1.1}Первообразная и неопределенный интеграл}{3}{subsection.0.1.1}%
 \contentsline {subsection}{\numberline {1.2}Площадь и псевдоплощадь}{4}{subsection.0.1.2}%
 \contentsline {subsection}{\numberline {1.3}Определенный интеграл.}{6}{subsection.0.1.3}%
-\contentsline {subsection}{\numberline {1.4}Вводная в кривые}{10}{subsection.0.1.4}%
-\contentsline {subsection}{\numberline {1.5}Длина кривой}{11}{subsection.0.1.5}%
-\contentsline {section}{\numberline {2}Дифференциальное исчисление функций нескольких переменных}{13}{section.0.2}%
-\contentsline {subsection}{\numberline {2.1}Линейные отобрежения}{13}{subsection.0.2.1}%
+\contentsline {section}{\numberline {2}Формула Тейлора с остатком в интегральной форме}{12}{section.0.2}%
+\contentsline {subsection}{\numberline {2.1}Приближенное вычисление интеграла}{15}{subsection.0.2.1}%
+\contentsline {section}{\numberline {3}Несобственный интеграл}{23}{section.0.3}%
+\contentsline {subsection}{\numberline {3.1}Вводная в кривые}{27}{subsection.0.3.1}%
+\contentsline {subsection}{\numberline {3.2}Длина кривой}{28}{subsection.0.3.2}%
+\contentsline {section}{\numberline {4}Дифференциальное исчисление функций нескольких переменных}{30}{section.0.4}%
+\contentsline {subsection}{\numberline {4.1}Линейные отобрежения}{30}{subsection.0.4.1}%
+\contentsline {section}{\numberline {5}Дифференциал}{36}{section.0.5}%
