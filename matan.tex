@@ -182,8 +182,28 @@
 {\end{mdframed}}
 
 
+\newenvironment{statement}{
+\quad
+\begin{mdframed}[linewidth=0.6pt]
+    
+        \textbf{Утверждение:}
+}
+{\end{mdframed}}
+
 \newenvironment{example}{
     \textit{\underline{Пример:}}
+}
+
+\newenvironment{examples}{
+    \textit{\underline{Примеры:}}
+}
+
+\newenvironment{motivation}{
+    \textit{\underline{Мотивация:}}
+}
+
+\newenvironment{exercise}{
+    \textit{\underline{Упражнение:}}
 }
 
 \newtheorem*{remark}{Замечание}
@@ -258,8 +278,12 @@
 
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
+\newcommand{\hence}{\Rightarrow}
+\newcommand{\same}{\Leftrightarrow}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\al}{\alpha}
+\newcommand{\be}{\beta}
 \newcommand{\follow}{\textbf{\textit{Следствие:}}}
 \newcommand{\notice}{\underline{\textit{Замечание }}}
 
@@ -392,7 +416,11 @@
 
 \include{sections/2.tex}
 
+\include{sections/3.tex}
+
 \include{sections/5.tex}
+
+\include{sections/7.tex}
 
 \end{normalsize}
 \end{document} 

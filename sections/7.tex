@@ -1,0 +1,258 @@
+\section*{Лекция 24.03}
+
+
+В прошлой серии:
+
+\[
+    U : X \to Y \text{ --- линейное непрерывное}
+\]
+
+\[
+    || U || = inf \{ c : \forall x \in X ||Ux|| \leqslant C||x|| \}
+\]
+
+\[
+    \forall x ||Ux|| \leqslant ||U|| ||x|| \hence ||U|| \geqslant \frac{||Ux||}{||x||}
+\]
+
+\[
+    \norm{U} = sup_{x \not= 0}
+\]
+\[
+    \frac{\norm{Ux}}{||x||} = sup_{||x||= 1 }{||U||}, \text{ но не максимум, т.к. сфера не обязательно компактна}
+\]
+\\
+\exercise  $\norm{U} = \sup_{\norm{x} < 1}{\norm{Ux}} = sup_{\norm{x} \leqslant 1} \norm{Ux}$
+\\
+\begin{remark}
+    $
+        U : X_1 \times X_2 ... \times X_m \to Y
+    $ - полилинейное отображение
+
+    \[
+        \norm{U} = inf \{ C: \forall x_1 \ in X_1, ..., \forall x_n \in X_m \norm{U(x_1, ..., x_n)} \leqslant C \norm{x_1} ... \norm{x_m}\}
+    \]
+    
+    \[
+        \hence \forall x_1, ..., x_m \norm{U(x_1, ... , x_m)} \leqslant \norm{U} \cdot \norm{x_1} ... \norm{x_m}
+    \]
+
+    \[
+        \norm{U} = sup_{x_1,..,x_n} \frac{\norm{U(x_1, x_2, ... x_n)}}{\norm{x_1} ... \norm{x_n}}
+    \]
+
+\end{remark}
+\newpage
+\begin{example}
+    \[
+        D: C^1[0, 1] \to C[0, 1]; (Df)(x) = f'(x)
+    \]
+
+    Норма в $C^1[0, 1]$:
+
+    \begin{enumerate}
+        \item $
+            \phi_1(f) = max_{x \in [0, 1]} \abs{f(x)}  
+        $ 
+        \item $
+            \phi_2(f) = max_{x \in [0, 1]} \abs{f'(x)}  
+        $ --- не норма (т.к. обнуляется на константах)
+        \item $
+            \phi_3(f) = \phi_1(f) + \phi_2(f)
+        $
+    \end{enumerate}
+
+    $(C^1[0, 1], \phi_1)$ --- не полное пространство (берем непрерывную не дифференцируемую функцию и приближаем многочленом, например $\abs{x} = x ^ {1 - \varepsilon}$)
+
+    \exercise  $(C^1[0, 1], \phi_3)$ --- полное пространство
+
+
+    \[
+        \norm{Df}_{C[0, 1]} \leqslant C \norm{f}_{C^1 [0,1]}
+    \]
+
+    $c = 1$ годится
+
+    \[
+        \norm{f'}_{C[0, 1]} \leqslant (\norm{f'}_{C[0,1]} + \norm{f}_{C[0, 1]})
+    \]
+
+    \[
+        f_k(x) = sin(kx);
+        \norm{f'_k}_c = k;
+        \norm{f_k} = 1
+    \]
+\end{example}
+
+
+\begin{theorem}
+    $X, Y$ - линейные нормированные пространства над одним полем скаляров $(\R, \mathbb{C})$ \\ $L(X, Y) = \{ U : X \to Y, U \text{--- линейно непрерывное} \}$ --- линейное множество (линейное пространство)
+
+    \begin{enumerate}
+        \item $\norm{U_1 + U_2} \leqslant \norm{U_1} + \norm{U_2}$
+        \item $\norm{\lambda U} = \abs{\lambda} \cdot \norm{U}$
+        \item $\norm{U} = 0 \same U = 0$
+        \item $U \in L(X, Y), V \in L(Y, Z) \hence VU \in L(X, Z)$ и $\norm{VU} \leqslant \norm{V} \cdot \norm{U}$
+    \end{enumerate}
+\end{theorem}
+
+
+
+\begin{proof}
+   \begin{enumerate}
+       \item \[
+           \norm{(U_1 + U_2)x} = \norm{U_1x + U_2x} \leqslant \norm{U_1x} + \norm{U_2x} \leqslant \norm{U_1}{x} + \norm{U_2}{x} \leqslant (\norm{U_1} + \norm{U_2}) \norm{X}
+       \]
+   
+       \[
+           \hence \norm{U_1 + U_2} \leqslant \norm{U_1} + \norm{U_2}
+       \]
+
+       \item \[
+           \norm{\lambda u} = \sup_{\norm{x} = 1} {\norm{\lambda Ux}} = \abs{\lambda} sup_{\norm{x} = 1}{\norm{Ux}} = \abs{\lambda} \cdot \norm{U}
+       \]
+
+       \item Без комментариев
+       
+       \item \[
+           \norm{VUx} \leqslant \norm{V} \norm{Ux} \leqslant \underbrace{\norm{V} \cdot \norm{U} }_{ = C}  \cdot \norm{X} \hence \norm{VU} \leqslant \norm{V} \norm{U}
+       \]
+   \end{enumerate} 
+        
+
+\end{proof}
+
+
+
+\begin{theorem}
+    $L(X, Y)$ --- полное, если $Y$ полное
+\end{theorem}
+
+
+\begin{proof}
+    $
+        \{ U_k \} \subset L(X, Y)
+    $, $\{ U_k \}$ --- фунд.
+
+    $\forall \varepsilon > 0\,\, \exists N : \forall m, n > N \,\, \underbrace{\norm{U_m - U_n} \leqslant \varepsilon}_{\forall x  \,\, \norm{U_mx - U_nx } \leqslant \varepsilon \norm{x}(*)}$ 
+\\\\
+    $\hence {U_mx} $ --- фунд в $Y \hence \exists \lim_{m \to \infty} U_mx =: U(x)$ 
+
+    \begin{enumerate}
+        \item $U$ --- линейное (очевидно, т.к. $\lim$ --- линейная операция)
+        \item $U$ --- непрерывно
+        \item $\norm{U_m - U} \to 0, m \to \infty$
+    \end{enumerate}
+
+    В $(*)$ $n \to \infty$ получаем $\forall x  \, \, \norm{U_mx - Ux} \leqslant \varepsilon \norm{x} \hence U_m - U \in L(X,Y), \norm{U_m - U} \leqslant \varepsilon$
+
+
+\end{proof}
+
+
+\begin{theorem}
+    (штрих) $L(X_1, ..., X_n; Y)$ --- полное, если $Y$ --- полное, где $L$ --- полилинейные, непрерывные отображения из $X_1 \times ... \times X_n \to Y$
+\end{theorem}
+
+\begin{theorem}
+    $X_1, ... X_s, X_{s + 1},...,X_k; Y$ - линейные нормированные пространства
+
+    $A = L(X_1, ..., X_s; L(X_{s + 1}, ..., X_k; Y)) \\\underbrace{\simeq}_{\text{изометрический изоморфизм(биекция, сохр. линейную струкутуру и норму)}} \\\\ L(X_1, ..., X_k; Y) = B$ 
+\end{theorem}
+
+\begin{proof}
+    $u \in A, x_1 \in X_1, ..., x_s \in X_s \hence U(x_1, ..., x_s) \in L(x_{s + 1}, ..., x_k; Y)$
+
+    $x_{s + 1} \in X_{s + 1}, ..., x_k \in X_k \hence U(x_1,..., x_s)(x_{s + 1}, ..., x_{k}) \in Y$
+    
+    $U^{\sim} \in B;  U^{\sim} (x_1, ... x_k) := U(x_1, ..., x_s)(x_{s + 1}, ..., x_k)$ --- полилинейное отображение, непрерывное
+
+    $\norm{U^\sim} = \sup_{x_1,..x_k} \frac{\norm{U(x_1, ... x_s)(x_{s+1}, ..., x_k)}}{\norm{x_1} ... \norm{x_k}} = \sup_{x_1, ..., x_s} \sup_{x_{s+1}, ..., x_k} \frac{\norm{U(x_1, ..., x_s)(x_{s + 1}, ... , x_k)}}{\norm{x_{s + 1}} ... \norm{x_k}} =$
+
+    $ = \sup_{x_1,..., x_s}{\frac{\norm{U(x_1,...,x_s)}}{\norm{x_1} ... \norm{x_s}}} = \norm{U}$
+\end{proof}
+
+
+\section{Дифференциал}
+
+\begin{definition}
+    $U \subset X$--- открытое, $f : U \to Y$, $X, Y$ - линейные полные нормированные пространства, $x_0 \in U$
+    
+
+    $f$ дифференцируемо в $(\cdot)\, x_0$, если $f(x_0 + h) = f(x_0) + Ah + \underset{ = \alpha(h)}{o(h)}, h \to 0$, где $A \in L(X, Y)$, \\ и $\frac{\norm{\alpha(h)}}{\norm{h}} \to 0, h \to 0$
+
+    $A$ --- дифференциал $f$ в $(\cdot) x_0$
+
+    $A = df(x_0) = d_{x_0}f = D_{x_0}f = f'(x_0)$ (не производная !!!)
+\end{definition}
+
+
+\newpage
+
+\begin{remark}
+
+\quad
+
+\begin{enumerate}
+    \item  Если $X$ --- конечномерно, то из линейности следует непр., т.к. $\exists \, C = max_{\norm{x} = 1} \norm{Ux} < \infty$
+    \item \begin{definition}
+        в $\infty$ мерном пространстве в лит-ре называется дифференцируемость по Фреше
+    \end{definition}
+\end{enumerate}
+   
+\end{remark}
+
+\begin{properties}{}
+    \item $f$ -- дифф в $(\cdot) x_0 \hence f $ --- непр. в $(\cdot) x_0$
+    \begin{proof}
+        $f(x_0 + h) = f(x_0) + \underbrace{df(x_0)h + o(h)}_{\to 0, h \to 0}$
+    \end{proof} 
+    \item дифференциал единственен
+    \begin{proof}
+        $f(x_0 + h) = f(x_0) + A_1(h) + o(h) = f(x_0) + A_2(h) + o(h) \hence (A_2 - A_2)(h) = o(h)$
+
+        $\frac{\norm{(A_1 - A_2)h}}{\norm{h}} \to 0, h \to 0$
+    
+        Берём $h_0 - fix, h = th_0, t \to 0$
+
+        $\frac{\norm{(A_1 - A_2)(th_0)}}{\norm{th_0}}  = \frac{\norm{(A_1 - A_2)(h_0)}}{\norm{h_0}} \to 0, t \to 0 \hence = 0$, т.к. не зависит от $t$ 
+    \end{proof}
+
+    \item (линейность) $f, g$ --- дифф. в $(\cdot) x_0 \hence \alpha f + \beta g $ --- дифф  в $(\cdot) x_0 $
+    
+    $d(\alpha f + \beta g)(x_0) = \alpha df(x_0) + \beta dg(x_0)$
+
+    \item (дифференциал композиции --- правило цепочки)
+    
+    $x_0 \in U \subset X, f(x_0) \in V \subset Y, Z$
+
+    $f : U \to Y, g : V \to Z$
+
+    $f$ --- дифф. в $(\cdot)\, x_0$, 
+    $g$ --- дифф. в $(\cdot)\, f(x_0)$
+
+    $\hence g \circ f $ дифф в $(\cdot)\, x_0$ и $d(g \circ f) (x_0) \in L(X, Z)  = dg(f(x_0)) \in L(Y, Z) \circ df(x_0) \in L(X, Y)$
+\newpage
+    \begin{proof}
+        $g(f(x_0 + h)) = g(f(x_0)) + dg(f(x_0))(f(x_0 + h) - f(x_0)) + o(f(x_0 + h) - f(x_0)) = $ 
+        
+        $= g(f(x_0)) + dg(f(x_0))(df(x_0)h + o(h)) + o(f(x_0 + h) - f(x_0)) = $
+
+
+        $= g(f(x_0)) + \underbrace{dg(f(x_0)) df(x_0)}_{\in L(X, Z)} h + \underbrace{dg(f(x_0))(o(h)) + o(f(x_0 + h) - f(x_0))}_{?\ceq o(h)}$
+
+        $\norm{dg(f(x_0))} \leqslant \norm{dg(f(x_0))} \cdot \underbrace{\norm{o(h)}}_{=o(h)}$
+
+        $\norm{f(x_0 + h) - f(x_0)} \leqslant C \norm{h} \hence \ceq o(h)$
+    \end{proof}
+
+    \item (дифференциал обратного отображения)
+    
+    $U \subset X, V \subset Y, f : U \to V $ --- биекция, $f $ --- непр. в $(\cdot)\, x_0$, $f^{-1}$ --- непр. в $(\cdot)\, f(x_0) = y_0$ 
+
+    $f$ дифф в $(\cdot) \, x_0$
+
+    $\exists (df(x_0))^{-1} \in L(Y, X)$
+
+    $\hence f^{-1}$ дифф в $(\cdot)\, y_0$ и $df^{-1}(y_0) = (df(x_0)) ^ {-1}$
+\end{properties}
