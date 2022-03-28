@@ -7,3 +7,12 @@
 *.upa
 *.upb
 *.aux
+sections/*.pdf
+sections/*.fdb_latexmk
+sections/*.fls
+sections/*.log
+sections/*.synctex.gz
+sections/*.toc
+sections/*.upa
+sections/*.upb
+sections/*.aux
