@@ -1,6 +1,0 @@
-PWD /media/khaser/univer/Matan/matan/sections
-INPUT /opt/texlive/2021/texmf.cnf
-INPUT /opt/texlive/2021/texmf-dist/web2c/texmf.cnf
-INPUT /opt/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT 5.tex
-OUTPUT 5.log
