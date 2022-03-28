@@ -1,0 +1,302 @@
+\newpage
+\section{Лекция *}
+
+
+\subsection{Кривая}
+
+\begin{definition}
+
+    Путь в $R^m$ - это $\gamma : [a, b] \to R^m$ - непрерывное
+
+    Носитель пути  : $\gamma([a, b]) \subset R^m$
+
+    $\gamma(a)$ - начало, $\gamma(b)$ - конец
+
+    Замкнутый путь, если $\gamma(a) = \gamma(b)$
+
+    $\gamma$ - инъекция $\Rightarrow$ простой путь
+
+    $\gamma(t) = (\gamma_1(t), \gamma_2(t), ... , \gamma_m(t))$
+
+    $\gamma_j$ - координатная функция
+
+    $\gamma $ - непр. $\Longleftrightarrow$ все $\gamma_j$ - непр
+
+
+\end{definition}
+
+
+\begin{definition}
+    $\gamma_1: [a, b] \to R^m, \gamma_2 : [c, d] \to R^m$ - экв пути, если
+    $\exists$ строго возр биекция $\phi : [a, b] \to [c, d]$, т.ч.
+    $\gamma_2 \circ \phi = \gamma$
+\end{definition}
+
+\begin{remark}
+    Это отношение эквивалентности
+\end{remark}
+
+\begin{definition}
+    Кривая в $R ^ m$ - класс эквив. путей
+
+    Представители --- параметризации
+\end{definition}
+
+Картинка 1
+
+\begin{remark}
+    Носитель одинаков для всех параметризаций внутри класса
+\end{remark}
+
+
+\begin{remark}
+    Можно определить носитель кривой, начало, и конец
+\end{remark}
+
+
+
+\begin{definition}
+    $\gamma$ - гладкий путь, если $\gamma_j \in C^1[a, b]$
+
+    Гладкая кривая - кривая, у которой $\exists$ гладкая параметризация 
+\end{definition}
+
+Картинка 2
+
+Картинка 3
+
+\begin{definition}
+   $\gamma : [a, b] \to R^m$ - путь $\theta$ = $\{t_0, ..., t_n \}$ --- дробление $[a, b]$, $a = t_0 < t_1 ... < t_n = b$
+
+    $l_\theta(\gamma) = \Sigma_{j = 1}^n | \gamma(t_j) - \gamma(t_{j - 1})|$ - длина ломаной вписанной
+
+    $ l(\gamma) = sup_\theta (l_\theta(\gamma))$
+\end{definition}
+
+\begin{remark}
+    Длина есть у любого пути
+\end{remark}
+
+\underline{Вопрос:} Путь беск длины?
+
+Кривая Пеано
+
+$(x, x  ^ \alpha \cdot \sin{1 / x ^ \beta})$ - ?
+
+\begin{theorem}
+    $\gamma_1 \sim \gamma_2 \Rightarrow l(\gamma_1) = l(\gamma_2)$
+\end{theorem}
+
+\begin{proof}
+    $\gamma_1 \circ \phi = \gamma$ $\theta$ - дробление $[a, b]$
+    $\phi(\theta)$ - дробление $[c, d]$
+
+    $$\Sigma |\gamma_1(t_j) - \gamma_1(t_{j - 1})| = \Sigma_{j = 1} ^ n |\gamma_2(\phi(t_j)) - \gamma_2(\phi(t_{j - 1}))|$$
+
+    $$l_\theta(\gamma_1) = l_{\phi(\theta)}(\gamma_2)$$
+\end{proof}
+
+\begin{theorem}
+    (аддитивность длины) $\gamma : [a, b] \to R^m, c \in (a, b)$
+
+    $\gamma_- = \gamma |_{[a, c]}, \, \gamma_+ = \gamma |_{[c, b]}$
+    $\Rightarrow l(\gamma) = l(\gamma_-) + l(\gamma_+)$
+
+\end{theorem}
+
+\begin{proof}
+    $\theta_-$ - дробление $[a, c]$, $\theta_+$ - дробление $[c, b]$
+     $\Rightarrow \theta = \theta_- \cup \theta_+$ - дробление $[a, b]$
+
+    $l(\gamma) >= l_\theta(\gamma) = l_{\theta_-}(\gamma_-) + l_{\theta_+}(\gamma+)$
+
+$\Rightarrow l(\gamma) >= sup_{\theta_-}(l_{\gamma_-}(\gamma_-)) + sup_{\theta_{\theta+}(l\theta_()\gamma+)} = l(\gamma_-) + l(\gamma_+)$
+
+$\theta $ - дробление $[a, b] \to \theta_2 = \theta \cup {c} \to \theta_{\pm}$
+
+$l_\theta(\gamma) <= l_{\theta_2}(\gamma) = l_{\theta-}(\gamma-) + l_{\theta+}(\gamma+) <= l(\gamma-) + l(\gamma+) \Rightarrow sup_\theta{l_{\theta}(\gamma)} <= l(\gamma-) + l(\gamma+)$
+
+Картинка 4
+\end{proof}
+
+\begin{theorem}
+    (о длинне гладкого пути)
+
+    $\gamma : [a, b] \to R^m$, $\gamma_j\in C^1[a, b] \Rightarrow l(\gamma) = \int_a^b |\gamma'(t)| dt$, где
+    $|\gamma'(t)| = \sqrt{\Sigma_{j = 1}^m |\gamma_j'(t)|^2}$
+\end{theorem}
+
+
+\begin{proof}
+    $\theta $ - дробление $[a, b]$ $\theta : a = t_0 < t_1 < ... < t_n = b$
+
+    $l_\theta(\gamma) = \Sigma_{j = 1}^n |\gamma(t_j) - \gamma(t_{j - 1})|$
+
+    $$|\gamma(t_j) - \gamma(t_{j - 1})| = \sqrt{\Sigma_{k = 1}^ m |\gamma_k(t_j) - \gamma_k(t_{j - 1})| ^ 2} = $$ 
+    
+    $$ = \sqrt{\Sigma_{k = 1} ^ m |\gamma_k'(?)| ^ 2 \cdot (t_j - t_{j - 1}) ^ 2} = (t_j - t_{j - 1}) \sqrt{\Sigma_{k = 1} ^ m |\gamma_k'(?)|^2}$$
+
+    $m_{j, k} = \min_{[t_{j-1}, t_j]} |\gamma_k'|$
+    $M_{j, k} = \max{[t_{j-1}, t_j]} |\gamma_k'|$
+
+
+    $(t_j - t_{j - 1}) \sqrt{\Sigma_{k = 1} ^ m m_{j, k}^2} \leqslant |\gamma(t_j) - \gamma(t_{j - 1})| \leqslant (t_j - t_{j - 1}) \sqrt{\Sigma_{k = 1} ^ m M_{j, k}^2}$
+
+    $(t_j - t_{j - 1}) \sqrt{\Sigma_{k = 1} ^ m m_{j, k}^2} \leqslant \int_{t_{j - 1}}^{t_j} | \gamma'(t)| dt \leqslant (t_j - t_{j - 1}) \sqrt{\Sigma_{k = 1} ^ m M_{j, k}^2} $
+
+    $\forall t \in [t_{j - 1}, t_j]$ $\sqrt{\Sigma_{k = 1} ^ m m_{j, k}^2} \leqslant |\gamma'(t)| \leqslant \sqrt{\Sigma_{k = 1} ^ m M_{j, k}^2} $
+
+    Суммируем по j 
+
+    л.ч. = $\Sigma (t_j - t_{j - 1}) \sqrt{?} \leqslant l_{\theta}(\gamma) \cup  \int_{a}^{b} | \gamma'(t)| dt \leqslant \Sigma (t_j - t_{j - 1}) \sqrt{?} = $ п.ч. 
+
+    левое и правое стремятся к одному и то му же при $|\theta| \to 0$
+
+
+    $\epsilon > 0$ Th. Кантора $\delta > 0 : \forall s, t \in [a, b] : |s - t| < \delta \forall k = 1...m |\gamma_k'(s) - \gamma_k'(t)| < \epsilon$
+
+    $|M_{j, k} - m_{j, k}| < \epsilon$, если $|t_j - t_{j - 1}| < \delta$
+
+    $\sqrt{\Sigma_{j = 1}^m M_{j, k}^ 2} - \sqrt{\Sigma_{j = 1}^m m_{j, k}^ 2} \leqslant \sqrt{\Sigma_{j = 1}^m (M_{j, k} - m_{j, k})^ 2} < \sqrt{m} \cdot \epsilon$
+
+    |П.ч. - л.ч.| < $\Sigma (t_j - t_{j - 1}) \sqrt{m} \epsilon = (b - a) \sqrt{m} \epsilon$
+    
+    $|\theta| \to 0, |\theta| < \delta$
+
+    Доказали: Л.ч. $(\theta) \leqslant l_\theta(\gamma) \cup \int_a^b \gamma'(t) dt \leqslant$ П.ч. $(\theta)$
+\end{proof}
+
+\underline{Следствия}
+
+\begin{enumerate}
+    \item (О длине графика функции)
+    
+    $f : [a, b] \to R, f \in C1[a, b], \Gamma_f = \{(x, f(x)) | x \in [a, b]^2\} \subset R^2$
+
+    $l(\Gamma_f) = \int_a^{b}\sqrt{a + (f'(x))^2} dx$
+
+    $(t, f(t)) \to^{d} (1, f'(t))$
+
+    Картинка 5, 6
+
+    \item $r(\phi), r : [\alpha, \beta] \to R+ r \in c'[\alpha, \beta]$
+    
+    Картинка 7
+
+    $(x(t) = r(t)\cos{t}, y(t) = r(t)\sin{t})$
+
+    $x'(t) = r'(t)\cos{t} - r(t) \sin{t}$
+
+    $y'(t) = r'(t)\sin{t} + r(t)\cos{t}$
+
+    $l = \int_\alpha^\beta \sqrt{(r')^2 + r^2} d\phi$
+\end{enumerate}
+
+
+\newpage
+\section{Глава 5. Дифферинциальное исчесление функций \\ нескольких переменных}
+
+$f : X \to Y$, $X, Y$ - линейные, нормированные + полнота, пространства над одним полем скаляров $(\mathbb{R}  / \mathbb{C})$
+
+
+дифф в т. $x_0$ --- 
+$f(x) = f(x_0) + A(x - x_0) + $ что-то малое $o(x - x_0)$
+
+A --- должно быть линейным отображением
+
+$f(x) = f(x_0) + A(x - x_0) + \alpha(x)$, где 
+$\frac{||\alpha(x)||}{||x - x_0||} \to 0, x \to x_0 $
+
+
+\subsection{Линейные и полелинейные непрерывные отображения}
+
+\begin{definition}
+    $X, Y$ - линейные пространства над одним полем скаляров, $U : X \to Y$ - линейное, если 
+
+    (1) $U(x_1 + x_2) = U(x_1) + U(x_2)$
+
+    (2) $U(\lambda x) = \lambda U(x)$
+\end{definition}
+
+\begin{remark}
+    $U(x) = Ux$
+\end{remark}
+
+\begin{definition}
+    $X_1, X_2, ..., X_n, Y$ $U : X_1 \times X_2 ... \times X_n \to Y$ - полелинейное, если оно линейно по каждому из аргументов
+\end{definition}
+
+\begin{example}
+    \begin{enumerate}
+        \item $X = C[-1, 1] \delta : X \to R, \delta(f) = f(0)$
+        \item $X = C[a, b], Y = R, Uf = \int_a^b f dx$
+        \item $X = C[a, b], Y = C[a, b], (Uf)(x) = \int_a^xf(t)dt$
+        \item $X = C^1[a,b], Y = C[a, b], (Df)(x) = f'(x), D : X \to Y$
+        \item $X_1 = X_2 = ... = R(C) = Y U(x_1, ..., x_n) = x_1 \cdot ... \cdot x_n$
+        \item $X = R^m, X_2 = R^M, Y = R, U(x_1, x_2) = (x_1, x_2)$, комплексные нельзя, потому что не будет линейности по второй координате
+        \item $X_1 = R ^ 3, X_2 = R ^ 3, Y = R ^ 3, U(x1, x2) = x_1 \times x_2 = [x_1, x_2]$
+        \item $X_1 = ... = X_m = \R^m, Y = \R, U(x_1, ..., x_m) = det(x_1, ..., x_m)$
+    \end{enumerate}
+\end{example}
+
+
+\begin{theorem}
+    (о непрерывности линейного отображения)
+
+    $U : X \to Y$ - линейное, X, Y - лин пространства над одним полем скаляров
+
+    Следующие утверждения эквивалентны 
+
+    \begin{enumerate}
+        \item U - непр
+        \item U - непр в 0
+        \item $\exists C : \forall x \in X || U_x||_Y \leqslant C ||x||_X$
+    \end{enumerate}
+ \end{theorem}
+
+ \begin{proof}
+     (1) $\Rightarrow$ (2) - очевидно
+
+     (2) $\Rightarrow$ (3) $\forall \epsilon > 0 \exists \delta > 0 : \forall x : ||x|| \leqslant \delta, ||U_x|| \leqslant \epsilon$
+
+     $x \to x^\sim = x \cdot \frac{\delta}{||x||} \Rightarrow ||Ux^\sim|| \leqslant \epsilon = \frac{\delta}{||x||} \cdot ||U_x||$
+
+     $C = \frac{\epsilon}{\delta}$ --- подходит
+
+     (3) $\Rightarrow$ (1) --- липшецевость $||U(x_1) - U(x_2)|| \leqslant C ||x_1 - x_2|| \Rightarrow $ непрерывность
+
+ \end{proof}
+
+ \begin{theorem}
+     $U : X_1 \times ... \times X_n \to Y$ --- полелинейное
+
+     След. утверждения эквивалентны
+
+     \begin{enumerate}
+         \item U - непрерывное
+         \item непрерывное в $0 = 0 \times ... \times 0$
+         \item $\exists C : ||U(x_1, ... , x_n) || \leqslant C ||x_1|| \cdot ... \cdot ||x_n|| $
+     \end{enumerate}
+
+     $||(x_1, ... , x_n)||_{X_1 \times ... \times X_n} = ||x_1||_{X_1} + ... + ||x_n||_{X_n}$ (или какая-то другая)
+ \end{theorem}
+
+ \begin{definition}
+     $U : X \to Y$ - линейное непрерывное отображением
+
+     $||U|| = inf {\{ C | \forall x \in X,  ||Ux|| \leqslant C ||x||\} }$
+ \end{definition}
+
+ \begin{remark}
+     inf достигается, т.е. $\forall x \in X, ||Ux||\leqslant ||U|| \cdot ||x||$
+    
+     В частности $||U|| \geqslant \frac{||Ux||}{||x||} $
+ \end{remark}
+
+ \begin{example}
+     $U : C[a, b] \to C[a, b], (Uf)(x) = \int_a^xf(t)dt$
+
+     $||Uf|| \leqslant (b - a) \cdot ||f||$
+
+     $||U|| = b - a$
+ \end{example}
