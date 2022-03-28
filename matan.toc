@@ -1,4 +1,4 @@
-\babel@toc {russian}{}\relax 
+\babel@toc {russian}{}
 \contentsline {section}{\numberline {1}Интегральное исчисление функций}{3}{section.0.1}%
 \contentsline {subsection}{\numberline {1.1}Первообразная и неопределенный интеграл}{3}{subsection.0.1.1}%
 \contentsline {subsection}{\numberline {1.2}Площадь и псевдоплощадь}{4}{subsection.0.1.2}%
