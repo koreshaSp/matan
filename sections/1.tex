@@ -60,6 +60,7 @@
     \begin{enumerate}
         \item $S((a_1, b_1) \times (a_2, b_2)) = (b_1 - a_1) \cdot (b_2 - a_2)$
         \item $S(E_1 \sqcup E_2) = S(E_1) + S(E_2)$
+        \item \sout{$E_1 = E_2 \hence S(E_1) = S(E_2)$} (не нужно, т.к. следует из предыдущих)
     \end{enumerate}
 \end{definition}
 
@@ -150,16 +151,16 @@
         (Т.к. можно провести все вертикальные и горизонтальные линии и разбить на дизъюнктивное объединение)
 
         \item 
-        \circled{$\geq$} $\sigma_1(E) \stackrel{?}{=} \sigma_1(E_-) + \sigma_1(E_+)$ \\
-        $E \subset P_1 \cup \ldots \cup P_n$,  $P_j = P_j^- \cup P_j^+$,  $\sigma_1(P_j) = \sigma_1(P_j^-) + \sigma_1(P_j^+)$ \\
+        $\sigma_1(E) \stackrel{?}{=} \sigma_1(E_-) + \sigma_1(E_+)$ \\
+        \circled{$\geq$} $E \subset P_1 \cup \ldots \cup P_n$,  $P_j = P_j^- \cup P_j^+$,  $\sigma_1(P_j) = \sigma_1(P_j^-) + \sigma_1(P_j^+)$ \\
         Тогда $\sum\limits_{j=1}^N \sigma_1(P_j) = \sum\limits_{j=1}^n \sigma_1(P_j^-) + \sum\limits_{j=1}^n \sigma_1(P_j^+) \geq \sigma_1(E_-) + \sigma_1(E_+)$ \\
         $\Rightarrow \sigma_1(E) \geq \sigma_1(E_-) + \sigma_1(E_+)$ \\
         
-        \circled{$\leq$} $P_1, \ldots, P_k$ - покрытие $E_-$ с точность $\epsilon$,  \\
-        $P_{k + 1}, \ldots, P_n$ - покрытие $E_+$ с точность $\epsilon$ \\
-        $\Rightarrow \sigma_1(E_-) + \epsilon \geq \sigma_1(P_1) + \ldots + \sigma_1(P_k)$ \\
-        $\sigma_1(E_+) + \epsilon \geq \sigma_1(P_{k + 1}) + \ldots + \sigma_1(P_n)$ \\
-        $\Rightarrow \sigma_1(E_-) + \sigma_1(E_+) + 2\epsilon \geq \sum\limits_{j = 1}^N \sigma_1(P_j) \geq \sigma_1(E)$
+        \circled{$\leq$} $P_1, \ldots, P_k$ - покрытие $E_-$ с точность $\varepsilon$,  \\
+        $P_{k + 1}, \ldots, P_n$ - покрытие $E_+$ с точность $\varepsilon$ \\
+        $\Rightarrow \sigma_1(E_-) + \varepsilon \geq \sigma_1(P_1) + \ldots + \sigma_1(P_k)$ \\
+        $\sigma_1(E_+) + \varepsilon \geq \sigma_1(P_{k + 1}) + \ldots + \sigma_1(P_n)$ \\
+        $\Rightarrow \sigma_1(E_-) + \sigma_1(E_+) + 2\varepsilon \geq \sum\limits_{j = 1}^N \sigma_1(P_j) \geq \sigma_1(E)$
 
         \item Покрытие большего является покрытием меньшего.
         
@@ -168,7 +169,7 @@
 \end{proof}
 
 \begin{theorem}
-    Псевдоплощадь инварианта относительно сдвигов.
+    Псевдоплощадь $\sigma_1$ инварианта относительно сдвигов.
 \end{theorem}
 
 \begin{proof}
@@ -181,7 +182,7 @@
 
 
 
- 
+ \newpage
 
 \subsection{Определенный интеграл.}
 
@@ -192,6 +193,29 @@
     $a \in \R \Rightarrow a_+ = \max(a, 0), a_- = \max(-a, 0)$ \\
     $a_+ + a_- = |a|, a_+ - a_- = a$ \\
     Аналогично для функции $f$. \\
+
+
+
+
+    \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+    \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+    %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+    
+    %Shape: Axis 2D [id:dp9687964262664879] 
+    \draw  (49,178.2) -- (282,178.2)(72.3,72) -- (72.3,190) (275,173.2) -- (282,178.2) -- (275,183.2) (67.3,79) -- (72.3,72) -- (77.3,79)  ;
+    %Shape: Polynomial [id:dp4403110859007735] 
+    \draw   (72,256) .. controls (135,-122) and (198,445) .. (261,67) ;
+    %Shape: Free Drawing [id:dp20028065075963364] 
+    \draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=3] [line join = round][line cap = round] (71,176) .. controls (72.7,176) and (74.31,175.13) .. (76,175) .. controls (79.99,174.69) and (84.01,174.67) .. (88,175) .. controls (88.33,175.03) and (88,176.33) .. (88,176) .. controls (88,152.33) and (96.57,151.87) .. (104,137) .. controls (109.08,126.85) and (109.49,124.5) .. (120,121) .. controls (120.89,120.7) and (121.06,119.07) .. (122,119) .. controls (126.65,118.67) and (131.35,118.67) .. (136,119) .. controls (139.06,119.22) and (139.88,124.88) .. (142,127) .. controls (146.11,131.11) and (154.5,140.5) .. (160,146) .. controls (163.18,149.18) and (164.22,154.22) .. (167,157) .. controls (169.04,159.04) and (174.25,171.5) .. (175,173) .. controls (175.76,174.52) and (174.41,177.4) .. (176,178) .. controls (178.5,178.94) and (181.35,177.71) .. (184,178) .. controls (187.61,178.4) and (192.9,181.82) .. (197,182) .. controls (207.43,182.45) and (224.21,182.7) .. (235,180) .. controls (235.65,179.84) and (234.74,178.61) .. (235,178) .. controls (235.88,175.94) and (237.29,174.12) .. (238,172) .. controls (239.23,168.3) and (243.75,165.79) .. (244,163) .. controls (244.33,159.35) and (243.7,155.65) .. (244,152) .. controls (244.98,140.24) and (248.71,126.65) .. (250,115) .. controls (251.01,105.93) and (251.22,96.88) .. (253,88) .. controls (254.57,80.14) and (258,70.59) .. (258,62) ;
+    %Shape: Free Drawing [id:dp9900303760322543] 
+    \draw  [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ][line width=3] [line join = round][line cap = round] (73,254) .. controls (73,240.57) and (76.39,226.03) .. (79,213) .. controls (80.4,205.98) and (84.31,201.58) .. (85,194) .. controls (85.08,193.17) and (85.12,177.47) .. (87,177) .. controls (89.59,176.35) and (92.36,177.38) .. (95,177) .. controls (100,176.29) and (106.02,173.13) .. (111,173) .. controls (129.51,172.51) and (155.69,171.42) .. (174,176) .. controls (175.04,176.26) and (180.25,184.25) .. (181,185) .. controls (184.41,188.41) and (191.44,194.22) .. (197,197) .. controls (198.69,197.84) and (202.69,198.13) .. (204,199) .. controls (204.55,199.37) and (203.45,200.63) .. (204,201) .. controls (204.77,201.51) and (212.01,204.88) .. (213,205) .. controls (225.08,206.51) and (224.79,193.42) .. (229,185) .. controls (229.26,184.49) and (234.93,183.36) .. (236,183) .. controls (239.23,181.92) and (267.64,179) .. (274,179) ;
+    
+    % Text Node
+    \draw (271,116.4) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ]  {$f_{+}$};
+    % Text Node
+    \draw (101,201.4) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,opacity=1 ]  {$-f_{-}$};
+\end{tikzpicture}
 
     $\Gamma_f = \left\{(x, f(x)) \in \R^2\right\}$ \\
     Для $f \geq 0 \  P_f = \left\{ (x, y) : y \in [0, f(x)]\right\}$ - подграфик f. \\
@@ -287,7 +311,7 @@
 
     \item(Замена переменной) $ f:[a, b] \to \R, \phi [c, d] \to [a, b], \phi \in C^1[c, d]$ 
     \[\Rightarrow
-    \forall p, q \in [c, d] \int_p^q f(\phi(t)) \phi'(t) dt
+    \forall p, q \in [c, d] \hence \int_p^q f(\phi(t)) \phi'(t) dt
     = \int_{\phi(t)}^{\phi(q)} f(x) dx\]
 
     \begin{example}
