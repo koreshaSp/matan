@@ -205,17 +205,19 @@
 \begin{properties}{}
     \item $f$ -- дифф в $(\cdot) x_0 \hence f $ --- непр. в $(\cdot) x_0$
     \begin{proof}
-        $f(x_0 + h) = f(x_0) + \underbrace{df(x_0)h + o(h)}_{\to 0, h \to 0}$
+        $f(x_0 + h) = f(x_0) + \underbrace{df(x_0)h + o(h)}_{\xrightarrow{h \to 0}0}$
     \end{proof} 
     \item дифференциал единственен
     \begin{proof}
-        $f(x_0 + h) = f(x_0) + A_1(h) + o(h) = f(x_0) + A_2(h) + o(h) \hence (A_2 - A_2)(h) = o(h)$
+        $f(x_0 + h) = f(x_0) + A_1(h) + o(h) = f(x_0) + A_2(h) + o(h) \hence (A_1 - A_2)(h) = o(h)$
 
-        $\frac{\norm{(A_1 - A_2)h}}{\norm{h}} \to 0, h \to 0$
+        $\frac{\norm{(A_1 - A_2)h}}{\norm{h}} \xrightarrow{h \to 0} 0$
     
-        Берём $h_0 - fix, h = th_0, t \to 0$
+        Берём $h_0 - fix, h = t \cdot h_0, t \to 0, t - $ скаляр
 
-        $\frac{\norm{(A_1 - A_2)(th_0)}}{\norm{th_0}}  = \frac{\norm{(A_1 - A_2)(h_0)}}{\norm{h_0}} \to 0, t \to 0 \hence = 0$, т.к. не зависит от $t$ 
+        $\frac{\norm{(A_1 - A_2)(t \cdot h_0)}}{\norm{t \cdot h_0}}  
+        = \frac{\norm{(A_1 - A_2)(h_0)}}{\norm{h_0}} \xrightarrow{t \to 0} 0 \hence 
+        = 0$, т.к. не зависит от $t$ и стремится к $0$ 
     \end{proof}
 
     \item (линейность) $f, g$ --- дифф. в $(\cdot) x_0 \hence \alpha f + \beta g $ --- дифф  в $(\cdot) x_0 $
