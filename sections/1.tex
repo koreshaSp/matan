@@ -274,12 +274,12 @@
     \begin{proof}
         $x_1, x_2$ 
         \[\frac {\Phi(x_1) - \Phi(x_2)} {x_1 - x_2}
-        = \frac {\int_{x_1}^{x_2} f(t) dt} {x_1 - x_2}  
+        = \frac {\int_{x_2}^{x_1} f(t) dt} {x_1 - x_2}  
         \stackrel{x_1- fix}{\Rightarrow} \lim_{x_2 \to x_1} \frac {\Phi(x_1) - \Phi(x_2)} {x_1 - x_2}
-        = \lim_{x_2 \to x_1} \frac {\int_{x_1}^{x_2} f(t) dt} {x_1 - x_2}
+        = \lim_{x_2 \to x_1} \frac {\int_{x_2}^{x_1} f(t) dt} {x_1 - x_2}
         = \lim_{x_2 \to x_1} f(\theta)\] \\
         где $\theta$ лежит между $x_1$ и $x_2$ \\
-        $\Rightarrow \Phi(x_1) = f(x_1)$ \\
+        $\Rightarrow \Phi'(x_1) = f(x_1)$ \\
         $\Phi + \Psi = const \Rightarrow \Psi' = -f$
     \end{proof}
 
@@ -312,7 +312,7 @@
     \item(Замена переменной) $ f:[a, b] \to \R, \phi [c, d] \to [a, b], \phi \in C^1[c, d]$ 
     \[\Rightarrow
     \forall p, q \in [c, d] \hence \int_p^q f(\phi(t)) \phi'(t) dt
-    = \int_{\phi(t)}^{\phi(q)} f(x) dx\]
+    = \int_{\phi(p)}^{\phi(q)} f(x) dx\]
 
     \begin{example}
         \begin{enumerate}
@@ -321,7 +321,7 @@
             \item \[ \int_0^1 \sqrt{1 - x^2} \ dx = [x = \sin(y), dx 
             = \cos(y) dy] = \int_0^{\arcsin(1)} \sqrt{1 - \sin^2(y)} \cos(y) \ dy 
             = \int_0^{\frac \pi 2} \cos^2(y) \ dy \] 
-            \[ = \int_0^{\frac \pi 2} \frac {1 + \cos^2(y)} 2 \ dy
+            \[ = \int_0^{\frac \pi 2} \frac {1 + \cos(2y)} 2 \ dy
             = \int_0^{\frac \pi 2} \frac 1 2 \ dy = \frac \pi 4\]
         \end{enumerate}
     \end{example}
