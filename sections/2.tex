@@ -185,7 +185,9 @@ $f(x) = T_{n, x_0} f(x) + R_{n, x_0} f(x)$, где $T_{n, x_0} f(x) = f(x_0) + f
 \subsection{Приближенное вычисление интеграла}
 
 \begin{definition}
-    $[a, b], \tau $ --- дробление отрезка $[a, b]$ $\tau = \{ x_0, x_1, ..., x_n \}$, \\ где $a = x_0 < x_1 < ... < x_n = b$ \quad $|\tau| = \max_{k = 0, ..., n - 1}{|x_{k + 1} - x_k|}$ - мелкость (ранг) дробления
+    $[a, b], \tau $ --- дробление отрезка $[a, b]$ $\tau = \{ x_0, x_1, ..., x_n \}$, \\
+     где $a = x_0 < x_1 < ... < x_n = b$ \quad $|\tau| 
+     = \underset{k = 0, \dots , n - 1}{\max} \lvert x_{k + 1} - x_k \rvert$ - мелкость (ранг) дробления
 
     $\theta = \{ t_1, ..., t_n\}$ -- оснащение дробления $\tau$, где $t_j \in [x_{j - 1}, x_j]$
 
@@ -358,17 +360,17 @@ pattern radius = 1pt}
         \]
 
         \[
-            S_{\tau, \theta} f = \sum_{j = 1}^n \frac{\pi}{n} \cdot \log{(1 - 2a \cos{\frac{\pi (j - 1)}{n} + a ^ 2})} = \frac{\pi}{n} \log{\prod_{j = 1}^n (1 - 2a \cos{\frac{\pi (j - 1)}{n} + a ^ 2})}
+            S_{\tau, \theta} f = \sum_{j = 1}^n \frac{\pi}{n} \cdot \log{(1 - 2a \cos{\frac{\pi (j - 1)}{n} + a ^ 2})} = \frac{\pi}{n} \log{\prod_{j = 1}^n (1 - 2a \cos{\frac{\pi (j - 1)}{n} + a ^ 2})} \ceq
         \]
 
         Заметим, что $a ^ 2 - 2a \cos{\theta} + 1 = (a - e ^ {-i \theta})(a - e ^ {i \theta})$
 
         \[
-            \prod_{j = 1}^n (1 - 2a \cos{\frac{\pi (j - 1)}{n} + a ^ 2}) =  \prod_{j = 1}^n (a - e ^ {\frac{-\pi (j - 1)}{n} i })(a - e ^ {\frac{\pi (j - 1)}{n} i }) = \frac{(a ^ {2n} - 1) \cdot (a - 1)}{(a + 1)} =
+            \prod_{j = 1}^n (1 - 2a \cos{\frac{\pi (j - 1)}{n} + a ^ 2}) =  \prod_{j = 1}^n (a - e ^ {\frac{-\pi (j - 1)}{n} i })(a - e ^ {\frac{\pi (j - 1)}{n} i }) = \frac{(a ^ {2n} - 1) \cdot (a - 1)}{(a + 1)}
         \]
 
         \[
-            =\frac{\pi}{n} \cdot \log{\frac{(a ^ {2n} - 1)(a - 1)}{a + 1}} \underset{n \to \infty}{\to} \begin{cases}
+            \ceq \frac{\pi}{n} \cdot \log{\frac{(a ^ {2n} - 1)(a - 1)}{a + 1}} \underset{n \to \infty}{\to} \begin{cases}
                 0 & \abs{a} < 1 \\
                 2 \pi \log{\abs{a}} & \abs{a} > 1 \\
                 ? & \abs{a} = 1
