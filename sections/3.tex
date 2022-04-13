@@ -175,9 +175,9 @@ $f \in C^2[a, b]$ \,\,\, $\theta = \{ x_0 = a, x_1, ... , x_n = b\}$
 \end{motivation}
 
 \begin{definition}
-    $f \in C[a, b],  b \in \R \cup \{ + \infty \}$
+    $f \in C[a, b),  b \in \R \cup \{ + \infty \}$
 
-    $\underbrace{\int_a^{\to b} f dx}_{\text{Несобственный интеграл}} = \lim_{B \to b-} \int_a^B f dx$ --- частичный интеграл
+    $\underbrace{\int_a^{\to b} f dx}_{\text{Несобственный интеграл}} = \lim\limits_{B \to b-} \int_a^B f dx$ --- частичный интеграл
 \\
 \begin{itemize}
     \item сх-ся $\Longleftrightarrow \exists \lim$ --- конечный
@@ -297,9 +297,9 @@ $f \in C^2[a, b]$ \,\,\, $\theta = \{ x_0 = a, x_1, ... , x_n = b\}$
 \end{namedtheorem}
 
 \begin{proof}
-    $\underbrace{F(b)}_{\text{--- некая первообразная}} = \int_a^B f dx $
+    $\underbrace{F(B)}_{\text{--- некая первообразная}} = \int_a^B f dx $
 
-    $\int_a^{\to b} $ --- сх-ся $\Longleftrightarrow \lim_{B \to b-} F(B) \Longleftrightarrow \forall \varepsilon > 0 \,\, \exists \delta \in [a, b) \,\, : \forall B_1, B_2  \in (\delta, b) \Rightarrow \\ \abs{F(B_1) - F(B_2)} < \varepsilon$ --- критерей Коши для функций.
+    $\int_a^{\to b} $ --- сх-ся $\Longleftrightarrow \lim\limits_{B \to b-} F(B) \Longleftrightarrow \forall \varepsilon > 0 \,\, \exists \delta \in [a, b) \,\, : \forall B_1, B_2  \in (\delta, b) \Rightarrow \\ \abs{F(B_1) - F(B_2)} < \varepsilon$ --- критерей Коши для функций.
 \end{proof}
 
 \begin{properties}{}
