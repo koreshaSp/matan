@@ -302,14 +302,14 @@
     \end{proof}
     
     \item(формула интегрирования по частям)
-    \[f, x \in C^1[a, b] \Rightarrow
+    \[f, g \in C^1[a, b] \Rightarrow
     \int_a^b f(x) g'(x) dx = f(x)g(x)\bigg|_a^b - \int_a^b f'(x)g(x) dx \]
 
     \begin{proof}
         Следует из формулы Ньютона-Лейбница и формулы интегрирования по частям для неопределенного интеграла.
     \end{proof}
 
-    \item(Замена переменной) $ f:[a, b] \to \R, \phi [c, d] \to [a, b], \phi \in C^1[c, d]$ 
+    \item(Замена переменной) $ f:[a, b] \to \R, \phi : [c, d] \to [a, b], \phi \in C^1[c, d]$ 
     \[\Rightarrow
     \forall p, q \in [c, d] \hence \int_p^q f(\phi(t)) \phi'(t) dt
     = \int_{\phi(p)}^{\phi(q)} f(x) dx\]
