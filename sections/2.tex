@@ -35,7 +35,7 @@
 \]
 \\
 
-\textbf{(Офф-топ)}: Можно заметить, что $(2k)!! = 2 ^ k \cdot k!$ и $(2k + 1)!! = \frac{(2k + 1)!}{(2k)!!} = \frac{(2k + 1)!!}{2^k \cdot k!}$
+\textbf{(Офф-топ)}: Можно заметить, что $(2k)!! = 2 ^ k \cdot k!$ и $(2k + 1)!! = \frac{(2k + 1)!}{(2k)!!} = \frac{(2k + 1)!}{2^k \cdot k!}$
 \\
 \newpage
 Также, стоит отметить, что $W_n \geqslant W_{n + 1} \geqslant W_{n + 2} \geqslant ...$, т.к. $\sin^n{x} \leqslant \sin^{n - 1}{x}$, то есть интегрируем меньшую функцию, на одном и том же промежутке.
@@ -185,13 +185,15 @@ $f(x) = T_{n, x_0} f(x) + R_{n, x_0} f(x)$, где $T_{n, x_0} f(x) = f(x_0) + f
 \subsection{Приближенное вычисление интеграла}
 
 \begin{definition}
-    $[a, b], \tau $ --- дробление отрезка $[a, b]$ $\tau = \{ x_0, x_1, ..., x_n \}$, \\ где $a = x_0 < x_1 < ... < x_n = b$ \quad $|\tau| = \max_{k = 0, ..., n - 1}{|x_{k + 1} - x_k|}$ - мелкость (ранг) дробления
+    $[a, b], \tau $ --- дробление отрезка $[a, b]$ $\tau = \{ x_0, x_1, ..., x_n \}$, \\
+    где $a = x_0 < x_1 < ... < x_n = b$ \quad $|\tau|
+    = \max\limits_{k = 0, ..., n - 1} \lvert x_{k + 1} - x_k \rvert$ - мелкость (ранг) дробления
 
     $\theta = \{ t_1, ..., t_n\}$ -- оснащение дробления $\tau$, где $t_j \in [x_{j - 1}, x_j]$
 
     $(\tau, \theta) $ --- оснащенное дробление
 
-    $f \in C[a, b]$ интегральная сумма $S_{\tau, \theta} (f) = \sum_{j = 0}^{n - 1} f(t_{j + 1}) (x_{j + 1} - x_j)$
+    $f \in C[a, b]$ интегральная сумма $S_{\tau, \theta} (f) = \sum\limits_{j = 0}^{n - 1} f(t_{j + 1}) (x_{j + 1} - x_j)$
 \end{definition}
 
 
@@ -289,13 +291,13 @@ pattern radius = 1pt}
 
 
 \begin{theorem}
-    $f \in C[a, b] \Rightarrow S_{\tau, \theta}(f) \underset{|T| \to 0} {\to} \int_a^b f(x) dx$, \\ \\ т.е. $\forall \varepsilon > 0 \,\, \exists \delta > 0 : \forall \tau, \theta : | \tau | < \delta \Rightarrow \abs{ \int_a^b f dx - S_{\tau, \theta}(f)} < \varepsilon$
+    $f \in C[a, b] \Rightarrow S_{\tau, \theta}(f) \underset{|\tau| \to 0} {\to} \int_a^b f(x) dx$, \\ \\ т.е. $\forall \varepsilon > 0 \,\, \exists \delta > 0 : \forall \tau, \theta : | \tau | < \delta \Rightarrow \abs{ \int_a^b f dx - S_{\tau, \theta}(f)} < \varepsilon$
 \end{theorem}
 
 \quad
 
 \begin{definition}
-    $f$ функция на $[a, b]$, существование предела $S_{\tau, \theta}(f)$ при $\abs{\tau} \to 0 $ означает, что $f$ интегрируема по Риману и $lim = \int_a^{b} f dx$
+    $f$ функция на $[a, b]$, существование предела $S_{\tau, \theta}(f)$ при $\abs{\tau} \to 0 $ означает, что $f$ интегрируема по Риману и $\lim = \int_a^{b} f dx$
 \end{definition}
 
 \quad 
@@ -321,14 +323,14 @@ pattern radius = 1pt}
 \end{proof}
 
 
-\underline{\textit{Задача:}}  $f$ имеет разрыв в точке $c$ первого рода и $f \in C[a, b), f \in C(c,b], \exists \lim_{x \to c-}{f}, \exists \lim_{x \to c+}{f}$, тогда $S_{\tau, \theta} f \to \int_a^c f + \int_c^b f$
+\underline{\textit{Задача:}}  $f$ имеет разрыв в точке $c$ первого рода и $f \in C[a, b), f \in C(c,b], \exists \lim\limits_{x \to c-}{f}, \exists \lim\limits_{x \to c+}{f}$, тогда $S_{\tau, \theta} f \to \int_a^c f + \int_c^b f$
 
 \quad 
 
 \begin{example}
     \begin{enumerate}
         \item \[
-            \int_0^{a} e^x dx = \,? , \,\,\, \tau = \{ 0, \frac{a}{n}, \frac{2a}{n}, ..., \frac{na}{n} \}, \,\,\, \theta = \{ 0, \frac{a}{n}, ... , \frac{n - 1}{n} a \}
+            \int_0^{a} e^x dx = \,? , \,\,\, \tau = \left\{ 0, \frac{a}{n}, \frac{2a}{n}, ..., \frac{na}{n} \right\}, \,\,\, \theta = \left\{ 0, \frac{a}{n}, ... , \frac{n - 1}{n} a \right\}
         \]
     
         \[
@@ -341,7 +343,7 @@ pattern radius = 1pt}
         \]
 
         \[
-            \tau = \{ 0, \frac{1}{n}, ... , \frac{n}{n} \}, \theta = \{\frac{1}{n}, ... , \frac{n}{n}  \}, f(x) = x ^ p
+            \tau = \left\{ 0, \frac{1}{n}, ... , \frac{n}{n} \right\}, \theta = \left\{\frac{1}{n}, ... , \frac{n}{n}  \right\}, f(x) = x ^ p
         \]
 
         \[
@@ -354,21 +356,21 @@ pattern radius = 1pt}
         \]
 
         \[
-            f = \log{(1 - 2a \cos{x} + a ^ 2)},\, [0, \pi],\, \tau = \{0, \frac{\pi}{n}, ... , \frac{\pi n}{n} \}, \theta = \{0, \frac{\pi}{n}, ... , \frac{\pi (n - 1)}{n} \}
+            f = \log{(1 - 2a \cos{x} + a ^ 2)},\, [0, \pi],\, \tau = \left\{0, \frac{\pi}{n}, ... , \frac{\pi n}{n} \right\}, \theta = \left\{0, \frac{\pi}{n}, ... , \frac{\pi (n - 1)}{n} \right\}
         \]
 
         \[
-            S_{\tau, \theta} f = \sum_{j = 1}^n \frac{\pi}{n} \cdot \log{(1 - 2a \cos{\frac{\pi (j - 1)}{n} + a ^ 2})} = \frac{\pi}{n} \log{\prod_{j = 1}^n (1 - 2a \cos{\frac{\pi (j - 1)}{n} + a ^ 2})}
+            S_{\tau, \theta} f = \sum_{j = 1}^n \frac{\pi}{n} \cdot \log{(1 - 2a \cos{\frac{\pi (j - 1)}{n} + a ^ 2})} = \frac{\pi}{n} \log{\prod_{j = 1}^n (1 - 2a \cos{\frac{\pi (j - 1)}{n} + a ^ 2})} \ceq
         \]
 
         Заметим, что $a ^ 2 - 2a \cos{\theta} + 1 = (a - e ^ {-i \theta})(a - e ^ {i \theta})$
 
         \[
-            \prod_{j = 1}^n (1 - 2a \cos{\frac{\pi (j - 1)}{n} + a ^ 2}) =  \prod_{j = 1}^n (a - e ^ {\frac{-\pi (j - 1)}{n} i })(a - e ^ {\frac{\pi (j - 1)}{n} i }) = \frac{(a ^ {2n} - 1) \cdot (a - 1)}{(a + 1)} =
+            \prod_{j = 1}^n (1 - 2a \cos{\frac{\pi (j - 1)}{n} + a ^ 2}) =  \prod_{j = 1}^n (a - e ^ {\frac{-\pi (j - 1)}{n} i })(a - e ^ {\frac{\pi (j - 1)}{n} i }) = \frac{(a ^ {2n} - 1) \cdot (a - 1)}{(a + 1)}
         \]
 
         \[
-            =\frac{\pi}{n} \cdot \log{\frac{(a ^ {2n} - 1)(a - 1)}{a + 1}} \underset{n \to \infty}{\to} \begin{cases}
+            \ceq \frac{\pi}{n} \cdot \log{\frac{(a ^ {2n} - 1)(a - 1)}{a + 1}} \underset{n \to \infty}{\to} \begin{cases}
                 0 & \abs{a} < 1 \\
                 2 \pi \log{\abs{a}} & \abs{a} > 1 \\
                 ? & \abs{a} = 1
