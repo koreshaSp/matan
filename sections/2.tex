@@ -360,6 +360,38 @@ pattern radius = 1pt}
             ? & \abs{a} = 1
         \end{cases}
     \]
+    Теперь необходимо разобраться со случаями $a = 1$ и $a = -1$.
+    \begin{itemize}
+        \item $a = 1$\\
+            В данном случае можно повторить рассуждения для общего случая, но взяв другое оснащение: 
+            \[
+                \theta' = \left\{\frac{\pi}{n}, \frac{2\pi}{n}, \dots, \frac{n\pi}{n}\right\}
+            \] 
+            Тогда получим, что 
+            \[
+                S_{\tau, \theta'} = \frac{\pi}{n} \log\left(\prod_{j = 1}^n \left(1 - 2a \cos{\frac{\pi j}{n} + a ^ 2}\right)\right)=
+                \frac{\pi}{n} \cdot \log{\frac{(a ^ {2n} - 1)(a + 1)}{a - 1}} \ceq\\
+            \] 
+            Последнее можно преобразовать по формуле $x^n - y^n = (x - y)(x^{n - 1} + x^{n - 2}y + \dots + y^{n - 1})$.
+            \[
+                \ceq \frac{\pi}{n}\cdot \log\left((a^{2n - 1}+a^{2n - 2} + \dots + 1)(a + 1)\right)
+                \underset{n\to\infty}{\to} \frac{\pi}{n}\log(2n)
+            \] 
+        \item $a = -1$\\
+            Из рассуждения для общего случая для оснащения $\theta$.
+            \[
+                S_{\tau,\theta} = \frac{\pi}{n} \cdot \log{\frac{(a ^ {2n} - 1)(a - 1)}{a + 1}} \ceq
+            \] 
+            Преобразуем по формуле $x^n - y^n = (x - y)(x^{n - 1} + x^{n - 2}y + \dots + y^{n - 1})$:
+            \[
+                \begin{gathered}
+                    \ceq \frac{\pi}{n}\log\frac{(a^2-1)(a^{2n - 2}+a^{2n - 4} + \dots + 1)(a-1)}{a+1}=\\=
+                    \frac{\pi}{n}\log\left((a-1)^2(a^{2n - 2}+a^{2n - 4} + \dots + 1)\right)
+                    \underset{n\to\infty}{\to} \frac{\pi}{n}\log(4n)
+                \end{gathered}
+            \] 
+
+    \end{itemize}
     \end{enumerate}
     
 \end{example}
