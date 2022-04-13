@@ -1,122 +1,118 @@
 \section*{Лекция 2 (24.02.2022)}
 
 \begin{example}
-
  \[
-     W_n = \int_0^{\pi / 2}{(\sin{x})^n} dx = \int_0^{\pi / 2}{(\cos{x})^n}dx \text{ (т.к. можно сделать замену $y = \pi / 2 - x$)} 
+     \begin{gathered}
+         W_n = \int_0^{\pi / 2}{(\sin{x})^n}\ dx = \int_0^{\pi / 2}{(\cos{x})^n}\ dx 
+          \text{ (т.к. можно сделать замену $y = \pi / 2 - x$)}
+         \\
+         W_n = \int_0^{\pi / 2}\cos^n{x}\ dx = \int_0^{\pi / 2}\cos^{n - 1}{x}\ d(\sin{x}) =
+         \cos^{n - 1}{x} \cdot \sin{x} \bigg|_{0}^{\pi/2} - \int_{0}^{\pi / 2}\sin{x}\ d(\cos^{n - 1}{x}) = \\
+         = 0 \text{ (при $n \geqslant 2$)} - \int_0^{\pi / 2} \sin{x} \cdot (n - 1) \cos^{n - 2}{x}(-\sin{x})\ dx =
+         (n - 1)\int_{0}^{\pi / 2}(1 - \cos^2{x}) \cos^{n - 2}{x}\ dx =\\ 
+         = (n - 1)(W_{n - 2} - W_{n})
+     \end{gathered}
 \]
 
-\[
-    W_n = \int_0^{\pi / 2}\cos^n{x}dx = \int_0^{\pi / 2}\cos^{n - 1}{x} d(\sin{x}) = \cos^{n - 1}{x} \cdot \sin{x} \bigg|_{0}^{\pi/2} - \int_{0}^{\pi / 2}\sin{x} d(\cos^{n - 1}{x}) = 
-\]
-
-\[
-    = 0 \text{ (при $n \geqslant 2$)} - \int_0^{\pi / 2} \sin{x} \cdot (n - 1) \cos^{n - 2}{x}(-\sin{x}) dx = (n - 1)\int_{0}^{\pi / 2}(1 - \cos^2{x}) \cos^{n - 2}{x} dx = 
-\]
-
-\[
-    = (n - 1)(W_{n - 2} - W_{n})
-\]
-
-Итого получаем рекуректную формулу:
-
+Итого получаем рекуррентную формулу:
 \[
     W_n = \frac{n - 1}{n} \cdot W_{n - 2}, \, W_0 = \pi / 2, \, W_1 = 1
 \]
-
 Тогда итоговая формула:
-
 \[
-    W_{2k} = \frac{2k - 1}{2k} \cdot \frac{2k - 3}{2k - 2} \cdot ... \cdot \frac{1}{2} \cdot W_0 = \frac{(2k - 1)!!}{(2k)!!} W_0 = \frac{(2k - 1)!!}{(2k)!!} \pi / 2
+    \begin{gathered}
+        W_{2k} = \frac{2k - 1}{2k} \cdot \frac{2k - 3}{2k - 2} \cdot \ldots \cdot \frac{1}{2} \cdot W_0 =
+        \frac{(2k - 1)!!}{(2k)!!} W_0 = \frac{(2k - 1)!!}{(2k)!!} \pi / 2
+        \\\\
+        W_{2k + 1} = \frac{2k}{2k + 1} \cdot \frac{2k - 2}{2k - 1} \cdot \ldots \cdot \frac{2}{3} \cdot W_1 =
+        \frac{(2k)!!}{(2k + 1)!!} W_1 = \frac{(2k)!!}{(2k + 1)!!} 
+    \end{gathered}
 \]
 
-\[
-    W_{2k + 1} = \frac{2k}{2k + 1} \cdot \frac{2k - 2}{2k - 1} \cdot ... \cdot \frac{2}{3} \cdot W_1 = \frac{(2k)!!}{(2k + 1)!!} W_1 = \frac{(2k)!!}{(2k + 1)!!} 
-\]
-\\
-
-\textbf{(Офф-топ)}: Можно заметить, что $(2k)!! = 2 ^ k \cdot k!$ и $(2k + 1)!! = \frac{(2k + 1)!}{(2k)!!} = \frac{(2k + 1)!}{2^k \cdot k!}$
-\\
-\newpage
-Также, стоит отметить, что $W_n \geqslant W_{n + 1} \geqslant W_{n + 2} \geqslant ...$, т.к. $\sin^n{x} \leqslant \sin^{n - 1}{x}$, то есть интегрируем меньшую функцию, на одном и том же промежутке.
-Также, заметим, что это на самом деле есть неплохое приблежение числа $\pi$.\\
+Также, стоит отметить, что $W_n \geqslant W_{n + 1} \geqslant W_{n + 2} \geqslant \dots$ т.к.
+$\sin^n{x} \leqslant \sin^{n - 1}{x}$, то есть интегрируем меньшую функцию, на одном и том же промежутке.
+Также, заметим, что это на самом деле есть неплохое приближение числа $\pi$.\\
 
 \underline{\textit{Формула Валлиса}}
-
 \[
-    W_{2k + 2} \leqslant W_{2k + 1} \leqslant W_{2k}
+    \begin{gathered}
+        W_{2k + 2} \leqslant W_{2k + 1} \leqslant W_{2k}\\
+        \Downarrow\\
+        \frac{\pi}{2} \cdot \frac{(2k + 1)!!}{(2k + 2)!!} \leqslant \frac{(2k)!!}{(2k + 1)!!} \leqslant
+        \frac{\pi}{2} \cdot \frac{(2k - 1)!!}{(2k)!!}\\
+        \Downarrow\\
+        \frac{\pi}{2} \cdot \frac{2k + 1}{2k + 2} \leqslant \frac{((2k)!!)^2}{(2k + 1)((2k - 1)!!) ^ 2} \leqslant \frac{\pi}{2}\\
+        \Downarrow\\
+        \lim_{k \to \infty} \frac{(2k!!)^2}{(2k + 1)((2k - 1)!!) ^ 2} = \pi / 2\\
+        \Downarrow\\
+        \lim_{k \to \infty} \frac{2k!!}{\sqrt{2k + 1}(2k - 1)!!} = \sqrt{\pi / 2}
+    \end{gathered}
 \]
-
-\[
-    \pi / 2 \cdot \frac{(2k + 1)!!}{(2k + 2)!!} \leqslant \frac{(2k)!!}{(2k + 1)!!} \leqslant \pi / 2 \cdot \frac{(2k - 1)!!}{(2k)!!}
-\]
-
-\[
-    \pi / 2 \cdot \frac{2k + 1}{2k + 2} \leqslant \frac{((2k)!!)^2}{(2k + 1)((2k - 1)!!) ^ 2} \leqslant \frac{\pi}{2}
-\]
-
-\[
-    \Downarrow
-\]
-\[
-    \lim_{k \to \infty} \frac{(2k!!)^2}{(2k + 1)((2k - 1)!!) ^ 2} = \pi / 2 \Rightarrow  \lim_{k \to \infty} \frac{2k!!}{\sqrt{2k + 1}(2k - 1)!!} = \sqrt{\pi / 2}
-\]
-\\
-
 \follow 
-
 \[
-    \sum_{k = 0}^{2n} C_{2n}^{k} = 4 ^ n, \,
-    C_{2n}^n = \frac{(2n)!}{(n!)^2}
+    C_{2k}^k \sim \sqrt{\frac{2}{\pi}} \cdot \frac{4 ^ k}{\sqrt{2k + 1}}
 \]
-
-\[
-    \frac{(2k)!!}{(2k - 1)!!} = \frac{(2^k \cdot k!)^2}{(2k)!} = \frac{4 ^ k \cdot (k!)^2}{(2k)!}
-\]
-
-По формуле Валлиса:
-
-\[
-    \frac{1}{\sqrt{2k + 1}} \cdot \frac{4 ^ k}{C_{2k}^k} \to \sqrt{\pi / 2} \Leftrightarrow C_{2k}^k \sim \sqrt{\frac{2}{\pi}} \cdot \frac{4 ^ k}{\sqrt{2k + 1}}
-\]
-
+\begin{proof}
+     Можно заметить, что
+    \[
+        (2k)!! = 2 ^ k \cdot k!,\qquad
+        (2k + 1)!! = \frac{(2k + 1)!}{(2k)!!} = \frac{(2k + 1)!}{2^k \cdot k!}
+    \]
+    Откуда можно получить следующее равенство:
+    \[
+        \begin{gathered}
+            \frac{(2k)!!}{(2k - 1)!!} = \frac{(2^k \cdot k!)^2}{(2k)!} = \frac{4 ^ k \cdot (k!)^2}{(2k)!}
+            = \frac{4 ^ k}{C_{2k}^k}, \text{последнее равенство верно так как:}\\
+            \sum_{k = 0}^{2n} C_{2n}^{k} = 4 ^ n, \,
+            C_{2n}^n = \frac{(2n)!}{(n!)^2}\\
+        \end{gathered}
+    \]
+    Тогда по формуле Валлиса:
+    \[
+        \frac{2k!!}{\sqrt{2k + 1}(2k - 1)!!} \to \sqrt{\frac{\pi}{2}}
+        \Leftrightarrow 
+        \frac{1}{\sqrt{2k + 1}} \cdot \frac{4 ^ k}{C_{2k}^k} \to \sqrt{\frac{\pi}{2}}
+        \Leftrightarrow 
+        C_{2k}^k \sim \sqrt{\frac{2}{\pi}} \cdot \frac{4 ^ k}{\sqrt{2k + 1}}
+    \]
+\end{proof}
 \end{example}
-
-
-
 \newpage
 
 \section{Формула Тейлора с остатком в интегральной форме}
 
 \quad
-
-$f(x) = T_{n, x_0} f(x) + R_{n, x_0} f(x)$, где $T_{n, x_0} f(x) = f(x_0) + f'(x_0)(x - x_0) + ... + \frac{f^{(n)}(x_0)}{n!}(x - x_0)^n$
+\[
+    \begin{gathered}
+        f(x) = T_{n, x_0} f(x) + R_{n, x_0} f(x),\\
+        \text{где } T_{n, x_0} f(x) = f(x_0) + f'(x_0)(x - x_0) + \dots + \frac{f^{(n)}(x_0)}{n!}(x - x_0)^n
+    \end{gathered}
+\]
 
 \begin{namedtheorem}{остаток в интегральной форме}
     
-    Если \, $f \in C^{n + 1} \langle a, b \rangle$,  \,\, $x, x_0 \in \langle a, b \rangle$, то $
-        R_{n, x_0}f(x) = \frac{1}{n!} \int_{x_0}^x f^{(n + 1)}(t)(x-t)^n dt
-    $
+    Если \, $f \in C^{n + 1} \langle a, b \rangle$,  \,\, $x, x_0 \in \langle a, b \rangle$, то
+    \[
+        R_{n, x_0}f(x) = \frac{1}{n!} \int_{x_0}^x f^{(n + 1)}(t)(x-t)^n\ dt
+    \]
 \end{namedtheorem}
 
 \begin{proof}
 
     \textbf{\large База:} 
     \[
-        n = 0, \text{ то } f(x) = f(x_0) + \int_{x_0}^{x}f'(t)dt  \text{ --- формула Ньютона-Лейбница}
+        n = 0, \text{ то } f(x) = f(x_0) + \int_{x_0}^{x}f'(t)\ dt  \text{ --- формула Ньютона-Лейбница}
     \]
 
     \textbf{\large Переход:} 
     \[
-        R_{n, x_0}f(x) = \frac{1}{n!} \int_{x_0}^{x}f^{(n+1)}(t)(x - t)^n dt = \frac{1}{n!} \cdot \int_{x_0}^x f^{(n + 1)}(t) d(-\frac{(x - t) ^ {n + 1}}{n + 1}) = 
-    \]
-
-    \[
-        = - \frac{1}{n!} \cdot \frac{(x - t) ^ {n + 1}}{n + 1} f^{(n + 1)}(t) \bigg|_{x_0}^{x} + \frac{1}{n!} \int_{x_0}^{x} \frac{(x - t)^{n + 1}}{n + 1} d f^{(n + 1)}(t) = 
-    \]
-
-    \[
+        \begin{gathered}
+        R_{n, x_0}f(x) = \frac{1}{n!} \int_{x_0}^{x}f^{(n+1)}(t)(x - t)^n\ dt =
+        \frac{1}{n!} \int_{x_0}^x f^{(n + 1)}(t)\ d\left(-\frac{(x - t) ^ {n + 1}}{n + 1}\right) =\\\\
+        = - \frac{1}{n!} \frac{(x - t) ^ {n + 1}}{n + 1} f^{(n + 1)}(t) \bigg|_{x_0}^{x} +
+        \frac{1}{n!} \int_{x_0}^{x} \frac{(x - t)^{n + 1}}{n + 1}\ d\left(f^{(n + 1)}(t)\right) =\\\\
         = \frac{(x - x_0) ^ {n + 1}}{(n + 1)!} f^{n + 1}(x_0) + R_{n + 1, x_0} f(x)
+        \end{gathered}
     \]
 
 
@@ -131,75 +127,61 @@ $f(x) = T_{n, x_0} f(x) + R_{n, x_0} f(x)$, где $T_{n, x_0} f(x) = f(x_0) + f
 \newpage 
 \begin{proof}
     \[
-        m = \min_{[a, b]} f, \,\,\, M = \max_{[a, b]} f
+        \begin{gathered}
+            m = \min_{[a, b]} f, \,\,\, M = \max_{[a, b]} f\\
+            m\ g(x) \leqslant f(x) g(x) \leqslant M\ g(x)\\
+            m \int_a^b g(x)\ dx \leqslant \int_a^b f(x) g(x)\ dx \leqslant M \int_a^b g(x)\ dx\\
+            \frac{\int_a^b f(x) g(x)\ dx}{\int_a^b g(x)\ dx} \in [m, M] \Rightarrow 
+            \text{равно значению $f$ в некоторой точке $c\in [a,b]$}
+        \end{gathered}
     \]
-
-    \[
-        m g(x) \leqslant f(x) g(x) \leqslant M g(x)
-    \]
-
-    \[
-        m \int_a^b g(x) dx \leqslant \int_a^b f(x) g(x) dx \leqslant M \int_a^b g(x) dx
-    \]
-
-    \[
-        \frac{\int_a^b f(x) g(x) dx}{\int_a^b g(x) dx} \in [m, M] \Rightarrow \text{равно значению в некоторой промежуточной точке}
-    \] 
 \end{proof}
+\begin{follow}
+        
+    Берём остаток в интегральной форме:
+    \[
+        R_{n, x_0} f(x) = \frac{1}{n!} \int_{x_0}^x f^{(n + 1)}(t) (x - t) ^ n\ dt
+    \]
+    Заметим, что $(x - t)^n$ имеет одинаковый знак на $t\in [x_0, x]$. Тогда по только что доказанной лемме $\exists \theta$
+    , что остаток можно переписать в следующей форме.
+    \[
+        \frac{1}{n!} f^{(n + 1)} (\theta) \int_{x_0}^x (x - t) ^ n dt = \frac{f^{(n + 1)}(\theta)}{(n + 1)!}  \cdot (x - x_0) ^ {(n + 1)}
+    \]
+    Таким образом, остаток в форме Лагранжа без проблем выводится из остатка в интегральной форме.
+\end{follow}
 
-
-Берём остаток в интегральной форме:
-
-\[
-    R_{n, x_0} f(x) = \frac{1}{n!} \int_{x_0}^x f^{(n + 1)}(t) (x - t) ^ n dt = 
-\]
-
-\[
-    \exists \theta : \frac{1}{n!} f^{(n + 1)} (\theta) \int_{x_0}^x (x - t) ^ n dt = \frac{1}{(n + 1)!} f^{(n + 1)}(\theta) \cdot (x - x_0) ^ {(n + 1)} \text{ --- остаток в форме Лагранжа}
-\]
-
-\quad
-
-Некоторые студенты на экзамене стали жертвой следующего:
-
-\[
-    \ln{(1+x)} = x - \frac{x ^ 2}{2} + \frac{x ^ 3}{3} - ... + R_n
-\]
-
-\[
-    R_n = \frac{n!}{(n + 1)!} \cdot \frac{(-1) ^ {n + 1}}{(1 + \theta) ^ n} \cdot x^{n + 1} = \frac{(-1) ^ {n + 1}}{n + 1} \cdot \frac{x ^ {n + 1}}{(1 + \theta) ^ n}
-\]
-
-\quad 
-
-При каких $x$,\, $R_n \to 0$?
-
-При $x \in (0, 1)$ утверждение очевидно, но что делать при $x \in (-1, 0)$?
-
-\[
-    R_n = \frac{1}{n!} \int_0^x ... \text{ To be continued (Федор Львович думал, что так можно, но не получилось :) )}
-\]
-
+\begin{remark}
+    Некоторые студенты на экзамене стали жертвой следующего:
+    \[
+        \ln{(1+x)} = x - \frac{x ^ 2}{2} + \frac{x ^ 3}{3} - ... + R_n
+    \]
+    \[
+        R_n = \frac{n!}{(n + 1)!} \cdot \frac{(-1) ^ {n + 1}}{(1 + \theta) ^ n} \cdot x^{n + 1} = \frac{(-1) ^ {n + 1}}{n + 1} \cdot \frac{x ^ {n + 1}}{(1 + \theta) ^ n}
+    \]
+    \quad 
+    При каких $x$,\, $R_n \to 0$?
+    При $x \in (0, 1)$ утверждение очевидно, но что делать при $x \in (-1, 0)$?
+    \[
+        R_n = \frac{1}{n!} \int_0^x ... \text{ To be continued (Федор Львович думал, что так можно, но не получилось :) )}
+    \]
+\end{remark}
 \newpage 
 
 \subsection{Приближенное вычисление интеграла}
 
 \begin{definition}
-    $[a, b], \tau $ --- дробление отрезка $[a, b]$ $\tau = \{ x_0, x_1, ..., x_n \}$, \\
-    где $a = x_0 < x_1 < ... < x_n = b$ \quad $|\tau|
-    = \max\limits_{k = 0, ..., n - 1} \lvert x_{k + 1} - x_k \rvert$ - мелкость (ранг) дробления
+    $[a, b], \tau $ --- дробление отрезка $[a, b]$ $\tau = \{ x_0, x_1, \ldots, x_n \}$, \\
+    где $a = x_0 < x_1 < \ldots < x_n = b$ \quad $|\tau|
+    = \max\limits_{k = 0, \ldots, n - 1} \lvert x_{k + 1} - x_k \rvert$ - мелкость (ранг) дробления
 
-    $\theta = \{ t_1, ..., t_n\}$ -- оснащение дробления $\tau$, где $t_j \in [x_{j - 1}, x_j]$
+    $\theta = \{ t_1, \ldots, t_n\}$ -- оснащение дробления $\tau$, где $t_j \in [x_{j - 1}, x_j]$
 
     $(\tau, \theta) $ --- оснащенное дробление
 
     $f \in C[a, b]$ интегральная сумма $S_{\tau, \theta} (f) = \sum\limits_{j = 0}^{n - 1} f(t_{j + 1}) (x_{j + 1} - x_j)$
 \end{definition}
 
-
-
 \quad
-
 
 % Pattern Info
  
@@ -288,10 +270,10 @@ pattern radius = 1pt}
 
 \end{tikzpicture}
 
-
-
 \begin{theorem}
-    $f \in C[a, b] \Rightarrow S_{\tau, \theta}(f) \underset{|\tau| \to 0} {\to} \int_a^b f(x) dx$, \\ \\ т.е. $\forall \varepsilon > 0 \,\, \exists \delta > 0 : \forall \tau, \theta : | \tau | < \delta \Rightarrow \abs{ \int_a^b f dx - S_{\tau, \theta}(f)} < \varepsilon$
+    $f \in C[a, b] \Rightarrow S_{\tau, \theta}(f) \underset{|\tau| \to 0} {\to} \int_a^b f(x) dx$, 
+    \\ \\
+    т.е. $\forall \varepsilon > 0 \,\, \exists \delta > 0 : \forall \tau, \theta : | \tau | < \delta \Rightarrow \abs{ \int_a^b f dx - S_{\tau, \theta}(f)} < \varepsilon$
 \end{theorem}
 
 \quad
@@ -310,15 +292,15 @@ pattern radius = 1pt}
     По теореме Кантора $\forall \varepsilon > 0 \,\, \exists \, \delta > 0 : \forall x, y \in [a, b] : \abs{x - y} < \delta \Rightarrow \abs{f(x) - f(y)} < \frac{\varepsilon}{b - a}$
 
     Берем дробление $\tau : \abs{\tau}  < \delta $
-
     \[
-        \abs{\sum_{j = 1}^n f(t_j) (x_j - x_{j - 1}) - \sum_{j = 1}^n \int_{x_{j - 1}}^{x_j} f(x) dx} = \abs{\sum_{j = 1}^n f(t_j) (x_j - x_{j - 1}) - \sum_{j = 1}^n f(c_j) \cdot (x_j - x_{j - 1}) dx} = 
-    \]
-
-    \[
-        = \abs{
-            \sum_{j = 1} ^ n (f(t_j) - f(c_j)) \cdot (x_j - x_{j - 1})
-        } < \frac{\varepsilon}{b - a} \sum_{j = 1} ^ n (x_j - x_{j - 1}) = \varepsilon
+        \begin{gathered}
+            \abs{S_{\tau, \theta} - \int\limits_{a}^{b}{f(x)\ dx}}=
+            \abs{\sum_{j = 1}^n f(t_j) (x_j - x_{j - 1}) - \sum_{j = 1}^n \int_{x_{j - 1}}^{x_j} f(x)\ dx} =\\
+            =\text{(по теореме о среднем)}=\abs{\sum_{j = 1}^n f(t_j) (x_j - x_{j - 1}) - \sum_{j = 1}^n f(c_j) \cdot (x_j - x_{j - 1})} = \\
+            = \abs{
+                \sum_{j = 1} ^ n (f(t_j) - f(c_j)) \cdot (x_j - x_{j - 1})
+            } < \frac{\varepsilon}{b - a} \sum_{j = 1} ^ n (x_j - x_{j - 1}) = \varepsilon
+        \end{gathered}
     \]
 \end{proof}
 
@@ -329,72 +311,125 @@ pattern radius = 1pt}
 
 \begin{example}
     \begin{enumerate}
-        \item \[
-            \int_0^{a} e^x dx = \,? , \,\,\, \tau = \left\{ 0, \frac{a}{n}, \frac{2a}{n}, ..., \frac{na}{n} \right\}, \,\,\, \theta = \left\{ 0, \frac{a}{n}, ... , \frac{n - 1}{n} a \right\}
-        \]
-    
-        \[
-            S_{\tau, \theta} f = \sum_{j = 1}^n f \left( \frac{a_{j - 1}}{n} \right)(x_j - x_{j - 1}) = \frac{a}{n} \cdot \left( 1 + e ^ {a / n} + ... + e ^{\frac{n - 1}{n} a} \right) = \frac{a}{n} \cdot \frac{e ^ {\frac{na}{n}} - 1}{e ^ {a / n} - 1} \to e^a - 1
-        \]
-        \\
-        \item
-        \[
-            1 ^ p + 2 ^ p + ... n ^ p = n ^ {p + 1} \cdot \left( \left( \frac{1}{n} \right) ^ p + ... + \left( \frac{n}{n} \right) ^ p \right)/ n \, \ceq
-        \]
+    \item 
+    \[
+        \begin{gathered}
+            \int_0^{a} e^x dx = \,? , \,\,\, \tau = \left\{ 0, \frac{a}{n}, \frac{2a}{n}, \ldots, \frac{na}{n} \right\}, \,\,\, \theta = \left\{ 0, \frac{a}{n}, \ldots , \frac{n - 1}{n} a \right\}\\
+            S_{\tau, \theta} f = \sum_{j = 1}^n f \left( \frac{a_{j - 1}}{n} \right)(x_j - x_{j - 1}) 
+            = \frac{a}{n} \cdot \left( 1 + e ^ {\frac{1}{n}a} + \ldots + e ^{\frac{n - 1}{n} a} \right) 
+            = \frac{a}{n} \cdot \frac{e ^ {\frac{na}{n}} - 1}{e ^ {\frac{a}{n}} - 1} \to e^a - 1
+        \end{gathered}
+    \]
+    \item
+    \[
+        \begin{gathered}
+            1 ^ p + 2 ^ p + \ldots + n ^ p = n ^ {p + 1} \cdot \frac{1}{n} \left( \left( \frac{1}{n} \right) ^ p + \ldots + \left( \frac{n}{n} \right) ^ p \right) \, \ceq\\
+            \tau = \left\{ 0, \frac{1}{n}, \ldots , \frac{n}{n} \right\}, \theta = \left\{\frac{1}{n}, \ldots , \frac{n}{n}  \right\}, f(x) = x ^ p\\
+            \ceq \, n ^ {p + 1} S_{\tau, \theta} f = \left[\frac{1 ^ p + \ldots + n ^ p}{(n + 1) ^ p} \to \int_0^1 x ^ p dx\right]
+            = \frac{n^{p + 1}}{p + 1} \Rightarrow 1 ^ p + \ldots + n ^ p \sim \frac{n ^ {p + 1}}{p + 1}
+        \end{gathered}
+    \]
 
-        \[
-            \tau = \left\{ 0, \frac{1}{n}, ... , \frac{n}{n} \right\}, \theta = \left\{\frac{1}{n}, ... , \frac{n}{n}  \right\}, f(x) = x ^ p
-        \]
+    \item интеграл Пуассона
+    \[
+        \int_0^\pi \log{(1 - 2a \cos{x} + a ^ 2)} dx
+    \]
 
-        \[
-            \ceq \, n ^ {p + 1} S_{\tau, \theta} f \Rightarrow \frac{1 ^ p + ... + n ^ p}{(n + 1) ^ p} \to \int_0^1 x ^ p dx = \frac{1}{p + 1} \Rightarrow 1 ^ p + ... + n ^ p \sim \frac{n ^ {p + 1}}{p + 1}
-        \]
+    \[
+        f = \log{(1 - 2a \cos{x} + a ^ 2)},\, [0, \pi],\, \tau = \left\{0, \frac{\pi}{n}, \ldots , \frac{\pi n}{n} \right\}, \theta = \left\{0, \frac{\pi}{n}, \ldots , \frac{\pi (n - 1)}{n} \right\}
+    \]
 
-        \item интеграл Пуассона
-        \[
-            \int_0^\pi \log{(1 - 2a \cos{x} + a ^ 2)} dx
-        \]
+    \[
+        S_{\tau, \theta} f = \sum_{j = 1}^n \frac{\pi}{n} \cdot \log\left(1 - 2a \cos{\frac{\pi (j - 1)}{n} + a ^ 2}\right) = \frac{\pi}{n} \log\left(\prod_{j = 1}^n \left(1 - 2a \cos{\frac{\pi (j - 1)}{n} + a ^ 2}\right)\right)
+    \]
 
-        \[
-            f = \log{(1 - 2a \cos{x} + a ^ 2)},\, [0, \pi],\, \tau = \left\{0, \frac{\pi}{n}, ... , \frac{\pi n}{n} \right\}, \theta = \left\{0, \frac{\pi}{n}, ... , \frac{\pi (n - 1)}{n} \right\}
-        \]
-
-        \[
-            S_{\tau, \theta} f = \sum_{j = 1}^n \frac{\pi}{n} \cdot \log{(1 - 2a \cos{\frac{\pi (j - 1)}{n} + a ^ 2})} = \frac{\pi}{n} \log{\prod_{j = 1}^n (1 - 2a \cos{\frac{\pi (j - 1)}{n} + a ^ 2})} \ceq
-        \]
-
-        Заметим, что $a ^ 2 - 2a \cos{\theta} + 1 = (a - e ^ {-i \theta})(a - e ^ {i \theta})$
-
-        \[
-            \prod_{j = 1}^n (1 - 2a \cos{\frac{\pi (j - 1)}{n} + a ^ 2}) =  \prod_{j = 1}^n (a - e ^ {\frac{-\pi (j - 1)}{n} i })(a - e ^ {\frac{\pi (j - 1)}{n} i }) = \frac{(a ^ {2n} - 1) \cdot (a - 1)}{(a + 1)}
-        \]
-
-        \[
-            \ceq \frac{\pi}{n} \cdot \log{\frac{(a ^ {2n} - 1)(a - 1)}{a + 1}} \underset{n \to \infty}{\to} \begin{cases}
-                0 & \abs{a} < 1 \\
-                2 \pi \log{\abs{a}} & \abs{a} > 1 \\
-                ? & \abs{a} = 1
-              \end{cases}
-        \]
+    Заметим, что $a ^ 2 - 2a \cos{\theta} + 1 = (a - e ^ {-i \theta})(a - e ^ {i \theta})$:
+    \[
+        \begin{gathered}
+            \prod_{j = 1}^n \left(1 - 2a \cos{\frac{\pi (j - 1)}{n} + a ^ 2}\right)=
+            \prod_{j = 1}^n \left(a - e ^ {\frac{-\pi (j - 1)}{n} i }\right)\left(a - e ^ {\frac{\pi (j - 1)}{n} i }\right)=\\
+            =\left[(z^{2n} - 1) = \prod\limits_{j=0}^{2n}{z - e^{i\frac{j \pi}{n}}}\right]=
+            \frac{(a ^ {2n} - 1) \cdot (a - 1)}{(a + 1)} 
+        \end{gathered}
+    \]
+    Тогда, использовав полученное равенство в исходном уравнение, получим, что 
+    \[
+        \frac{\pi}{n} \log\left(\prod_{j = 1}^n \left(1 - 2a \cos{\frac{\pi (j - 1)}{n} + a ^ 2}\right)\right)=
+        \frac{\pi}{n} \cdot \log{\frac{(a ^ {2n} - 1)(a - 1)}{a + 1}} \underset{n \to \infty}{\to}
+        \begin{cases}
+            0 & \abs{a} < 1 \\
+            2 \pi \log{\abs{a}} & \abs{a} > 1 \\
+            ? & \abs{a} = 1
+        \end{cases}
+    \]
+    Теперь необходимо разобраться со случаями $a = 1$ и $a = -1$.
+    \begin{itemize}
+        \item $a = 1$\\
+            В данном случае можно повторить рассуждения для общего случая, но взяв другое оснащение: 
+            \[
+                \theta' = \left\{\frac{\pi}{n}, \frac{2\pi}{n}, \dots, \frac{n\pi}{n}\right\}
+            \] 
+            Тогда получим, что 
+            \[
+                S_{\tau, \theta'} = \frac{\pi}{n} \log\left(\prod_{j = 1}^n \left(1 - 2a \cos{\frac{\pi j}{n} + a ^ 2}\right)\right)=
+                \frac{\pi}{n} \cdot \log{\frac{(a ^ {2n} - 1)(a + 1)}{a - 1}} \ceq\\
+            \] 
+            Последнее можно преобразовать по формуле $x^n - y^n = (x - y)(x^{n - 1} + x^{n - 2}y + \dots + y^{n - 1})$.
+            \[
+                \ceq \frac{\pi}{n}\cdot \log\left((a^{2n - 1}+a^{2n - 2} + \dots + 1)(a + 1)\right)
+                \underset{n\to\infty}{\to} \frac{\pi}{n}\log(2n)
+            \] 
+        \item $a = -1$\\
+            Из рассуждения для общего случая для оснащения $\theta$.
+            \[
+                S_{\tau,\theta} = \frac{\pi}{n} \cdot \log{\frac{(a ^ {2n} - 1)(a - 1)}{a + 1}} \ceq
+            \] 
+            Преобразуем по формуле $x^n - y^n = (x - y)(x^{n - 1} + x^{n - 2}y + \dots + y^{n - 1})$:
+            \[
+                \begin{gathered}
+                    \ceq \frac{\pi}{n}\log\frac{(a^2-1)(a^{2n - 2}+a^{2n - 4} + \dots + 1)(a-1)}{a+1}=\\=
+                    \frac{\pi}{n}\log\left((a-1)^2(a^{2n - 2}+a^{2n - 4} + \dots + 1)\right)
+                    \underset{n\to\infty}{\to} \frac{\pi}{n}\log(4n)
+                \end{gathered}
+            \] 
+    \end{itemize}
     \end{enumerate}
     
 \end{example}
 
 
 \begin{remark}
-    $\int_a^b f(x) dx \approx S_{\tau, \theta}(f)$
-    \,\, Можно ли оценить погрешность?
-
+    $\int_a^b f(x)\ dx \approx S_{\tau, \theta}(f)$
+    И можно оценить погрешность следующим образом:
+     \[
+        \abs{\int\limits_{a}^{b}{f(x)\ dx} - S_{\tau, \theta}(f)} \leqslant \max{\abs{f'}} \cdot \abs{\tau} (b - a) 
+    \] 
+\end{remark}
+\begin{proof}
+    Пусть $t_j, c_j \in [x_j, x_{j + 1}]$, где $t_j$~--- точки выбранного оснащения $\theta$, а для $c_j$ выполнено следующее:
     \[
-        \abs{\int - S} \leqslant \sum \abs{f(t_j) - f(c_j)}(x_{j + 1} - x_j) \leqslant \sum \abs{t_j - c_j} \max{\abs{f'}}(x_{j + 1} - x_j) \leqslant M \cdot \abs{\tau} (b - a) \text{, где } \max{\abs{f'}} = M 
+        \int\limits_{x_j}^{x_{j + 1}}{f(x)\ dx} = f(c) (x_{j + 1} - x_j)
     \]
-\end{remark} 
+    Тогда, пользуясь выкладками из прошлой теоремы, можно утверждать, что:
+     \[
+        \abs{\int\limits_{a}^{b}{f(x)\ dx} - S_{\tau, \theta}(f)} =
+        \sum\limits_{j = 1}^{n} \abs{f(t_j) - f(c_j)}(x_{j + 1} - x_j) 
+    \] 
+    Тогда, если мы знаем $\max{\abs{f'}}$, то, пользуясь тем, что $t_j, c_j \in [x_j, x_{j + 1}] \Rightarrow \abs{t_j - c_j} \le \abs{\tau}$,
+    можно дать следующую оценку:
+    \[
+        \begin{gathered}
+            \sum\limits_{j = 1}^{n} \abs{f(t_j) - f(c_j)}(x_{j + 1} - x_j) \leqslant 
+            \sum\limits_{j = 1}^{n} \abs{t_j - c_j} \max{\abs{f'}}(x_{j + 1} - x_j) \leqslant 
+            \max{\abs{f'}} \cdot \abs{\tau} (b - a) 
+        \end{gathered}
+    \]
+\end{proof} 
 \quad 
 
 \begin{remark}
-    Более точная формула для приблеженного вычисления интеграла
+    Более точная формула для приближенного вычисления интеграла
 \end{remark}
-
 
 
 % Pattern Info
