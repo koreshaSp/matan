@@ -214,7 +214,7 @@ $\int_0^\infty \frac{sinx}{x} dx$ сходится ли?
 
 
 \begin{namedtheorem}{признаки Дирихле и Абеля}
-    $f, g \in C[a, b], g \in C^1[a, b], \int_a^{\to b} fg dx$
+    $f, g \in C[a, b), g \in C^1[a, b], \int_a^{\to b} fg dx$
 \end{namedtheorem}
 
 \begin{namedtheorem}{признак Дирихле}
@@ -238,7 +238,7 @@ $\int_0^\infty \frac{sinx}{x} dx$ сходится ли?
     
     (п.Д.) $F$ --- ограничено в $b-$, $g(x) \to 0 \hence F(x)g(x) \to 0, $ при $x \to b-$
 
-    (п.А.) $F$ имеет предел, $g(x)$ тоже имеет предел $\exists \lim_{x \to b-} F, \lim_{x  \to b-} g \hence \exists \lim_{x\to b-} Fg$
+    (п.А.) $F$ имеет предел, $g(x)$ тоже имеет предел $\exists \lim\limits_{x \to b-} F, \lim\limits_{x  \to b-} g \hence \exists \lim_{x\to b-} Fg$
 
     Следовательно, и в признаке Дирихле и в признаке Абеля двоя подстановка определена
 
@@ -280,14 +280,14 @@ $\int_0^\infty \frac{sinx}{x} dx$ сходится ли?
 
 $\left. 
     \begin{array}{lr}
-    \sin x \text{ имеет ограниченную первообрзную} \\
+    \sin x \text{ имеет ограниченную первообразную} \\
     \alpha > 0 \hence \frac{1}{x ^ \alpha} \dec 0
     \end{array}
- \right\} \hence \alpha > 0 \hence $ интерграл сходится
+ \right\} \hence \alpha > 0 \hence $ интеграл сходится
 
 \quad
 
-$\but$ не стоит думать про интергралы, как про ряды. Контрпример:
+$\but$ не стоит думать про интегралы, как про ряды. Контрпример:
 
 $\int_{10}^{+\infty} \sin(x^2) dx = C \cdot \int_{?}^{+\infty} \frac{\sin y}{\sqrt{y}} dy$ и т.к. $\alpha > 0$ он сходится, хотя общий член к нулю не стремится.
 
@@ -310,7 +310,7 @@ $\al \geqslant 0$ --- Критерий Коши
 \subsection{Вычисление площадей и объемов}
 
 \begin{enumerate}
-    \item $f \in C[a, b], f \geqslant 0 S(P_f[a, b]) = \int_a^b f dx$ --- площадь подграфика.
+    \item $f \in C[a, b], f \geqslant 0, \ S(P_f[a, b]) = \int_a^b f dx$ --- площадь подграфика.
     \item Площадь криволинейной трапеции
     
     $f, g \in C[a, b], f \geqslant g \hence S(\Phi) = \int_a^b (f - g) dx$

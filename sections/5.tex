@@ -1,9 +1,9 @@
 \section*{Лекция 5 (17.03.2022)}
 \subsection{Вводная в кривые}
-\begin{definition}
-    Путь в $\R^m$ \, $\gamma : [a, b] \mapsto \R^m$~--- непрерывное.
+\begin{definition}{Путь}
+    Путь в $\R^m x : [a, b] \mapsto \R^m$~--- непрерывное.
 \end{definition}
-\begin{definition}
+\begin{definition}{Носитель пути}
     Носитель пути: $\gamma([a, b])\in \R^m$
 \end{definition}
 \begin{definition}
@@ -15,7 +15,8 @@
 \end{definition}
 \begin{remark}
     Можно определять путь покоординатно:
-    $\gamma(t) = (\gamma_1(t),\dots, \gamma_m(t))$, где $\gamma_i$~--- координатные функции.
+    $\gamma(t) = (\gamma_1(t),\dots, \gamma_m(t))$ 
+    Где $\gamma_i$~--- координатные функции.
 \end{remark}
 \begin{definition}
     Назовём два пути $\gamma_1\colon [a,b]\mapsto \R^m$ и
@@ -28,7 +29,7 @@
     Это отношение эквивалентности.
 \end{remark}
 \begin{definition}
-    Кривая в $\R_m$~--- класс эквивалентности путей.
+    Кривая в $\R_m$~--- класс эквивалентности путей
     Представители~--- параметризация.
 \end{definition}
 \begin{remark}
@@ -58,7 +59,7 @@
     $\gamma\colon [a, b]\mapsto \R^m$~--- путь.
     $\theta = \{t_0,\dots, t_n\}, a = t_0 < t_1 < \dots < t_n = b$~---
     разбиение $[a, b]$.
-    $l_\theta(\gamma) = \sum_{j = 1}^{n}
+    $l_\theta(\gamma) = \sum\limits_{j = 1}^{n}
     \abs{\gamma(t_j) - \gamma(t_{j - 1})};\\$
     Тогда длиной назовём  $l(\gamma) = \sup_\theta l_\theta(\gamma)$
 \end{definition}
@@ -75,28 +76,28 @@
 \end{theorem}
 % TODO: fix m;k macro for ~ symbol after math mode
 \begin{proof}
-    $\gamma_2\circ\varphi=\gamma_1$,
+    $\gamma_2\circ\varphi=\gamma_1$
     $\theta$~--- дробление $[a,b]$,
     $\varphi(\theta)$~--- дробление $[a,b]$.
     $\sum\limits_{j = 1}^{n}\abs{\gamma_1(t_j) - \gamma_1(t_{j-1})}=\\
-    \sum\limits_{j=1}^{n}\abs{\gamma_2(\varphi(t_j))-\gamma_2(\varphi(t_{j-1}))} \hence$ 
+    \sum\limits_{j=1}^{n}\abs{\gamma_2(\varphi(t_j))-\gamma_2(\varphi(t_{j-1}))}$.
     $l_{\theta}(\gamma_1) = l_{\varphi(\theta)}(\gamma_2)$
 \end{proof}
 \begin{theorem}
     $\gamma\colon [a,b]\mapsto\R^m, c\in(a,b)$.
     Пусть $\gamma_{-}=\gamma\big|_a^c, \gamma_{+} = \gamma\big|_c^b$.
-    Требуется доказать, что $l(\gamma)=l(\gamma_-) + l(\gamma_+)$
+    Требуется доказать, что $l(\varphi)=l(\varphi_-) + l(\varphi_+)$
 \end{theorem}
 \begin{proof}
     % TODO
     $\theta_-$~--- дробление $[a,c]$, $\theta_+$ ~-- дробление
-    $[c,b]\Rightarrow \theta = \theta_- \cup \theta_+$~---
-    дробление $[a,b]$.
+    $[c,b]\Rightarrow \theta = \theta_- + \theta_+$~---
+    дробление $[a,b]$
     Докажем неравенство в две стороны.
     \[
-        l(\gamma)\geq l_{\theta}(\gamma) = l_{\theta_-}(\gamma_-) + l_{\theta_+}(\gamma_+)\Rightarrow\\
+        l(\varphi)\geq l_{\theta}(\varphi) = l_{\theta_-}(\varphi_i) + l_{\theta_+}(\varphi_i)\Rightarrow\\
     \]\[
-        l(\gamma)\ge \sup_{\theta_-}l_{\theta_-}(\gamma_-) + 
+        l(\varphi)\ge \sup_{\theta_-}l_{\theta_-}(\gamma_-) + 
         \sup_{\theta_+}l_{\theta_+}(\gamma_+) = l(\gamma_-) + l(\gamma_+)
     .\] 
     Докажем в обратную сторону.
@@ -105,19 +106,19 @@
     \[
         l_{\theta}(\gamma)\leq l_{\overline{\theta}}(\gamma) =
         l_{\theta-}(\gamma_-) + l_{\theta+}(\gamma_+)\leq
-        l(\gamma_-)+l(\gamma_+)\Rightarrow 
+        l(\gamma_i)+l(\gamma_+)\Rightarrow 
         \sup_{\theta}l_{\theta}(\gamma)\leq l(\gamma_-) + l(\gamma_+)
     .\] 
 \end{proof}
 \begin{namedtheorem}{O длине гладкого пути}
-    $\gamma\colon[a,b]\mapsto\R^m, \gamma_j \in C^1[a,b] \Rightarrow 
+    $\gamma\colon[a,b]\mapsto\R^m, \gamma_j=C'[a,b] \Rightarrow 
     l(\gamma)=\bigintss_{a}^{b}\abs{\gamma'(t)}dt$, где
-    $\abs{\gamma'(t)} = \sqrt{\sum\limits_{j=1}^{m}{\abs{\gamma'_j(t)}}^2}$
+    $\abs{\gamma'(t)} = \sqrt{\sum\limits_{j=1}^{m}{\abs{\gamma_j(t)}}^2}$
 \end{namedtheorem}
 \begin{proof}
     $\theta$ ~--- дробление $[a,b]$,  
     $\theta\colon a = t_0<\dots<t_n=b$ 
-    $$l_{\theta}(\gamma)=\sum\limits_{j=1}^{m}{\abs{\gamma(t_j) - \gamma(t_{j-1})}}$$
+    $$l_{\theta}(\gamma)=\sum\limits_{j=1}^{m}{\gamma(t_j) - \gamma(t_{j-1})}$$
      \[
          \abs{\gamma(t_j)-\gamma(t_{j-1})}=
          \sqrt{\sum\limits_{k=1}^{m}\abs{\gamma_k(t_j)-\gamma_k(t_{j-1})}^2}=
@@ -148,11 +149,11 @@
 
      Тогда для  $\varepsilon > 0$ по теореме кантора $\delta > 0\colon\\
      \forall s,t\in [a,b]\colon \abs{s - t} < \delta, 
-     \forall k = 1\dots m, (\gamma'_k(s)-\gamma'_k(t)) < \varepsilon$. 
-     Тогда $\abs{M_{j,k}-m_{j,k}}<\varepsilon$, если $t_j - t_{j-1}<\delta$.
+     \forall k = 1\dots m, \abs{\gamma'_k(s)-\gamma'_k(t)} < \varepsilon$ 
+     Тогда $\abs{M_{j,k}-m_{j,k}}<\varepsilon$ если $t_j - t_{j-1}<\delta$.
      \[
-         \abs{\sqrt{\sum\limits_{k=1}^{m}{M^2_{j,k}}}-
-         \sqrt{\sum\limits_{k=1}^{m}{m^2_{j,k}}}} \leq
+         \sqrt{\sum\limits_{k=1}^{m}{M^2_{j,k}}}-
+         \sqrt{\sum\limits_{k=1}^{m}{m^2_{j,k}}} \leq
          \sqrt{\sum\limits_{k=1}^{m}{(M_{j,k} - m_{j,k})^2}}<
          \sqrt{m}\varepsilon
      .\] 
@@ -169,7 +170,7 @@
             $l(G_f)=\bigintss\limits_{a}^{b}{\sqrt{1 + (f'(x))^2}dx}$
         \item
             Есть функция 
-            $r\colon [\alpha, \beta]\mapsto \R_+, r\in C^1[\alpha, \beta]$. 
+            $r\colon [\alpha, \beta]\mapsto \R_+, r\in C^1[\alpha, \beta]$
             Тогда можно запараметризовать эту кривую как:
             $(r(t)\cos t, r(t)\sin t)$, обозначим за координаты
             $x(t), y(t)$ соответственно.
@@ -262,7 +263,7 @@
     \begin{enumerate}
         \item$U$ ~--- непрерывно
         \item $U$ ~--- непрерывно в 0
-        \item $\exists C\colon \forall x\in X, \abs{\abs{U_x}}_Y\leq C\abs{\abs{x}}_x$
+        \item $\exists C\colon \forall x\in X, \abs{\abs{Ux}}_Y\leq C\abs{\abs{x}}_x$
     \end{enumerate}
 \end{namedtheorem}
 \begin{proof}
@@ -273,10 +274,9 @@
              \forall x\colon \norm{x}\leq\delta, \norm{Ux}\leq \varepsilon$.
              $x \rightarrow \overline{x} = x\frac{\delta}{\norm{x}}
              \Rightarrow \norm{U\overline{x}}\leq \varepsilon$ 
-
-             $\hence C = \frac{\varepsilon}{\delta} $ --- подходит
+             % TODO недоделано
         \item $(3)\Rightarrow(1)$
-             $\norm{U(x_1) - U(x_2)} \leqslant C \norm{x_1 - x_2} $ --- 
+             % $\|U(x_1) - U(x_2)\| \leq C\|x_1 - x_2\|$~---
              липшецевость  $\Rightarrow$ непрерывное.
     \end{enumerate}
 \end{proof}
@@ -294,25 +294,19 @@
     \end{enumerate}
 \end{theorem}
 \begin{remark}
-    Какая должна быть норма в произведение пространств?
-
-    $\norm{(x_1, x_2, ..., x_n)}_{x_1 \times x_2 \times ... \times x_n}$ 
-    $= \norm{x_1}_{x_1} + ... + \norm{x_n}_{x_n}$ 
-    
-    (или какая-то другая, т.к. они все эквивалентны)
+    % TODO
 \end{remark}
 \begin{definition}
     $U: X\rightarrow Y$ ~--- лно.
-    $\norm{U} = \inf\{C \mid \forall x\in X \,\, \norm{Ux}\leq C\norm{x}\}$ 
-    --- норма отображения
+    $\norm{U} = \inf\{C \mid \forall x\in X \norm{Ux}\leq C\norm{x}\}$
 \end{definition}
 \begin{remark}
-$\inf$ достигается, то есть: $\forall x\in X, \norm{Ux}\leq
+$\inf$ достигается то есть: $\forall x\in X, \norm{Ux}\leq
     \norm{U}\cdot \norm{x}$
 \end{remark}
 \begin{example}
     $U\colon C[a,b]\mapsto C[a,b]$, причём
     $(Uf)(x) = \bigintss\limits_{a}^{x}{f(t)dt}$.
     Хотим оценить.
-    $\norm{Uf} \leqslant (b - a) \norm {f} \hence \norm{U} = b - a$
+    % TODO
 \end{example}
