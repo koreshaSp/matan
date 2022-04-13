@@ -32,7 +32,7 @@
     
     \item $\int \lambda f dx = \lambda \int f dx, \lambda \neq 0$
         
-    \item $\int \alpha f(x) + \beta g(x) dx = \alpha \int f(x) dx + \beta g(x) dx, \alpha^2 + \beta^2 \neq 0$
+    \item $\int \alpha f(x) + \beta g(x) dx = \alpha \int f(x) dx + \beta \int g(x) dx, \alpha^2 + \beta^2 \neq 0$
         
     \item (замена переменной в неопр. интеграле) \\
     $f : (a, b) \rightarrow \R, F$ - первообразная $f$, $\phi:(c, d) \rightarrow (a, b), 
@@ -156,8 +156,8 @@
         Тогда $\sum\limits_{j=1}^N \sigma_1(P_j) = \sum\limits_{j=1}^n \sigma_1(P_j^-) + \sum\limits_{j=1}^n \sigma_1(P_j^+) \geq \sigma_1(E_-) + \sigma_1(E_+)$ \\
         $\Rightarrow \sigma_1(E) \geq \sigma_1(E_-) + \sigma_1(E_+)$ \\
         
-        \circled{$\leq$} $P_1, \ldots, P_k$ - покрытие $E_-$ с точность $\varepsilon$,  \\
-        $P_{k + 1}, \ldots, P_n$ - покрытие $E_+$ с точность $\varepsilon$ \\
+        \circled{$\leq$} $P_1, \ldots, P_k$ - покрытие $E_-$ с точностью $\varepsilon$,  \\
+        $P_{k + 1}, \ldots, P_n$ - покрытие $E_+$ с точностью $\varepsilon$ \\
         $\Rightarrow \sigma_1(E_-) + \varepsilon \geq \sigma_1(P_1) + \ldots + \sigma_1(P_k)$ \\
         $\sigma_1(E_+) + \varepsilon \geq \sigma_1(P_{k + 1}) + \ldots + \sigma_1(P_n)$ \\
         $\Rightarrow \sigma_1(E_-) + \sigma_1(E_+) + 2\varepsilon \geq \sum\limits_{j = 1}^N \sigma_1(P_j) \geq \sigma_1(E)$
@@ -286,43 +286,70 @@
     \item(формула Ньютона-Лейбница) $F$ - первообразная $\Rightarrow$ \\
     $\int_a^b f(x) dx = F(b) - F(a) = F|_a^b$
     \begin{proof}
-        \[ \Phi(x) = \int_a^x f \Rightarrow F = \Phi + c \Rightarrow F(b) - F(a)
-        = \Phi(b) - \Phi(a) = \int_a^b f \]
+        \[ \Phi(x) = \int_a^x f(t) dt \Rightarrow F = \Phi + c \Rightarrow F(b) - F(a)
+        = \Phi(b) - \Phi(a) \stackrel{\Phi(a)=0}{=} \int_a^b f(t) dt \]
     \end{proof}
 
-    \item(Линейность интеграла) \[f, g \in C[a, b], \alpha, \beta \in R \Rightarrow
-    \int_a^b (\alpha f + \beta g) dx = \alpha \int_a^b f dx + \beta \int_a^b g dx \] 
+\item(Линейность интеграла) \[f, g \in C[a, b], \alpha, \beta \in \mathbb{R} \Rightarrow
+    \int_a^b \alpha f + \beta g\ dx = \alpha \int_a^b f\ dx + \beta \int_a^b g\ dx \] 
     \begin{proof}
-        Следует из существования первообразной.
+        Следует из существования первообразной и её свойств.
+         \[
+             \begin{gathered}
+             \int\limits_{a}^{b}{\alpha f + \beta g\ dx} = 
+             \left(\int \alpha f  + \beta g\ dx\right)(b) -
+             \left(\int \alpha f + \beta g\ dx\right)(a)
+             =\\=
+             \alpha \left(\int f\ dx\right)(b) + \beta \left(\int g\ dx\right)(b) -
+             \alpha \left(\int f\ dx\right)(a) + \beta \left(\int g\ dx\right)(a) 
+             =\\=
+             \alpha \int_a^b f\ dx + \beta \int_a^b g\ dx
+             \end{gathered}
+        \] 
     \end{proof}
-    \item $|\int_a^b f dx| \leq \int_a^b |f| dx$
+    \item $\abs{\int_a^b f\ dx} \leq \int_a^b \abs{f}\ dx$
     \begin{proof}
-        \[ \left|\int_a^b f\right| = \left|\int_a^b f_+ - \int_a^b f_-\right| \leq
-            \int_a^b f_+ + \int_a^b f_- = \int_a^b |f| \]
+        \[ 
+            \abs{\int_a^b f\ dx} = \abs{\int_a^b f_+\ dx - \int_a^b f_-\ dx} 
+            \stackrel{\int_a^b f_- dx \ge 0}{\leq}
+            \int_a^b f_+\ dx + \int_a^b f_-\ dx = \int_a^b \abs{f}\ dx 
+        \]
     \end{proof}
     
-    \item(формула интегрирования по частям)
-    \[f, x \in C^1[a, b] \Rightarrow
-    \int_a^b f(x) g'(x) dx = f(x)g(x)\bigg|_a^b - \int_a^b f'(x)g(x) dx \]
+    \item(Формула интегрирования по частям)
+    \[f, g \in C^1[a, b] \Rightarrow
+    \int_a^b f(x) g'(x)\ dx = f(x)g(x)\bigg|_a^b - \int_a^b f'(x)g(x)\ dx \]
 
     \begin{proof}
         Следует из формулы Ньютона-Лейбница и формулы интегрирования по частям для неопределенного интеграла.
     \end{proof}
 
-    \item(Замена переменной) $ f:[a, b] \to \R, \phi [c, d] \to [a, b], \phi \in C^1[c, d]$ 
+    \item(Замена переменной) $ f\colon [a, b] \to \R, \phi\colon [c, d] \to [a, b], \phi \in C^1[c, d]$ 
     \[\Rightarrow
-    \forall p, q \in [c, d] \hence \int_p^q f(\phi(t)) \phi'(t) dt
-    = \int_{\phi(p)}^{\phi(q)} f(x) dx\]
+    \forall p, q \in [c, d] \hence \int_p^q f(\phi(t)) \phi'(t)\ dt
+    = \int_{\phi(p)}^{\phi(q)} f(x)\ dx\]
 
     \begin{example}
         \begin{enumerate}
-            \item \[ \int_0^1 e^{\sin(x)} \cos(x) \ dx = [\sin(x) = y, dy = \cos(x) dx] 
-            = \int_{\sin(0)}^{sin(1)} e^y \ dy = \ldots \]
-            \item \[ \int_0^1 \sqrt{1 - x^2} \ dx = [x = \sin(y), dx 
-            = \cos(y) dy] = \int_0^{\arcsin(1)} \sqrt{1 - \sin^2(y)} \cos(y) \ dy 
-            = \int_0^{\frac \pi 2} \cos^2(y) \ dy \] 
-            \[ = \int_0^{\frac \pi 2} \frac {1 + \cos(2y)} 2 \ dy
-            = \int_0^{\frac \pi 2} \frac 1 2 \ dy = \frac \pi 4\]
+            \item 
+            \[
+                \int_0^1 e^{\sin(x)} \cos(x) \ dx = [y = \sin(x), dy = \cos(x)\ dx] 
+                = \int_{\sin(0)}^{sin(1)} e^y \ dy = \ldots
+            \]
+            \item 
+            \[
+                \begin{gathered}
+                    \int_0^1 \sqrt{1 - x^2} \ dx = [x = \sin(y), dx 
+                    = \cos(y)\ dy] =
+                    \int_0^{\arcsin(1)} \sqrt{1 - \sin^2(y)} \cos(y) \ dy 
+                    =\\= \int_0^{\frac \pi 2} \cos^2(y) \ dy 
+                    = \int_0^{\frac \pi 2} \frac {1 + \cos(2y)} 2 \ dy
+                    = \int_0^{\frac \pi 2} \frac 1 2 \ dy + 
+                    \frac{1}{2}\underbrace{\int_0^{\frac \pi 2} \cos(2y) \ dy}_{=0}
+                    = \int_0^{\frac \pi 2} \frac 1 2 \ dy
+                    = \frac \pi 4
+                \end{gathered}
+            \]
         \end{enumerate}
     \end{example}
 \end{properties}
