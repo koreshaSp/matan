@@ -8,7 +8,7 @@
 \]
 
 \[
-    || U || = inf \{ c : \forall x \in X ||Ux|| \leqslant C||x|| \}
+    || U || = \inf \{ c : \forall x \in X ||Ux|| \leqslant C||x|| \}
 \]
 
 \[
@@ -16,13 +16,13 @@
 \]
 
 \[
-    \norm{U} = sup_{x \not= 0}
+    \norm{U} = \sup_{x \not= 0}\left(\frac{\norm{Ux}}{\norm{x}}\right)
 \]
 \[
-    \frac{\norm{Ux}}{||x||} = sup_{||x||= 1 }{||U||}, \text{ но не максимум, т.к. сфера не обязательно компактна}
+    \norm{U} = \sup_{\norm{x}= 1 }{\frac{\norm{Ux}}{\norm{x}}}, \text{ но не максимум, т.к. сфера не обязательно компактна}
 \]
 \\
-\exercise  $\norm{U} = \sup_{\norm{x} < 1}{\norm{Ux}} = sup_{\norm{x} \leqslant 1} \norm{Ux}$
+\exercise  $\norm{U} = \sup_{\norm{x} < 1}{\norm{Ux}} = \sup_{\norm{x} \leqslant 1} \norm{Ux}$
 \\
 \begin{remark}
     $
@@ -30,7 +30,7 @@
     $ - полилинейное отображение
 
     \[
-        \norm{U} = inf \{ C: \forall x_1 \ in X_1, ..., \forall x_n \in X_m \norm{U(x_1, ..., x_n)} \leqslant C \norm{x_1} ... \norm{x_m}\}
+        \norm{U} = \inf \{ C: \forall x_1 \in X_1, ..., \forall x_n \in X_m \norm{U(x_1, ..., x_n)} \leqslant C \norm{x_1} ... \norm{x_m}\}
     \]
     
     \[
@@ -100,22 +100,20 @@
 
 \begin{proof}
    \begin{enumerate}
-       \item \[
-           \norm{(U_1 + U_2)x} = \norm{U_1x + U_2x} \leqslant \norm{U_1x} + \norm{U_2x} \leqslant \norm{U_1}{x} + \norm{U_2}{x} \leqslant (\norm{U_1} + \norm{U_2}) \norm{X}
-       \]
-   
+       \item 
        \[
-           \hence \norm{U_1 + U_2} \leqslant \norm{U_1} + \norm{U_2}
+           \norm{U_1 + U_2} = \sup_{\norm{x} = 1}\norm{U_1x + U_2x} \le
+           \sup_{\norm{x}=1}(\norm{U_1 x} + \norm{U_2 x}) \le
+           \sup_{\norm{x}=1}\norm{U_1 x} + \sup_{\norm{x} = 1}\norm{U_2 x} = \norm{U_1} + \norm{U_2}
        \]
-
        \item \[
-           \norm{\lambda u} = \sup_{\norm{x} = 1} {\norm{\lambda Ux}} = \abs{\lambda} sup_{\norm{x} = 1}{\norm{Ux}} = \abs{\lambda} \cdot \norm{U}
+           \norm{\lambda u} = \sup_{\norm{x} = 1} {\norm{\lambda Ux}} = \abs{\lambda} \sup_{\norm{x} = 1}{\norm{Ux}} = \abs{\lambda} \cdot \norm{U}
        \]
 
        \item Без комментариев
        
        \item \[
-           \norm{VUx} \leqslant \norm{V} \norm{Ux} \leqslant \underbrace{\norm{V} \cdot \norm{U} }_{ = C}  \cdot \norm{X} \hence \norm{VU} \leqslant \norm{V} \norm{U}
+           \norm{VUx} \leqslant \norm{V} \norm{Ux} \leqslant \underbrace{\norm{V} \cdot \norm{U} }_{ = C}  \cdot \norm{x} \hence \norm{VU} \leqslant \norm{V} \norm{U}
        \]
    \end{enumerate} 
         
@@ -157,7 +155,8 @@
 \begin{theorem}
     $X_1, ... X_s, X_{s + 1},...,X_k; Y$ - линейные нормированные пространства
 
-    $A = L(X_1, ..., X_s; L(X_{s + 1}, ..., X_k; Y)) \\\underbrace{\simeq}_{\text{изометрический изоморфизм(биекция, сохр. линейную струкутуру и норму)}} \\\\ L(X_1, ..., X_k; Y) = B$ 
+    $A = L(X_1, ..., X_s; L(X_{s + 1}, ..., X_k; Y)) \simeq L(X_1, ..., X_k; Y) = B$,
+    где $\simeq$~--- изометрический изоморфизм(биекция, сохр. линейную струкутуру и норму)
 \end{theorem}
 
 \begin{proof}
