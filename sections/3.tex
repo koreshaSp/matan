@@ -3,12 +3,13 @@
 $f \in C^2[a, b]$ \,\,\, $\theta = \{ x_0 = a, x_1, ... , x_n = b\}$
 
 \[
-    \abs{\int_a^b {f} dx - \sum_{j = 1} ^ n \frac{f(x_j) + f(x_{j - 1})}{2}} \leqslant \frac{\abs{\theta} ^ 2}{8} \int_a^b \abs{f''}, \text{ где } \abs{\theta} = \max{\abs{x_j - x_{j - 1}}} \text{ --- мелкость(ранг) разбиения}  
-\]
+\abs{\int_a^b {f} dx - \sum_{j = 1} ^ n (x_j - x_{j - 1}) \frac{f(x_j) + f(x_{j - 1})}{2}} \leqslant \frac{\abs{\theta} ^ 2}{8} \int_a^b \abs{f''},\]
+    где $\abs{\theta} = \max{\abs{x_j - x_{j - 1}}}$ --- мелкость(ранг) разбиения  
 
 \begin{proof}
     \begin{enumerate}
-        \item Разбиения в этой теореме не нужно. Достаточно доказать для отрезка, где $x_0 = a, x_1 = b$.
+        \item Разбиения в этой теореме не нужно. Достаточно доказать для для каждого отрезка разбив интегралы в сумму, 
+           поэтому далее будем доказывать в предположении, что $x_0 = a, x_1 = b$.
         
         \[
             \int_a^b \abs{f''} = \sum \int_{x_{j - 1}}^{x_j}
@@ -155,7 +156,15 @@ $f \in C^2[a, b]$ \,\,\, $\theta = \{ x_0 = a, x_1, ... , x_n = b\}$
 
     Применим формулу Валисса
     \[
-        C_{2n}^{n} = \frac{(2n)!}{n! n!} \sim \frac{\left( \frac{2n}{e} \right) ^ {2n} \sqrt{2n} \cdot c }{\left( \left( \frac{n}{e} \right) ^ n \sqrt{n} \cdot c \right) ^ 2} = \frac{1}{c} \cdot 4 ^ n \cdot \frac{1}{\sqrt{n}} \cdot \sqrt{2} \hence c = \sqrt{2 \pi}
+        \begin{gathered}
+            C_{2n}^{n} = \frac{(2n)!}{n! n!} \sim \frac{\left( \frac{2n}{e} \right) ^ {2n} \sqrt{2n} \cdot c }{\left( \left( \frac{n}{e} \right) ^ n \sqrt{n} \cdot c \right) ^ 2} =
+            \sqrt{\frac{2}{\pi}} \cdot \frac{4^n}{\sqrt{2n + 1}} \Rightarrow
+            \frac{4^n \left( \frac{n}{e} \right) ^ {2n} \sqrt{2n} \cdot c }{\left( \frac{n}{e} \right) ^ {2n} n \cdot c ^ 2} =
+            \sqrt{\frac{2}{\pi}} \cdot \frac{4^n}{\sqrt{2n + 1}} \hence\\\hence
+            \frac{1}{\sqrt{n} \cdot c} =
+            \sqrt{\frac{1}{\pi}} \cdot \frac{1}{\sqrt{2n + 1}} \hence
+            c = \sqrt{\pi \frac{2n + 1}{n}} \approx \sqrt{2 \pi}
+        \end{gathered}
     \]
     \end{enumerate}
 \end{examples}
@@ -299,7 +308,7 @@ $f \in C^2[a, b]$ \,\,\, $\theta = \{ x_0 = a, x_1, ... , x_n = b\}$
 \begin{proof}
     $\underbrace{F(B)}_{\text{--- некая первообразная}} = \int_a^B f dx $
 
-    $\int_a^{\to b} $ --- сх-ся $\Longleftrightarrow \lim\limits_{B \to b-} F(B) \Longleftrightarrow \forall \varepsilon > 0 \,\, \exists \delta \in [a, b) \,\, : \forall B_1, B_2  \in (\delta, b) \Rightarrow \\ \abs{F(B_1) - F(B_2)} < \varepsilon$ --- критерей Коши для функций.
+    $\int_a^{\to b} $ --- сх-ся $\Longleftrightarrow \lim\limits_{B \to b-} F(B) \Longleftrightarrow \forall \varepsilon > 0 \,\, \exists \delta \in [a, b) \,\, : \forall B_1, B_2  \in (\delta, b) \Rightarrow \\ \abs{F(B_1) - F(B_2)} < \varepsilon$ --- критерий Коши для функций.
 \end{proof}
 
 \begin{properties}{}
@@ -310,7 +319,8 @@ $f \in C^2[a, b]$ \,\,\, $\theta = \{ x_0 = a, x_1, ... , x_n = b\}$
 
     $\but$ Нужно понимать это так: если один из двух интегралов сходится, то сходится и второй и верно равенство
 
-    \item $\int_a^{\to b} f dx $ сх-ся $\hence \int_B^{\to b} f dx \to 0, B \to b-$ 
+    \item (стремление к нулю остатка)
+        $\int_a^{\to b} f dx $ сх-ся $\hence \int_B^{\to b} f dx \to 0, B \to b-$ 
     \item (линейность) $\int_a^{\to b}(\al f + \be g) dx = \al \int_a^{\to b} f(x) dx + \be \int_a^{\to b} g(x) dx$
     \item (монотонность) $f \geqslant g \hence \int_a^{\to b} f \geqslant \int_a^{\to b} g$
     \item $\int_a^{\to b} \abs{f} dx $ сх-ся $\hence \int_a^{\to b} f dx$ сходится и верно неравенство $\abs{\int_a^{\to b} f dx} \leqslant \int_a^{\to b} \abs{f} dx$

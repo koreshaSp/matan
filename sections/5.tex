@@ -1,13 +1,13 @@
 \section*{Лекция 5 (17.03.2022)}
 \subsection{Вводная в кривые}
-\begin{definition}{Путь}
-    Путь в $\R^m x : [a, b] \mapsto \R^m$~--- непрерывное.
-\end{definition}
-\begin{definition}{Носитель пути}
-    Носитель пути: $\gamma([a, b])\in \R^m$
+\begin{definition}
+    Путь в $\R^m, \gamma : [a, b] \mapsto \R^m$~--- непрерывное отображение из отрезка в $\R^m$.
 \end{definition}
 \begin{definition}
-    Путь замкнут если $\gamma(a) = \gamma(b)$.
+    Носителем пути или кривой назовём следующее множество точек: $\gamma\left([a, b]\right)\in \R^m$
+\end{definition}
+\begin{definition}
+    Путь замкнут если $\gamma(a) = \gamma(b)$. Иными словами путь замкнут, если начало пути совпадает с концом.
 \end{definition}
 \begin{definition}
     Если $\gamma$~--- инъекция, то такой путь называется
@@ -26,41 +26,40 @@
     $\gamma_2\circ \varphi = \gamma_1$.
 \end{definition}
 \begin{remark}
-    Это отношение эквивалентности.
+    Определение эквивалентности путей является корректным отношением эквивалентности для пространства путей в $\R^m$.
+
+    Можно воспринимать это следующим образом.
+    Кривая в $\R_m$~--- класс эквивалентности путей. Представители~--- параметризация отрезком.
 \end{remark}
-\begin{definition}
-    Кривая в $\R_m$~--- класс эквивалентности путей
-    Представители~--- параметризация.
-\end{definition}
-\begin{remark}
-    На самом деле параметризаций у одного носителя может быть
-    много. Например у полуокружности есть следующие параметризации:
-    $(\cos x, \sin x), (x, \sqrt{1 - x^2})$
-\end{remark}
+\begin{example}
+    У носителя пути есть различные параметризации:
+    $(\cos x, \sin x), (x, \sqrt{1 - x^2})$(полуокружность)
+\end{example}
 \begin{remark}
     Зная параметризацию можно определить носитель кривой,
     начало и конец, но хочется понимать ещё про гладкость.
 \end{remark}
 \begin{definition}
     $\gamma$ ~--- гладкий путь, если $\gamma_i\in C_1[a,b]$.\\
-    Гладкая кривая~--- кривая, у которой $\exists$ гладкая
-    параметризация.
+\end{definition}
+\begin{definition}
+    Гладкая кривая~--- кривая, у которой $\exists$ гладкий путь.
 \end{definition}
 \begin{remark}
     Нельзя утверждать, что у гладкой кривой есть явная касательная
     в каждой её точке.
 \end{remark}
 \subsection{Длина кривой}
-\begin{remark}
-    По факту, хотим подробить нашу кривую на маленькие отрезочки
-    и засуммировать их, давайте подумаем как это сделать аккуратно.
-\end{remark}
+По факту, хотим подробить нашу кривую на маленькие отрезочки
+и засуммировать их, давайте подумаем как это сделать аккуратно.\\
+\quad
 \begin{definition}
     $\gamma\colon [a, b]\mapsto \R^m$~--- путь.
     $\theta = \{t_0,\dots, t_n\}, a = t_0 < t_1 < \dots < t_n = b$~---
     разбиение $[a, b]$.
-    $l_\theta(\gamma) = \sum\limits_{j = 1}^{n}
-    \abs{\gamma(t_j) - \gamma(t_{j - 1})};\\$
+    \[
+        l_\theta(\gamma) = \sum\limits_{j = 1}^{n} \abs{\gamma(t_j) - \gamma(t_{j - 1})};\\
+    \]
     Тогда длиной назовём  $l(\gamma) = \sup_\theta l_\theta(\gamma)$
 \end{definition}
 \begin{remark}
@@ -71,54 +70,73 @@
     Посмотрим на $(x, x\sin \frac{1}{x})$
     Вопрос: Путь бесконечной длины?
 \end{remark}
-\begin{theorem}
+\begin{namedtheorem}{Независимость длины от параметризации}
     $\gamma_1 \sim \gamma_2\Rightarrow l(\gamma_1) = l(\gamma_2)$
-\end{theorem}
-% TODO: fix m;k macro for ~ symbol after math mode
+\end{namedtheorem}
 \begin{proof}
-    $\gamma_2\circ\varphi=\gamma_1$
     $\theta$~--- дробление $[a,b]$,
-    $\varphi(\theta)$~--- дробление $[a,b]$.
-    $\sum\limits_{j = 1}^{n}\abs{\gamma_1(t_j) - \gamma_1(t_{j-1})}=\\
-    \sum\limits_{j=1}^{n}\abs{\gamma_2(\varphi(t_j))-\gamma_2(\varphi(t_{j-1}))}$.
-    $l_{\theta}(\gamma_1) = l_{\varphi(\theta)}(\gamma_2)$
+    $\varphi(\theta)$~--- дробление $[c,d]$.
+    $\gamma_2\circ\varphi=\gamma_1$.
+    \[
+        \sum\limits_{j = 1}^{n}\abs{\gamma_1(t_j) - \gamma_1(t_{j-1})}=\\
+        \sum\limits_{j=1}^{n}\abs{\gamma_2(\varphi(t_j))-\gamma_2(\varphi(t_{j-1}))}
+        \Rightarrow
+        l_{\theta}(\gamma_1) = l_{\varphi(\theta)}(\gamma_2)
+    \]
 \end{proof}
-\begin{theorem}
+\begin{namedtheorem}{Аддитивность пути}
     $\gamma\colon [a,b]\mapsto\R^m, c\in(a,b)$.
-    Пусть $\gamma_{-}=\gamma\big|_a^c, \gamma_{+} = \gamma\big|_c^b$.
-    Требуется доказать, что $l(\varphi)=l(\varphi_-) + l(\varphi_+)$
-\end{theorem}
+    Пусть $\gamma_{-}=\gamma\big|_{[a,b]}, \gamma_{+} = \gamma\big|_{[b,c]}$.
+    Требуется доказать, что $l(\gamma)=l(\gamma_-) + l(\gamma_+)$
+\end{namedtheorem}
 \begin{proof}
     % TODO
-    $\theta_-$~--- дробление $[a,c]$, $\theta_+$ ~-- дробление
-    $[c,b]\Rightarrow \theta = \theta_- + \theta_+$~---
-    дробление $[a,b]$
     Докажем неравенство в две стороны.
-    \[
-        l(\varphi)\geq l_{\theta}(\varphi) = l_{\theta_-}(\varphi_i) + l_{\theta_+}(\varphi_i)\Rightarrow\\
-    \]\[
-        l(\varphi)\ge \sup_{\theta_-}l_{\theta_-}(\gamma_-) + 
-        \sup_{\theta_+}l_{\theta_+}(\gamma_+) = l(\gamma_-) + l(\gamma_+)
-    .\] 
-    Докажем в обратную сторону.
-    $\theta$ ~--- дробление $[a,b]\rightarrow 
-    \overline{\theta} = \theta \cup \{c\}\rightarrow \theta_{+/-}$.
-    \[
-        l_{\theta}(\gamma)\leq l_{\overline{\theta}}(\gamma) =
-        l_{\theta-}(\gamma_-) + l_{\theta+}(\gamma_+)\leq
-        l(\gamma_i)+l(\gamma_+)\Rightarrow 
-        \sup_{\theta}l_{\theta}(\gamma)\leq l(\gamma_-) + l(\gamma_+)
-    .\] 
+    \begin{itemize}
+        \item
+        Пусть $\theta = \{x_1,\dots, x_n\}$~--- произвольное дробление $[a,b]$.
+        Выберем за $k$ следующее число: $x_k \in [a,c], x_{k + 1}\in [c,b]$.
+        Разделим наше дробления на два:
+        $\theta_+ = (\theta \cap [a,c]) \cup \{c\} = \{x_1,\dots,x_k, c\},
+        \theta_- = \{c\} \cup (\theta \cap [c, b]) = \{c, x_{k+1},\dots, x_n\}$.
+        \[
+            \begin{gathered}
+                l_{\theta}(\gamma) =
+                \sum\limits_{i=1}^{n}\norm{\gamma(x_i) - \gamma(x_{i + 1})}=
+                \sum\limits_{i=1}^{k-1}\norm{\gamma(x_i) - \gamma(x_{i + 1})} + \norm{x_k - x_{k+1}} +
+                \sum\limits_{i=k+1}^{n-1}\norm{\gamma(x_i) - \gamma(x_{i + 1})}\le\\
+                \le\sum\limits_{i=1}^{k-1}\norm{\gamma(x_i) - \gamma(x_{i + 1})}
+                + \norm{x_k - c} + \norm{c - x_{k + 1}} +
+                \sum\limits_{i=k+1}^{n-1}\norm{\gamma(x_i) - \gamma(x_{i + 1})}=
+                l_{\theta_-}(\gamma) + l_{\theta_+}(\gamma)
+            \end{gathered}
+        \] 
+        Так как было взята произвольная $\theta$, то из этого следует и оценка на $l(\gamma) = \sup_\theta(\dots)$.
+        \[
+            l(\gamma) \le l(\gamma_+) + l(\gamma_-)
+        \] 
+        \item
+        Докажем в обратную сторону.
+        Пусть $\theta_-, \theta_+$~--- дробления $[a,c], [c, b]$ соответственно.
+        Тогда определим $\theta = \theta_- \cup \theta_+$. Отсюда, по определению длины следует неравенство:
+         \[
+             l(\gamma) = \sup_{\tau}(l_{\tau}(\gamma)) \ge l_{\theta}(\gamma) = l_{\theta_-}(\gamma) + l_{\theta_+}(\gamma)
+        \] 
+        Так как были взяты произвольные $\theta_-, \theta_+$, то можно утверждать, что:
+         \[
+             l(\gamma) \ge l(\gamma_+) + l(\gamma_-)
+        \] 
+    \end{itemize}
 \end{proof}
 \begin{namedtheorem}{O длине гладкого пути}
-    $\gamma\colon[a,b]\mapsto\R^m, \gamma_j=C'[a,b] \Rightarrow 
+    $\gamma\colon[a,b]\mapsto\R^m, \gamma_j\in C^1[a,b] \Rightarrow 
     l(\gamma)=\bigintss_{a}^{b}\abs{\gamma'(t)}dt$, где
-    $\abs{\gamma'(t)} = \sqrt{\sum\limits_{j=1}^{m}{\abs{\gamma_j(t)}}^2}$
+    $\abs{\gamma'(t)} = \sqrt{\sum\limits_{j=1}^{m}{\abs{\gamma'_j(t)}}^2}$
 \end{namedtheorem}
 \begin{proof}
     $\theta$ ~--- дробление $[a,b]$,  
     $\theta\colon a = t_0<\dots<t_n=b$ 
-    $$l_{\theta}(\gamma)=\sum\limits_{j=1}^{m}{\gamma(t_j) - \gamma(t_{j-1})}$$
+    $$l_{\theta}(\gamma)=\sum\limits_{j=1}^{m}\abs{\gamma(t_j) - \gamma(t_{j-1})}$$
      \[
          \abs{\gamma(t_j)-\gamma(t_{j-1})}=
          \sqrt{\sum\limits_{k=1}^{m}\abs{\gamma_k(t_j)-\gamma_k(t_{j-1})}^2}=
@@ -145,7 +163,7 @@
          \sum\limits_{}^{}{(t_j-t_{j-1})\sqrt{?}}
      .\] 
      Заметим, что обе части стремятся к одному и тоже при
-    $\abs{\theta}\rightarrow 0$.
+     $\abs{\theta}\rightarrow 0$, так как в этом случае $m_{j,k}\approx M_{j,k}$.
 
      Тогда для  $\varepsilon > 0$ по теореме кантора $\delta > 0\colon\\
      \forall s,t\in [a,b]\colon \abs{s - t} < \delta, 
@@ -180,7 +198,14 @@
              y'(t) = r'(t)\sin t + r(t)\cos t$
 
              Значит длину кривой можно вычислить следующим образом:
-             $l = \bigintss\limits_{\alpha}^{\beta}{\sqrt{(r')^2 + r^2}d\varphi}$
+             \[
+                 \begin{gathered}
+                     l = 
+                     \int\limits_{\alpha}^{\beta}{\sqrt{(x'(t))^2 + (y'(t))^2}}=\\
+                     =\int\limits_{\alpha}^{\beta}{\sqrt{(\cos^2 t + \sin^2 t)(r'(t))^2 + (\cos^2 t + \sin^2 t)r^2(t)}\ dt}=\\
+                     =\int\limits_{\alpha}^{\beta}{\sqrt{r'(t)^2 + r(t)^2}\ dt}
+                 \end{gathered}
+             \]
     \end{enumerate}
 \end{follow}
 \section{Дифференциальное исчисление функций нескольких переменных}
@@ -255,7 +280,7 @@
             полилинейное отображение.
     \end{enumerate}
 \end{example}
-\begin{namedtheorem}{О непрерывности линейного отображения}
+\begin{namedtheorem}{О эквивалентных условиях непрерывности}
     $U\colon X\mapsto Y$ ~--- линейное, $X,Y$ ~--- линейные,
     нормированные отображения (далее лно)
     над одним полем скаляров.
@@ -263,7 +288,7 @@
     \begin{enumerate}
         \item$U$ ~--- непрерывно
         \item $U$ ~--- непрерывно в 0
-        \item $\exists C\colon \forall x\in X, \abs{\abs{Ux}}_Y\leq C\abs{\abs{x}}_x$
+        \item $\exists C\colon \forall x\in X, \abs{\abs{Ux}}_Y\leq C\abs{\abs{x}}_X$
     \end{enumerate}
 \end{namedtheorem}
 \begin{proof}
