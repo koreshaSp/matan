@@ -128,23 +128,57 @@
 
 
 \begin{proof}
-    $
-        \{ U_k \} \subset L(X, Y)
-    $, $\{ U_k \}$ --- фунд.
+    Выберем произвольную фундаментальную последовательность $\{U_k \in L(X, Y)\}$ и докажем, что она сходится к некоторому $U$,
+    тем самым доказав, что $L(X,Y)$~--- полное пространство.
 
-    $\forall \varepsilon > 0\,\, \exists N : \forall m, n > N \,\, \underbrace{\norm{U_m - U_n} \leqslant \varepsilon}_{\forall x  \,\, \norm{U_mx - U_nx } \leqslant \varepsilon \norm{x}(*)}$ 
-\\\\
-    $\hence {U_mx} $ --- фунд в $Y \hence \exists \lim_{m \to \infty} U_mx =: U(x)$ 
-
+    Будем делать это следующим образом: определим $U(x) = \lim_{n\to \infty}(U_n x)$ и докажем для него следующие свойства:
     \begin{enumerate}
-        \item $U$ --- линейное (очевидно, т.к. $\lim$ --- линейная операция)
-        \item $U$ --- непрерывно
-        \item $\norm{U_m - U} \to 0, m \to \infty$
+        \item
+            $\norm{U_n - U} \underset{n\to\infty}{\to} 0$
+        \item 
+            Линейность $U$.
+        \item
+            Непрерывность $U$, что в совокупности с линейностью даст $U\in L(X,Y)$.
     \end{enumerate}
-
-    В $(*)$ $n \to \infty$ получаем $\forall x  \, \, \norm{U_mx - Ux} \leqslant \varepsilon \norm{x} \hence U_m - U \in L(X,Y), \norm{U_m - U} \leqslant \varepsilon$
-
-
+    \begin{enumerate}
+        \item
+        По фундаментальности $\{U_k\}$ можно выписать следующее:
+        \[
+            \begin{gathered}
+                \forall \varepsilon > 0, \exists N\colon \forall n, m > N, \norm{U_n - U_m} < \varepsilon\\
+                \Downarrow\\
+                \forall \varepsilon > 0, \exists N\colon \forall n, m > N, \forall x\in X, \norm{U_n - U_m}\norm{x} < \norm{x}\varepsilon\ora\\
+                \left[\norm{Ux}\le \norm{U}\norm{x},\forall x\in X, U\in L(X,Y)\right]\\
+                \ora\forall \varepsilon > 0, \exists N\colon \forall n, m > N, \forall x\in X, \norm{U_nx - U_mx} < \norm{x}\varepsilon \ora\\
+                \left[\text{при $n\to\infty$ получаем, что $Ux = U_nx$ просто по определению $U$}\right]\\
+                \ora \forall \varepsilon > 0, \exists N\colon \forall m > N, \norm{U - U_m} < \varepsilon \Rightarrow
+                \norm{U-U_m}\underset{m\to\infty}{\to}0
+            \end{gathered}
+        \] 
+    \item 
+        \[
+        \begin{gathered}
+            U(x_1 + x_2) = \lim_{n\to\infty}(U_n(x_1 + x_2)) = \lim_{n\to\infty}(U_nx_1 + U_nx_2) =
+            \lim_{n\to\infty}(U_nx_1) + \lim_{n\to\infty}(U_nx_2) = Ux_1 + Ux_2
+        \end{gathered}
+        \] 
+    \item
+        По фундаментальности $\{U_k\}$ можно выписать следующее:
+        \[
+        \begin{gathered}
+            \forall \varepsilon > 0, \exists N\colon \forall n, m > N, \norm{U_n - U_m} < \varepsilon\\
+            \Downarrow\\
+            \forall \varepsilon > 0, \exists N\colon \forall n, m > N, \forall x\in X, \norm{U_n - U_m}\norm{x} < \norm{x}\varepsilon\ora\\
+            \left[\norm{Ux}\le \norm{U}\norm{x},\forall x\in X, U\in L(X,Y)\right]\\
+            \ora\forall \varepsilon > 0, \exists N\colon \forall n, m > N, \forall x\in X, \norm{U_nx - U_mx} < \norm{x}\varepsilon \ora\\
+            [\text{зафиксируем $\varepsilon = 1$ и устремим $n\to\infty$, получив $U = U_n$ по определению}]\\
+            \ora\exists N\colon \forall m > N, \forall x\in X, \norm{Ux - U_mx} < \norm{x}
+        \end{gathered}
+        \] 
+        Из последнего выражения следует непрерывность функции $U - U_m$ просто из-за того, что 
+        $\norm{U - U_m x} \le C\norm{x}, \forall x\in X$(см теорема об эквивалентных условиях непрерывности).
+        Тогда $U\in L(X,Y)$ так как $U - U_m\in L(X,Y), U_m\in L(X,Y)$.
+    \end{enumerate}
 \end{proof}
 
 
