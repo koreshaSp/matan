@@ -71,7 +71,7 @@ $\hence f^{-1}$ дифф. в $(\cdot) y_0$ и $df^{-1}(y_0) = (df(x_0))^{-1}$
     
     $h = (h_1, ..., h_n)$
 
-    $dA(x)h = A(x_1, h_2) + A(h1, x_2) \hence dA = A(dx_1, ... x_n) + A(x_1, dx_2 ..., x_n) + ... + A(x_1, ..., x_{n- 1}, dx_n)$
+    $dA(x)h = A(x_1, h_2) + A(h_1, x_2) \hence dA = A(dx_1, ..., x_n) + A(x_1, dx_2, ..., x_n) + ... + A(x_1, ..., x_{n- 1}, dx_n)$
 
     $A(x + h) - A(x) = A(x_1 + h_1, x_2 + h_2) - A(x_1, x_2) = \underbrace{A(x_1, h_2) + A(h_1, x_2)}_{\text{лин. по } h} + \underbrace{A(h_1, h_2)}_{=o(h)}$
 
@@ -212,7 +212,7 @@ $f : \R ^ m \to \R^n$
 \begin{remark}
     $df(a)h = \partial_{x_1}f(a)h_1 + ... + \partial_{x_m}f(a)h_m, h = (h_1, ..., h_m)$ 
     
-    $\Longleftrightarrow df(a) = \underbrace{\partial_{x_1}f(a)}_{\in L(x_1, Y)} \underbrace{dx_1}_{\in L(x_1 \times ... \times X_m, X_1)} + ... \partial_{x_m}f(a)dx_m$
+    $\Longleftrightarrow df(a) = \underbrace{\partial_{x_1}f(a)}_{\in L(X_1, Y)} \underbrace{dx_1}_{\in L(X_1 \times ... \times X_m, X_1)} + ... \partial_{x_m}f(a)dx_m$
     
     $f : \R^ m \to R$, $df(a) \in L(\R ^ m, \R) = \frac{\partial f}{\partial x_1}(a) \underbrace{dx_1}_{\in L(\R^m, \R)} + ... + \frac{\partial f}{\partial x_m}(a) dx_m$
 \end{remark}
@@ -268,7 +268,7 @@ $\underbrace{\begin{pmatrix}
     \frac{\partial (g_l \circ f)}{\partial x_j}(a)
 \end{pmatrix}}_{d(g \circ f)(a)}$ --- правило цепочки
 
-$\frac{\partial (a_l \circ f)}{\partial x_j}(a) = \sum_{i = 1}^{n} \frac{\partial g_l}{\partial y_i}(f(a)) \frac{\partial f_i}{\partial x_j}(a)$
+$\frac{\partial (g_l \circ f)}{\partial x_j}(a) = \sum_{i = 1}^{n} \frac{\partial g_l}{\partial y_i}(f(a)) \frac{\partial f_i}{\partial x_j}(a)$
 
 
 $k = 1$

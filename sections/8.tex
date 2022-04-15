@@ -304,9 +304,10 @@ $\norm{\partial_{x_j} f(a) - \partial_{x_j}f(b)} \leqslant \norm{df(a) - df(b)} 
 \end{theorem}
 
 \begin{proof}
-    $\phi(t) = f(a + th) \hence \underbrace{f(a + h)}_{\phi(1) - \phi(0)} - f(a) = \phi'(\theta), \theta \in (0, 1)$
-
-    $\phi'(\theta) = df(a + \theta h) h$
+    Пользуясь тем, что $U$ действует в $\R$:
+    $\phi(t) = f(a + th) \hence \underbrace{f(a + h) - f(a)}_{\phi(1) - \phi(0)} = \phi'(\theta), \theta \in (0, 1)$
+    Такой $\theta$ существует по теореме Лагранжа.
+    $\phi'(\theta) = df(a + \theta h) h \Rightarrow \exists \xi = a + \theta h$.
 \end{proof}
 
 
