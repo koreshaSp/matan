@@ -8,11 +8,11 @@
 \]
 
 \[
-    || U || = \inf \{ c : \forall x \in X ||Ux|| \leqslant C||x|| \}
+    \norm{U} = \inf \{ C : \forall x \in X \ \norm{Ux} \leqslant C \norm{x} \}
 \]
 
 \[
-    \forall x ||Ux|| \leqslant ||U|| ||x|| \hence ||U|| \geqslant \frac{||Ux||}{||x||}
+    \forall x : \norm{Ux} \leqslant \norm{U} \cdot \norm{x} \hence \norm{U} \geqslant \frac{\norm{Ux}}{\norm{x}}
 \]
 
 \[
@@ -30,7 +30,7 @@
     $ - полилинейное отображение
 
     \[
-        \norm{U} = \inf \{ C: \forall x_1 \in X_1, ..., \forall x_n \in X_m \norm{U(x_1, ..., x_n)} \leqslant C \norm{x_1} ... \norm{x_m}\}
+        \norm{U} = \inf \{ C: \forall x_1 \in X_1, ..., \forall x_n \in X_m \ \norm{U(x_1, ..., x_n)} \leqslant C \norm{x_1} ... \norm{x_m}\}
     \]
     
     \[
@@ -113,7 +113,7 @@
        \item Без комментариев
        
        \item \[
-           \norm{VUx} \leqslant \norm{V} \norm{Ux} \leqslant \underbrace{\norm{V} \cdot \norm{U} }_{ = C}  \cdot \norm{x} \hence \norm{VU} \leqslant \norm{V} \norm{U}
+           \norm{VUx} \leqslant \norm{V} \cdot \norm{Ux} \leqslant \underbrace{\norm{V} \cdot \norm{U} }_{ = C}  \cdot \norm{x} \hence \norm{V \cdot U} \leqslant \norm{V} \cdot \norm{U}
        \]
    \end{enumerate} 
         
@@ -200,9 +200,9 @@
     
     $U^{\sim} \in B;  U^{\sim} (x_1, ... x_k) := U(x_1, ..., x_s)(x_{s + 1}, ..., x_k)$ --- полилинейное отображение, непрерывное
 
-    $\norm{U^\sim} = \sup_{x_1,..x_k} \frac{\norm{U(x_1, ... x_s)(x_{s+1}, ..., x_k)}}{\norm{x_1} ... \norm{x_k}} = \sup_{x_1, ..., x_s} \frac{ \sup_{x_{s+1}, ..., x_k} \frac{\norm{U(x_1, ..., x_s)(x_{s + 1}, ... , x_k)}}{\norm{x_{s + 1}} ... \norm{x_k}}}{\norm{x_1} ... \norm{x_s}} =$
+    $\norm{U^\sim} = \sup_{x_1,..x_k} \cfrac{\norm{U(x_1, ... x_s)(x_{s+1}, ..., x_k)}}{\norm{x_1} ... \norm{x_k}} = \sup_{x_1, ..., x_s} \cfrac{ \sup_{x_{s+1}, ..., x_k} \cfrac{\norm{U(x_1, ..., x_s)(x_{s + 1}, ... , x_k)}}{\norm{x_{s + 1}} ... \norm{x_k}}}{\norm{x_1} ... \norm{x_s}} =$
 
-    $ = \sup_{x_1,..., x_s}{\frac{\norm{U(x_1,...,x_s)}}{\norm{x_1} ... \norm{x_s}}} = \norm{U}$
+    $ = \sup_{x_1,..., x_s}{\cfrac{\norm{U(x_1,...,x_s)}}{\norm{x_1} ... \norm{x_s}}} = \norm{U}$
 \end{proof}
 
 
@@ -212,7 +212,7 @@
     $U \subset X$--- открытое, $f : U \to Y$, $X, Y$ - линейные полные нормированные пространства, $x_0 \in U$
     
 
-    $f$ дифференцируемо в $(\cdot)\, x_0$, если $f(x_0 + h) = f(x_0) + Ah + \underset{ = \alpha(h)}{o(h)}, h \to 0$, где $A \in L(X, Y)$, \\ и $\frac{\norm{\alpha(h)}}{\norm{h}} \to 0, h \to 0$
+    $f$ дифференцируемо в $(\cdot)\, x_0$, если $f(x_0 + h) = f(x_0) + Ah + \underset{ = \alpha(h)}{o(h)}, h \to 0$, где $A \in L(X, Y)$, \\ и $\cfrac{\norm{\alpha(h)}}{\norm{h}} \to 0, h \to 0$
 
     $A$ --- дифференциал $f$ в $(\cdot) x_0$
 
@@ -244,12 +244,12 @@
     \begin{proof}
         $f(x_0 + h) = f(x_0) + A_1(h) + o(h) = f(x_0) + A_2(h) + o(h) \hence (A_1 - A_2)(h) = o(h)$
 
-        $\frac{\norm{(A_1 - A_2)h}}{\norm{h}} \xrightarrow{h \to 0} 0$
+        $\cfrac{\norm{(A_1 - A_2)h}}{\norm{h}} \xrightarrow{h \to 0} 0$
     
         Берём $h_0 - fix, h = t \cdot h_0, t \to 0, t - $ скаляр
 
-        $\frac{\norm{(A_1 - A_2)(t \cdot h_0)}}{\norm{t \cdot h_0}}  
-        = \frac{\norm{(A_1 - A_2)(h_0)}}{\norm{h_0}} \xrightarrow{t \to 0} 0 \hence 
+        $\cfrac{\norm{(A_1 - A_2)(t \cdot h_0)}}{\norm{t \cdot h_0}}  
+        = \cfrac{\norm{(A_1 - A_2)(h_0)}}{\norm{h_0}} \xrightarrow{t \to 0} 0 \hence 
         = 0$, т.к. не зависит от $t$ и стремится к $0$ 
     \end{proof}
 
