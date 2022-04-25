@@ -326,6 +326,8 @@ $f(a + th_0) = f(a) + \underbrace{t df(a) h_0}_{\neq 0} + o(t), $ a точка �
 
 
 \begin{example}
+\begin{enumerate}
+\item
     $H $ --- пространство со скалярным произведением, $L \text{ --- линейное подмножество} \subset H$
 
     $a \in H, f(x) = \norm{x - a}, x \in L$
@@ -370,12 +372,13 @@ $f(a + th_0) = f(a) + \underbrace{t df(a) h_0}_{\neq 0} + o(t), $ a точка �
 
 \begin{proof}
     \[ 
-        0 = \frac{\partial f}{\partial l}(x^*) = \lim_{t \to 0} \frac{f^2(x^* + tl) - f^2(x^*)}{t} = \lim_{t \to 0} \frac{\langle x^* - a + tl, x^* - a + tl \rangle - \langle x^* - a, x^ * - a}{t}  = 2 Re \langle l, x ^ * - a \rangle
+        0 = \frac{\partial f}{\partial l}(x^*) = \lim_{t \to 0} \frac{f^2(x^* + tl) - f^2(x^*)}{t} = \lim_{t \to 0} \frac{\langle x^* - a + tl, x^* - a + tl \rangle - \langle x^* - a, x^ * - a\rangle}{t}  = 2 Re \langle l, x ^ * - a \rangle
     \]
 \end{proof}
 
-\end{example}
+\end{enumerate}
 
+\end{example}
 
 \begin{exercise}
     Если $L$ замкнуто $\hence$ минимум существует
