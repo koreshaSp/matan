@@ -1,0 +1,71 @@
+\section*{Лекция 12 (05.05.2022)}
+
+\subsection{Непрерывность неявного отображения}
+
+\begin{namedlemma}{Обратимость линейного отображения, близкого к тождественному}
+    $Y$ -- полное нормированное пространство. $U \in L(Y, Y)$, $\norm{U} < 1$, $I$ -- тождественное. Тогда $\exists (I \pm U)^{-1} \in L(Y, Y)$.
+\end{namedlemma}
+\begin{proof}
+    \item[1 способ.] Хотим доказать, что $\forall u \in Y \exists! y \in Y \colon (I - U)u = u$ \\
+    $y - Uy = u \Leftrightarrow y = u + Uy$\\
+    $g_u \colon Y \to Y$, $g_u(y) = u + Uy$, хотим показать, что $g_u$ -- сжимающее.\\
+    $\norm{g_u(y_1) - g_u(y_2)} = \norm{Uy_1 - Uy_2} \leqslant \norm{U} \cdot \norm{y_1 - y_2} \Rightarrow \exists! y_0 \colon y_0 = u + Uy_0$. \\
+    Отсюда, $I - U$ биекция, аналогично $I + U$.
+
+    Теперь проверим, что $(I - U)^{-1}$ -- непрерывное отображение. Сделаем это по определению, пусть $u_n \to u_0$, по $u$ однозначно строится $y = u + Uy$, пусть это $y_n$ и $y_0$ соответственно. Хотим показать, что $y_n \to y_0$. \\
+    $\left\{\begin{aligned}
+    (I - U) y_n = u_n \\
+    (I - U) y_0 = u_0
+    \end{aligned}\right. \Rightarrow (I - U_n) (y_n - y_0) = u_n - u_0 \Rightarrow y_n - y_0 = u_n - u_0 + U (y_n - y_0) \Rightarrow \norm{y_n - y_0} \leqslant \norm{u_n - u_0} + \norm{U} \norm{y_n - y_0}$\\
+    $0 \leqslant (1 - \norm{U}) \norm{y_n - y_0} \leqslant \norm{u_n - u_0} \to 0 \Rightarrow y_n \to y_0$.
+    \item[2 способ.] Докажем, что $(I - U)^{-1} = I + U + U^2 + \ldots$ -- сходится абсолютно, то есть сходится ряд $\norm{I} + \norm{U} + \norm{U^2} + \ldots$.\\
+    $\norm{U^n} \leqslant \norm{U}^n \Rightarrow \sum\limits_{i = 0}^{\infty} \norm{U^i} \leqslant \sum\limits_{i = 0}^{\infty} \norm{U}^i = \dfrac{1}{1 - \norm{U}}$.\\
+    $L(Y, Y) -$ полное, так как $Y -$ полное, поэтому по критерию Коши из абсолютной сходимости следует обычная.\\
+    $S_n = I + U + \ldots + U^n \stackrel{n \to \infty}{\longrightarrow} S \in L(Y, Y)$.\\
+    $\underset{\substack{\downarrow \\ (I - U)S}}{(I - U)S_n}= \underset{\substack{\downarrow \\ S(I - U)}}{S_n(I - U)} = I - U^{n + 1} \stackrel{n \to \infty}{\longrightarrow} I$
+\end{proof}
+
+\begin{lemma}
+    $U \in L(Y, Z)$, $\exists U^{-1} \in L(Z, Y) \quad \forall V \in L(Y, Z) \quad \norm{V} < \dfrac1{\norm{U^{-1}}} \Rightarrow \exists (U \pm V)^{-1} \in L(Z, Y)$, $Y$ - полное.
+\end{lemma}
+\begin{proof}
+    $(I + VU^{-1})U = U + V = U(I + U^{-1}V)$.\\
+    $\norm{U^{-1}V} < 1 \stackrel{\text{л. 1}}{\Rightarrow} \exists (I + U^{-1}V)^{-1} \Rightarrow$
+    $(U(I + U^{-1}V))^{-1} = (I + U^{-1}V)^{-1}U^{-1}$.
+\end{proof}
+
+\begin{theorem}
+    Если в условии теоремы \link{о неявном отображении} потребовать непрерывность $G$ и $\partial y G$ не только в точке $(x_0, y_0)$, но и в целой окрестности, то постренная $f$ будет непрерывна в некоторой окрестности $x_0$.
+\end{theorem}
+\begin{proof}
+    Если $(x_1, y_1)$ близка к $(x_0, y_0)$, тогда $V = \partial y G(x_1, y_1) - \partial y G(x_0, y_0) \stackrel{(x_1, y_1) \to (x_0, y_0)}{\longrightarrow} 0$, отсюда по лемме $\exists (\partial y G(x_1, y_1))^{-1} \in L(Z, Y) \Rightarrow (x_1, y_1)$ удовлетворяет условиям теоремы о неявном отображении и $f$ непрерывна в точке $x_1$.
+\end{proof}
+
+\begin{theorem}
+    Если в дополнение к условиям теоремы \link{о неявном отображении} выполнено условие дифф $G$ в точке $(x_0, y_0)$, то $f$ дифференцируема в точке $x_0$, и $d f(x_0) = - (\partial y G(x_0, y_0))^{-1} \partial x G(x_0, y_0)$
+\end{theorem}
+\begin{proof}
+    $G(x,y) = G(x_0, y_0) + \partial x G(x_0, y_0) (x - x_0) + \partial y G(x_0, y_0) (y - y_0) + o (\norm{x - x_0} + \norm{y - y_0})$.\\
+    $\exists V_0, U_0 \colon G(x, y) = 0 \quad \forall (x, y) \in U \times V \Leftrightarrow y = f(x) \quad \forall x \in U \Rightarrow \\ 0 = G(x, f(x)) = \partial x G(x_0, y_0) (x - x_0) + \partial y G(x_0, y_0) (f(x) - f(x_0)) + o(\ldots) \Rightarrow$
+    \begin{equation}
+        \label{*}
+        f(x) - f(x_0) = - (\partial y G(x_0, y_0))^{-1} \partial x G(x_0, y_0) (x - x_0) + (\partial y G(x_0, y_0))^{-1}o(\ldots)
+    \end{equation}
+    Хотим $\norm{y - y_0} \leqslant \norm{x - x_0} \Rightarrow o(\norm{x - x_0}) = o(\norm{x - x_0} + \norm{y - y_0})$\\
+    $\ref{*} \Rightarrow \norm{y - y_0} \leqslant C_1 \norm{x - x_0} + C_2\epsilon (\norm{x - x_0} + \norm{y - y_0}) \ \forall \epsilon > 0$, где\\
+    $\begin{aligned}
+    C_1 &= \norm{(\partial y G(x_0, y_0))^{-1})} \cdot \norm{\partial x G(x_0, y_0)} \\
+    C_2 &= \norm{(\partial y G(x_0, y_0))^{-1})}
+    \end{aligned}$.\\
+    Тогда подобрав подходящий $< \dfrac{1}{C_2}$ $\epsilon$, получим, что $\norm{y - y_0} \leqslant C \norm{x - x_0}$, из чего последует дифференцируемость $f$ в точке $x_0$.
+\end{proof}
+
+\follow Если хочется, чтобы $f$ была $k$ раз дифференцируема, достаточно потребовать, чтобы $G$ была $k$ раз дифференцируема.
+
+\subsection{Теорема об обратном отображении}
+\begin{theorem}[об обратном отображении]
+    $F \colon Y \to X \quad F(y_0) = x_0 \quad F$ дифференцируема в окрестности точки $y_0$, $\exists (d F(y_0))^{-1} \in L(X, Y) \Rightarrow \exists U, V$ -- окрестности $x_0, y_0 \colon F \colon V \to U -$ биекция, т. е. $\exists F^{-1} = f$, а так же $(dF^{-1})(x_0) = (d F(y_0))^{-1}$
+\end{theorem}
+\begin{proof}
+
+\end{proof}
