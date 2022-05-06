@@ -133,21 +133,23 @@
            }%
 }
 
-\newenvironment{namedtheorem}[1]
-{
-\quad    
-\begin{mdframed}[linewidth=0.6pt]
-    \textbf{Теорема \textnormal{(#1)}:}
+\newtheorem{_theorem}{Теорема}[section]
+\newenvironment{theorem}[1][]{
+    \quad
+    \begin{mdframed}[linewidth=0.6pt, innerrightmargin=1pc]
+        \def\temp{#1}
+        \ifx\temp\empty
+            \begin{_theorem}
+        \else
+            \begin{_theorem}[#1]
+            \label{thm:#1}
+        \fi
+}           % theorem here ----
+{       \end{_theorem}
+    \end{mdframed}
 }
-{\end{mdframed}}
 
-\newenvironment{theorem}{
-\quad
-\begin{mdframed}[linewidth=0.6pt]
-    
-        \textbf{Теорема:}
-}
-{\end{mdframed}}
+\newcommand{\link}[1]{\hyperref[thm:#1]{#1}}
 
 \newenvironment{properties}[1][,]
 {
@@ -410,7 +412,7 @@
 \setcounter{section}{0}
 
 \newcounter{i}
-\forloop{i}{0}{\value{i} < 12}{
+\forloop{i}{0}{\value{i} < 13}{
   \include{sections/\arabic{i}}
 }
 

@@ -132,10 +132,10 @@
         d ^ n f(x) (h_1, ..., h_n) = \frac{\partial }{\partial h_1} \left( \frac{\partial}{\partial h_2} \left(... \left(\frac{\partial f}{\partial h_n} \right)\right) \right)(x)
     \]
 
-    \begin{namedtheorem}{симметричность формы $n$-ого дифференциала}
+    \begin{theorem}[симметричность формы $n$-ого дифференциала]
         
         Если $\exists d^n f(x)$ --- определенный в окрестности точки x и непрерывно зависящий от x, то $d^n f(x)(h_1, ..., h_n) = d^n f(x) (h_{\sigma(1)}, ..., h_{\sigma(n)}) \forall \sigma \in S_n$ 
-    \end{namedtheorem}
+    \end{theorem}
 
     \begin{proof}
         $n = 2$ Проверим, что \[ 
@@ -308,11 +308,11 @@ $H(x) = (\frac{\partial ^ 2 f}{\partial x_i \partial x_j}(x))$
 
 $\langle H(x) h, h \rangle \geqslant 0 \Longleftrightarrow \frac{\partial ^2 f}{\partial h^2}(x) \geqslant 0$
 
-\begin{namedtheorem}{Формула Тейлора}
+\begin{theorem}[Формула Тейлора]
     $f : \R ^ m \to \R$, $f$ $n$ раз непрерывно дифференцируема на $[x, x + h]$.
 
     $f(x + h) = f(x) + \sum_{k = 1} ^ n \frac{d ^ k f(x) h ^ k}{k !} + \frac{d ^ {n + 1} f(x + \theta h) h ^ {n + 1}}{(n + 1)!}$, $\exists \theta \in (0, 1)$
-\end{namedtheorem}
+\end{theorem}
 
 \begin{proof}
     $\phi(t) = f(x + th)$, $\phi$ $n + 1$ раз дифференцируема на $[0, 1]$

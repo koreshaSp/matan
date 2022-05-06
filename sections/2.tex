@@ -89,13 +89,13 @@ $\sin^n{x} \leqslant \sin^{n - 1}{x}$, то есть интегрируем ме
     \end{gathered}
 \]
 
-\begin{namedtheorem}{остаток в интегральной форме}
+\begin{theorem}[остаток в интегральной форме]
     
     Если \, $f \in C^{n + 1} \langle a, b \rangle$,  \,\, $x, x_0 \in \langle a, b \rangle$, то
     \[
         R_{n, x_0}f(x) = \frac{1}{n!} \int_{x_0}^x f^{(n + 1)}(t)(x-t)^n\ dt
     \]
-\end{namedtheorem}
+\end{theorem}
 
 \begin{proof}
 
@@ -526,10 +526,10 @@ pattern radius = 1pt}
     \int_a^b f dx  \approx \sum (x_{j + 1} - x_j) \cdot \frac{f(x_j) + f(x_{j + 1})}{2}
 \]
 
-\begin{namedtheorem}{о погрешности в формуле трапеций}
+\begin{theorem}[о погрешности в формуле трапеций]
 $f \in C^2[a, b]$
 
 \[
     \abs{\int_a^b f - \sum (x_{j + 1} - x_j) \cdot \frac{f(x_j) + f(x_{j + 1})}{2}} \leqslant \frac{1}{8} \abs{\tau} ^ 2 \int_a^b \abs{f''(x)}dx
 \]
-\end{namedtheorem}
+\end{theorem}
