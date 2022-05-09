@@ -71,9 +71,9 @@
     Посмотрим на $(x, x\sin \frac{1}{x})$
     Вопрос: Путь бесконечной длины?
 \end{remark}
-\begin{namedtheorem}{Независимость длины от параметризации}
+\begin{theorem}[Независимость длины от параметризации]
     $\gamma_1 \sim \gamma_2\Rightarrow l(\gamma_1) = l(\gamma_2)$
-\end{namedtheorem}
+\end{theorem}
 \begin{proof}
     $\theta$~--- дробление $[a,b]$,
     $\varphi(\theta)$~--- дробление $[c,d]$.
@@ -85,11 +85,11 @@
         l_{\theta}(\gamma_1) = l_{\varphi(\theta)}(\gamma_2)
     \]
 \end{proof}
-\begin{namedtheorem}{Аддитивность пути}
+\begin{theorem}[Аддитивность пути]
     $\gamma\colon [a,b]\mapsto\R^m, c\in(a,b)$.
     Пусть $\gamma_{-}=\gamma\big|_{[a,b]}, \gamma_{+} = \gamma\big|_{[b,c]}$.
     Требуется доказать, что $l(\gamma)=l(\gamma_-) + l(\gamma_+)$
-\end{namedtheorem}
+\end{theorem}
 \begin{proof}
     % TODO
     Докажем неравенство в две стороны.
@@ -129,11 +129,11 @@
         \] 
     \end{itemize}
 \end{proof}
-\begin{namedtheorem}{O длине гладкого пути}
+\begin{theorem}[O длине гладкого пути]
     $\gamma\colon[a,b]\mapsto\R^m, \gamma_j\in C^1[a,b] \Rightarrow 
     l(\gamma)=\bigintss_{a}^{b}\abs{\gamma'(t)}dt$, где
     $\abs{\gamma'(t)} = \sqrt{\sum\limits_{j=1}^{m}{\abs{\gamma'_j(t)}}^2}$
-\end{namedtheorem}
+\end{theorem}
 \begin{proof}
     $\theta$ ~--- дробление $[a,b]$,  
     $\theta\colon a = t_0<\dots<t_n=b$ 
@@ -281,7 +281,7 @@
             полилинейное отображение.
     \end{enumerate}
 \end{example}
-\begin{namedtheorem}{О эквивалентных условиях непрерывности}
+\begin{theorem}[О эквивалентных условиях непрерывности]
     $U\colon X\mapsto Y$ ~--- линейное, $X,Y$ ~--- линейные,
     нормированные отображения (далее лно)
     над одним полем скаляров.
@@ -291,7 +291,7 @@
         \item $U$ ~--- непрерывно в 0
         \item $\exists C\colon \forall x\in X, \abs{\abs{Ux}}_Y\leq C\abs{\abs{x}}_X$
     \end{enumerate}
-\end{namedtheorem}
+\end{theorem}
 \begin{proof}
     \begin{enumerate}
         \item $(1)\Rightarrow (2)$~--- очевидно
