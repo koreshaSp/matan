@@ -220,6 +220,13 @@
 }
 {\end{mdframed}}
 
+\newenvironment{reminder}{
+    \quad
+\begin{mdframed}[linewidth=0.6pt]
+        \textbf{Напоминание:}
+}
+{\end{mdframed}}
+
 % Definindo novas cores
 \definecolor{verde}{rgb}{0.25,0.5,0.35}
 \definecolor{jpurple}{rgb}{0.5,0,0.35}
@@ -371,17 +378,11 @@
 ЛЕКТОР: БАХАРЕВ ФЁДОР ЛЬВОВИЧ
 \nbvspace[1]
 \\
-\Large СОСТАВИТЕЛИ:\\[0.5em]
 \footnotesize 
-Андрей \href{https://github.com/khaser}{khaser} Хорохорин, 
-Максим \href{https://github.com/haboh}{haboh} Хабаров,\\ 
-Николай \href{https://github.com/buyolitsez}{buyolitsez} Чухин,
-Кирилл \href{https://github.com/Kirillog}{kirillog} Митькин,
-Всеволод \href{https://github.com/Seva-Vaskin}{Seva-Vaskin} Васькин.
 
 \nbvspace[2]
 
-\includegraphics[width=2.0in]{./images/logo.jpeg}
+\includegraphics[width=3.0in]{./images/sticker.jpg}
 \nbvspace[3]
 \normalsize
 
@@ -412,7 +413,7 @@
 \setcounter{section}{0}
 
 \newcounter{i}
-\forloop{i}{0}{\value{i} < 14}{
+\forloop{i}{1}{\value{i} < 15}{
   \include{sections/\arabic{i}}
 }
 

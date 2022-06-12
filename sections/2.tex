@@ -79,22 +79,24 @@ $\sin^n{x} \leqslant \sin^{n - 1}{x}$, то есть интегрируем ме
 \end{example}
 \newpage
 
-\section{Формула Тейлора с остатком в интегральной форме}
+\subsection{Формула Тейлора с остатком в интегральной форме}
 
-\quad
-\[
-    \begin{gathered}
-        f(x) = T_{n, x_0} f(x) + R_{n, x_0} f(x),\\
-        \text{где } T_{n, x_0} f(x) = f(x_0) + f'(x_0)(x - x_0) + \dots + \frac{f^{(n)}(x_0)}{n!}(x - x_0)^n
-    \end{gathered}
-\]
+\begin{reminder}
+    $
+    f(x) = T_{n, x_0} f(x) + R_{n, x_0} f(x),$
+        где $T_{n, x_0} f(x) = f(x_0) + f'(x_0)(x - x_0) + \dots + \frac{f^{(n)}(x_0)}{n!}(x - x_0)^n
+    $ --- многочлен Тейлора, а $R_{n, x_0} f(x)$ --- остаток.
+\end{reminder}
+
 
 \begin{theorem}[остаток в интегральной форме]
-    
-    Если \, $f \in C^{n + 1} \langle a, b \rangle$,  \,\, $x, x_0 \in \langle a, b \rangle$, то
-    \[
+
+\quad
+
+    Если \, $f \in C^{(n + 1)} \langle a, b \rangle$,  \, $x, x_0 \in \langle a, b \rangle$, то
+    $
         R_{n, x_0}f(x) = \frac{1}{n!} \int_{x_0}^x f^{(n + 1)}(t)(x-t)^n\ dt
-    \]
+    $
 \end{theorem}
 
 \begin{proof}
@@ -170,15 +172,15 @@ $\sin^n{x} \leqslant \sin^{n - 1}{x}$, то есть интегрируем ме
 \subsection{Приближенное вычисление интеграла}
 
 \begin{definition}
-    $[a, b], \tau $ --- дробление отрезка $[a, b]$ $\tau = \{ x_0, x_1, \ldots, x_n \}$, \\
-    где $a = x_0 < x_1 < \ldots < x_n = b$ \quad $|\tau|
-    = \max\limits_{k = 0, \ldots, n - 1} \lvert x_{k + 1} - x_k \rvert$ - мелкость (ранг) дробления
+    $[a, b], \tau $ --- дробление отрезка $[a, b]$, $\tau = \{ x_0, x_1, \ldots, x_n \}$, \\
+    где $a = x_0 < x_1 < \ldots < x_n = b$, $|\tau|
+    = \max\limits_{k = 0, \ldots, n - 1} \lvert x_{k + 1} - x_k \rvert$ --- мелкость (ранг) дробления.
 
     $\theta = \{ t_1, \ldots, t_n\}$ -- оснащение дробления $\tau$, где $t_j \in [x_{j - 1}, x_j]$
 
     $(\tau, \theta) $ --- оснащенное дробление
 
-    $f \in C[a, b]$ интегральная сумма $S_{\tau, \theta} (f) = \sum\limits_{j = 0}^{n - 1} f(t_{j + 1}) (x_{j + 1} - x_j)$
+    Для $f \in C[a, b]$ интегральная сумма $S_{\tau, \theta} (f) = \sum\limits_{j = 0}^{n - 1} f(t_{j + 1}) (x_{j + 1} - x_j)$
 \end{definition}
 
 \quad
@@ -271,8 +273,7 @@ pattern radius = 1pt}
 \end{tikzpicture}
 
 \begin{theorem}
-    $f \in C[a, b] \Rightarrow S_{\tau, \theta}(f) \underset{|\tau| \to 0} {\to} \int_a^b f(x) dx$, 
-    \\ \\
+    $f \in C[a, b] \Rightarrow S_{\tau, \theta}(f) \underset{|\tau| \to 0} {\to} \int_a^b f(x) dx$,
     т.е. $\forall \varepsilon > 0 \,\, \exists \delta > 0 : \forall \tau, \theta : | \tau | < \delta \Rightarrow \abs{ \int_a^b f dx - S_{\tau, \theta}(f)} < \varepsilon$
 \end{theorem}
 
@@ -284,7 +285,7 @@ pattern radius = 1pt}
 
 \quad 
 
-\underline{\textit{Упражнение:}}  Доказать, что если у функции есть один разрыв первого рода, то она интегрируема по Риману
+\underline{\textit{Упражнение:}}  \, Доказать, что если у функции есть один разрыв первого рода, то она интегрируема по Риману.
 
 
 \begin{proof}
@@ -305,7 +306,7 @@ pattern radius = 1pt}
 \end{proof}
 
 
-\underline{\textit{Задача:}}  $f$ имеет разрыв в точке $c$ первого рода и $f \in C[a, b), f \in C(c,b], \exists \lim\limits_{x \to c-}{f}, \exists \lim\limits_{x \to c+}{f}$, тогда $S_{\tau, \theta} f \to \int_a^c f + \int_c^b f$
+\underline{\textit{Задача:}}  $f$ имеет разрыв в точке $c$ первого рода и $f \in C[a, c), f \in C(c,b], \exists \lim\limits_{x \to c-}{f}, \exists \lim\limits_{x \to c+}{f}$, тогда $S_{\tau, \theta} f \to \int_a^c f + \int_c^b f$
 
 \quad 
 
@@ -325,7 +326,7 @@ pattern radius = 1pt}
         \begin{gathered}
             1 ^ p + 2 ^ p + \ldots + n ^ p = n ^ {p + 1} \cdot \frac{1}{n} \left( \left( \frac{1}{n} \right) ^ p + \ldots + \left( \frac{n}{n} \right) ^ p \right) \, \ceq\\
             \tau = \left\{ 0, \frac{1}{n}, \ldots , \frac{n}{n} \right\}, \theta = \left\{\frac{1}{n}, \ldots , \frac{n}{n}  \right\}, f(x) = x ^ p\\
-            \ceq \, n ^ {p + 1} S_{\tau, \theta} f = \left[\frac{1 ^ p + \ldots + n ^ p}{(n + 1) ^ p} \to \int_0^1 x ^ p dx\right]
+            \ceq \, n ^ {p + 1} S_{\tau, \theta} f = \left[\frac{1 ^ p + \ldots + n ^ p}{n ^ {p + 1}} \to \int_0^1 x ^ p dx\right]
             = \frac{n^{p + 1}}{p + 1} \Rightarrow 1 ^ p + \ldots + n ^ p \sim \frac{n ^ {p + 1}}{p + 1}
         \end{gathered}
     \]
@@ -401,7 +402,7 @@ pattern radius = 1pt}
 \subsection{Оценка погрешности при приближённом вычислении интеграла}
 \begin{remark}
     $\int_a^b f(x)\ dx \approx S_{\tau, \theta}(f)$
-    И можно оценить погрешность следующим образом:
+    и можно оценить погрешность следующим образом:
      \[
         \abs{\int\limits_{a}^{b}{f(x)\ dx} - S_{\tau, \theta}(f)} \leqslant \max{\abs{f'}} \cdot \abs{\tau} (b - a) 
     \] 
@@ -527,9 +528,11 @@ pattern radius = 1pt}
 \]
 
 \begin{theorem}[о погрешности в формуле трапеций]
-$f \in C^2[a, b]$
 
-\[
+\quad
+
+$f \in C^2[a, b]$,
+$
     \abs{\int_a^b f - \sum (x_{j + 1} - x_j) \cdot \frac{f(x_j) + f(x_{j + 1})}{2}} \leqslant \frac{1}{8} \abs{\tau} ^ 2 \int_a^b \abs{f''(x)}dx
-\]
+$
 \end{theorem}

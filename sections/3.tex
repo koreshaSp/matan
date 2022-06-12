@@ -1,10 +1,16 @@
 \section*{Лекция 3 (03.03.2022)}
 
-$f \in C^2[a, b]$ \,\,\, $\theta = \{ x_0 = a, x_1, ... , x_n = b\}$
+\begin{theorem}[о погрешности в формуле трапеций, продолжение]
+
+\quad
+
+$f \in C^2[a, b]$, $\theta = \{ x_0 = a, x_1, ... , x_n = b\}$, 
+где $\abs{\theta} = \max{\abs{x_j - x_{j - 1}}}$ --- мелкость(ранг) разбиения
 
 \[
-\abs{\int_a^b {f} dx - \sum_{j = 1} ^ n (x_j - x_{j - 1}) \frac{f(x_j) + f(x_{j - 1})}{2}} \leqslant \frac{\abs{\theta} ^ 2}{8} \int_a^b \abs{f''},\]
-    где $\abs{\theta} = \max{\abs{x_j - x_{j - 1}}}$ --- мелкость(ранг) разбиения  
+\abs{\int_a^b {f} dx - \sum_{j = 1} ^ n (x_j - x_{j - 1}) \frac{f(x_j) + f(x_{j - 1})}{2}} \leqslant \frac{\abs{\theta} ^ 2}{8} \int_a^b \abs{f''}\]
+
+\end{theorem}
 
 \begin{proof}
     \begin{enumerate}
@@ -12,11 +18,11 @@ $f \in C^2[a, b]$ \,\,\, $\theta = \{ x_0 = a, x_1, ... , x_n = b\}$
            поэтому далее будем доказывать в предположении, что $x_0 = a, x_1 = b$.
         
         \[
-            \int_a^b \abs{f''} = \sum \int_{x_{j - 1}}^{x_j}
+            \int_a^b \abs{f''} dx = \sum_{j = 1}^n \int_{x_{j - 1}}^{x_j} \abs{f''} dx
         \]
 
         \[
-            \int_a^b {f} dx = \sum \int_{x_{j - 1}}^{x_j}
+            \int_a^b {f} dx = \sum_{j = 1} ^ n \int_{x_{j - 1}}^{x_j} f dx
         \]
 
         Сводим к неравенству:
@@ -25,14 +31,14 @@ $f \in C^2[a, b]$ \,\,\, $\theta = \{ x_0 = a, x_1, ... , x_n = b\}$
             \abs{\int_a^b f - \frac{f(a) + f(b)}{2} \cdot (b - a)} \leqslant \frac{(b - a) ^ 2}{8} \cdot \int_a^b \abs{f''}
         \]
 
-        \item Рассмотрим разностное отношение функциий. Для этого введем $g$ - линейная функция, такая что $g(a) = f(a), g(b) = f(b)$.
+        \item Рассмотрим разностное отношение функциий. Для этого введем $g$ - линейная функция, такая что $g(a) = f(a)$, $g(b) = f(b)$.
         
         \[
-            \Rightarrow \int_a^b f - \frac{f(a) + f(b)}{2} \cdot (b - a) = \int_a^b {f - g}, \text{ но $g'' = 0$} \Rightarrow
+            \Rightarrow \int_a^b f - \frac{f(a) + f(b)}{2} \cdot (b - a) = \int_a^b {f - g}, \text{ но $g'' = 0$} 
         \]
 
         \[
-            \int_a^b \abs{f''} = \int_a^b \abs{f'' - g''} = \int_a^b \abs{(f - g)''}
+            \Rightarrow \int_a^b \abs{f''} = \int_a^b \abs{f'' - g''} = \int_a^b \abs{(f - g)''}
         \]
 
         \item Свели утверждение к 
@@ -85,8 +91,15 @@ $f \in C^2[a, b]$ \,\,\, $\theta = \{ x_0 = a, x_1, ... , x_n = b\}$
 \end{theorem}
 
 \begin{proof}
+
+    Делаем аналогично предыдущей теореме: разбиваем на отрезки и на каждом применяем 
+
+    $
+        \int_a^b f(x) dx = \int_a^b f''(x) \frac{(x - a)(x - b)}{2} dx
+    $.
+
     \[
-        \int_m^n f dx - \sum_{j = m + 1}^n \frac{f(j) + f(j - 1)}{2}  = \int_m^n f''(x) \frac{\{x \} (\{x \} - 1)}{2} dx \text{(для подробностей 29 минута \href{https://drive.google.com/file/d/1PE4c82vhdcEngDkpNyRiATNBhnSxje4S/view}{записи}} ) 
+        \int_m^n f dx - \sum_{j = m + 1}^n \frac{f(j) + f(j - 1)}{2}  = \int_m^n f''(x) \frac{\{x \} (\{x \} - 1)}{2} dx
     \]
 
     Все кроме крайних ($f(m) $ и $f(n)$) по 2 раза в 
@@ -121,8 +134,9 @@ $f \in C^2[a, b]$ \,\,\, $\theta = \{ x_0 = a, x_1, ... , x_n = b\}$
     \]
 
     $I_n $ -- возрастает и ограничена, где $\delta$ - нек. конст. Эйлера (про нее неизвестного ничего, кроме миллиона знаков после запятой :)
-\newpage
+
     \item (формула Стирлинга) 
+    
     $n! \sim \sqrt{2 \pi n} \left( \frac{n}{e} \right) ^ n, n \to \infty$ 
     
     $\but$ не следует думать, что факториал равен этой штуке, это означает только то, что отношение стремится к единице
@@ -171,8 +185,7 @@ $f \in C^2[a, b]$ \,\,\, $\theta = \{ x_0 = a, x_1, ... , x_n = b\}$
 
 \newpage
 
-\section{Несобственный интеграл}
-\subsection{Определение и свойства}
+\subsection{Несобственный интеграл}
 \begin{motivation}
     \[
         \int_0^\pi \frac{dx}{2 + \cos x} = \left[ t = \tg \frac{x}{2} \right] = \int_0^{\tg \frac{\pi}{2} = +\infty} ... \,\, dt 
@@ -297,18 +310,20 @@ $f \in C^2[a, b]$ \,\,\, $\theta = \{ x_0 = a, x_1, ... , x_n = b\}$
 
 
 \begin{remark}
-    Если $f \in C[a, b], b \in \R \hence \int_a^{\to b} f dx = \int_a^b f dx$
+    Если $f \in C[a, b], b \in \R \hence \int\limits_a^{\to b} f dx = \int\limits_a^b f dx$
 \end{remark}
 
 
 \begin{theorem}[Критерий Коши]
-    $\int_a^{\to b} f dx $ сходится $\Longleftrightarrow \forall \varepsilon > 0\,\, \exists \delta \in [a, b) : \forall B_1, B_2 \in (\delta, b) \hence \abs{\int_{B_1}^{B_2} } < \varepsilon$
+    $\int\limits_a^{\to b} f dx $ сходится $\Longleftrightarrow \forall \varepsilon > 0\,\, \exists \delta \in [a, b) : \forall B_1, B_2 \in (\delta, b) \hence \abs{\int\limits_{B_1}^{B_2} f dx} < \varepsilon$
 \end{theorem}
 
 \begin{proof}
     $\underbrace{F(B)}_{\text{--- некая первообразная}} = \int_a^B f dx $
 
-    $\int_a^{\to b} $ --- сх-ся $\Longleftrightarrow \lim\limits_{B \to b-} F(B) \Longleftrightarrow \forall \varepsilon > 0 \,\, \exists \delta \in [a, b) \,\, : \forall B_1, B_2  \in (\delta, b) \Rightarrow \\ \abs{F(B_1) - F(B_2)} < \varepsilon$ --- критерий Коши для функций.
+    $\int\limits_a^{\to b} $ --- сх-ся $\Longleftrightarrow \lim\limits_{B \to b-} F(B) \Longleftrightarrow \forall \varepsilon > 0 \,\, \exists \delta \in [a, b) \,\, : \forall B_1, B_2  \in (\delta, b) \Rightarrow$
+    
+    $\abs{F(B_1) - F(B_2)} < \varepsilon$ --- критерий Коши для функций.
 \end{proof}
 
 \begin{properties}{}
@@ -320,9 +335,14 @@ $f \in C^2[a, b]$ \,\,\, $\theta = \{ x_0 = a, x_1, ... , x_n = b\}$
     $\but$ Нужно понимать это так: если один из двух интегралов сходится, то сходится и второй и верно равенство
 
     \item (стремление к нулю остатка)
+    
         $\int_a^{\to b} f dx $ сх-ся $\hence \int_B^{\to b} f dx \to 0, B \to b-$ 
-    \item (линейность) $\int_a^{\to b}(\al f + \be g) dx = \al \int_a^{\to b} f(x) dx + \be \int_a^{\to b} g(x) dx$
-    \item (монотонность) $f \geqslant g \hence \int_a^{\to b} f \geqslant \int_a^{\to b} g$
+    \item (линейность) 
+    
+    $\int_a^{\to b}(\al f + \be g) dx = \al \int_a^{\to b} f(x) dx + \be \int_a^{\to b} g(x) dx$
+    \item (монотонность) 
+    
+    $f \geqslant g \hence \int_a^{\to b} f \geqslant \int_a^{\to b} g$
     \item $\int_a^{\to b} \abs{f} dx $ сх-ся $\hence \int_a^{\to b} f dx$ сходится и верно неравенство $\abs{\int_a^{\to b} f dx} \leqslant \int_a^{\to b} \abs{f} dx$
     
     \begin{proof}
@@ -339,12 +359,16 @@ $f \in C^2[a, b]$ \,\,\, $\theta = \{ x_0 = a, x_1, ... , x_n = b\}$
         $\int_a^{\to b} f $ сх-ся, а $\int_a^{\to b} \abs{f}$ расх $\hence $ условная сходимость
     \end{definition}
 
-    \item (инт. по частям) $\int_a^{\to b } f g' dx = \underbrace{fg \bigg | _a ^ b}_{ = \lim_{b-} f(b)g(b) - f(a)g(a) \text{ только если } \exists} - \int_a^{\to b} f' g dx$
+    \item (интегрирование по частям) 
+    
+    $\int_a^{\to b } f g' dx = fg \bigg | _a ^ b - \int_a^{\to b} f' g dx = \underbrace{(\lim_{b-} f(b)g(b) - f(a)g(a))}_{\text{только если } \exists \lim} -  \int_a^{\to b} f' g dx $
 
-    \item (замена переменной) $\phi : [\al, \be) \to [a, b), \phi \in c'[\al, \be)$
+    \item (замена переменной) 
+    
+    $\phi : [\al, \be) \to [a, b), \phi \in C'[\al, \be)$
     
     \[
-        \int_a^{\to b} f(\phi(x)) \phi'(x) dx = \int_{\phi(a)}^{\phi(b-) = \lim_{x \to b-} \phi(x) \in \R \cup \{ \infty \}} f(y) dy
+        \int_a^{\to b} f(\phi(x)) \phi'(x) dx = \int_{\phi(a)}^{\to \phi(b-) = \lim_{x \to b-} \phi(x) \in \R \cup \{ \infty \}} f(y) dy
     \]
 
     Если один интеграл существует, то и другой тоже и они равны
@@ -357,22 +381,26 @@ $f \in C^2[a, b]$ \,\,\, $\theta = \{ x_0 = a, x_1, ... , x_n = b\}$
         \]
 
         $\ora$
-        \[
-            \phi(\be-) \neq b \hence \text{ П инт --- собственный } \hence \text{ по первому пункту}
-        \]
+        
+        \quad
 
-        \[
-            \phi(\be-) = b, b_n \to b-, \be_n \to \be
-        \]
+        \begin{enumerate}
+            \item $
+                \phi(\be-) \neq b \hence$ правый интеграл --- собственный $ \hence \text{ по первому пункту}
+            $
+            \item $
+                \phi(\be-) = b$. Покажем, что правый интеграл сходится.
+                Берем произвольную последовательность $b_n : b_n \to b-$ и $\be_n \to \be : \phi(\be_n) = b_n $ (такое можно сделать, так как $\phi$ непрерывная и начиная с некоторого места $b_n$ будет попадать в область определения $\phi$).
+        
+            \[
+                \int_{\alpha}^{\be_n} f(\phi(x)) \phi'(x) dx = \int_{\phi(\alpha)}^{b_n} f(y) dy
+            \]
+       
+            и переходим к предыдущему пункту
 
-        \[
-            \exists \be_n : \phi(\be_n) = b_n
-        \]
+        \end{enumerate}
 
-        \[
-            \int_{\alpha}^{\be_n} f(\phi(x)) \phi'(x) dx = \int_{\phi(\alpha)}^{b_n} f(y) dy
-        \]
+        
 
-        и переходим к предыдущему пункту
     \end{proof}
 \end{properties} 
