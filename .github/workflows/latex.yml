@@ -18,6 +18,11 @@ jobs:
         with:
           root_file: matan.tex
 
+      - name: Delete
+        uses: ame-yu/action-delete-latest-release@v2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
