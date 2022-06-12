@@ -42,11 +42,11 @@ $M = \{ \Phi(z) = 0 \}$, $z \in M \Leftrightarrow \begin{cases}
     d\Phi(z) = 
     \begin{pmatrix}
         \frac{\partial \Phi_j}{\partial z_k}
-    \end{pmatrix} : \R ^ {m + n} \to \R ^ n
+    \end{pmatrix} : \R ^ {m + n} \to \R ^ m
 \]
 
 
-$M $ невырождена в $(\cdot) z$ $\Leftrightarrow rank{d \Phi(z)} = m \hence$ выберем $m$ линейно независимых столбцов, переставим их в конец и переименуем переменные.
+$M $ невырождена в $(\cdot) z$ $\Leftrightarrow rank{\ d \Phi(z)} = m \hence$ выберем $m$ линейно независимых столбцов, переставим их в конец и переименуем переменные.
 
 $z = (x_1, \cdots, x_n, y_1, ..., y_m)$
 
@@ -56,23 +56,26 @@ $d \Phi(x, y) = \begin{pmatrix}
 
 $\hence $ в окрестности точки имеем график функции $y = \phi(x)$
 
-$z_0$ --- точка условного локального минимума $\widetilde{f}(x) = f(x, \phi(x)) \hence$ у  $\widetilde{f}$ $x_0$ --- точка локального минимума $\hence d \widetilde{f} (x_0) = 0 \Leftrightarrow \partial_x f(x, \phi(x)) + \partial_y f(x_0, \phi(x_0)) d \phi(x_0) = 0$ получаем уравнение из n переменных.
+$z_0$ --- точка условного локального минимума $\widetilde{f}(x) = f(x, \phi(x)) \hence$ у  $\widetilde{f}$ $x_0$ --- точка локального минимума $\hence d \widetilde{f} (x_0) = 0 \Leftrightarrow \partial_x f(x_0, \phi(x_0)) + \partial_y f(x_0, \phi(x_0)) d \phi(x_0) = 0$ получаем уравнение из n переменных.
 
-\[
-    \Phi(x, \phi(x)) = 0, \partial_x (x_0, \phi(x_0)) + \partial_y \phi(x_0, \phi(x_0)) d \phi(x_0) = 0
-\]
 
-\[
-    d \phi(x_0) = - (\partial_y \Phi(x_0, y_0)) ^ {-1} \partial_x \Phi(x_0, y_0)
-\]
+Знаем, что $\Phi(x, \phi(x)) = 0 \Rightarrow \partial_x \Phi(x_0, \phi(x_0)) + \partial_y \Phi(x_0, \phi(x_0)) d \phi(x_0) = 0$
+
+Для удобства дальше положим $y_0 = \phi(x_0)$
+
+Тогда выразим $d \phi(x_0): d \phi(x_0) = - (\partial_y \Phi(x_0, y_0)) ^ {-1} \partial_x \Phi(x_0, y_0)$
+
+Теперь подставим полученное $d \phi(x_0)$ в уравнение выше и получим систему:
 
 \[
 \begin{cases}
-    \partial_x f(x_0, y_0) + \underbrace{\partial_y f(x_0, y_0) \partial_y \Phi(x_0, y_0)^{-1}}_{ = \lambda = (\lambda_1, \cdots, \lambda_m)} \partial_x \Phi(x_0, y_0) = 0\\
+    \partial_x f(x_0, y_0) - \underbrace{\partial_y f(x_0, y_0) (\partial_y \Phi(x_0, y_0))^{-1}}_{ = \lambda = (\lambda_1, \cdots, \lambda_m)} \partial_x \Phi(x_0, y_0) = 0\\
 
     \Phi(x_0, y_0) = 0
 \end{cases}
 \]
+
+Ниже объяснена размерность $\lambda$:
 
 \[
     \begin{cases}
@@ -83,9 +86,7 @@ $z_0$ --- точка условного локального минимума $\
     \end{cases}
 \]
 
-\[
-    \partial_y f(x_0, y_0) - \lambda \partial_y \Phi(x_0, y_0) = 0
-\]
+И заметим, что $\partial_y f(x_0, y_0) - \lambda \partial_y \Phi(x_0, y_0) = 0$
 
 Условие Лагранжа: 
 
@@ -104,7 +105,7 @@ $z_0$ --- точка условного локального минимума $\
 $\lambda$ --- неопределенные множители Лагранжа
 
 \begin{theorem}
-    Если $z_0$ --- точка условного локального экстремума $f$ при условии $\Phi = 0$ и $\Phi $ не вырождена в $(\cdot) z_0 \hence \exists \lambda = (\lambda_1, ..., \lambda_m)$ т.ч. $d(f - \lambda \Phi)(z_0) = 0 \Leftrightarrow f - \lambda_1 \Phi_1 - \cdots - \lambda_m \Phi_m = 0$. 
+    Если $z_0$ --- точка условного локального экстремума $f$ при условии $\Phi = 0$ и $\Phi $ не вырождена в $(\cdot) z_0 \hence \exists \lambda = (\lambda_1, ..., \lambda_m)$ т.ч. $d(f - \lambda \Phi)(z_0) = 0 \Leftrightarrow d(f - \lambda_1 \Phi_1 - \cdots - \lambda_m \Phi_m)(z_0) = 0$. 
 \end{theorem}
 
 
@@ -234,6 +235,8 @@ $df(z_0)h = 0$, если $h$ касательный к поверхности $\
 
 \end{tikzpicture}
 
+Хотим максимизировать площадь под графиком, фиксируя длину.
+
 \[
     J[F] = \int_0^1 f(x) dx \to \max
 \]
@@ -252,74 +255,62 @@ $df(z_0)h = 0$, если $h$ касательный к поверхности $\
 
 \underline{Метод множителей Лагранжа: } 
 
-$\exists \lambda$ т.ч. $\forall h : h(0) = h(1) = 0, \partial_h(J - \lambda \Phi)(f) = 0$
+$\exists \lambda$ т.ч. $\forall h : h(0) = h(1) = 0, \partial_h(J - \lambda \Phi)(f) = 0$. То есть производная по всем направлениям равна 0.
+
+\begin{proof}
 
 Предположим, что $\exists h_0 : \partial h_0 \Phi(f) \neq 0$
 
 
-Выбрали h:
-$g(t, s) = \Phi[f + th + sh_0]$
+Выбрали h, положим $g(t, s) = \Phi[f + th + sh_0]$
 
-Почему $\exists s : g(t, s) = 0$
+И хотим найти $s : g(t, s) = 0$
 
 Цель: $\exists s(t) : g(t, s(t)) = 0$
 
 $\partial_s g(t, s) = \partial_{h_0} \Phi(f + th + sh_0) $
 
-$\exists (\partial_s g(0, 0)) ^ {-1} = (\partial_{h_0} \Phi (f)) ^ {-1}$
+Т.к. $\exists (\partial_s g(0, 0)) ^ {-1} = (\partial_{h_0} \Phi (f)) ^ {-1}$, то:
 
-$\exists s(t) : \Phi(f + th + s(t)h_0) = 0$
+Тогда по теореме о неявной функии $\exists s(t) : (\star) = \Phi(f + th + s(t)h_0) = 0$
 
-$\phi(t) = J(f + th + s(t)h_0) \hence$ 0 --- точка локального минимума $\hence \phi'(0) = 0$
+Давайте тогда заведем еще одну функцию: $\phi(t) = J(f + th + s(t)h_0) \hence$ 0 --- точка локального максимума(т.к. мы считаем, что $f$ точка локального максимума в $J$) $\hence \phi'(0) = 0$
 
-$\partial_h J(f) + s'(0) \partial _{h_0} J(f) = 0$
+Тогда распишем $\phi'(0) = \partial_h J(f) + s'(0) \partial _{h_0} J(f) = 0$
 
-$\partial_h \Phi(f) + s'(0) \partial_{h_0} \Phi(f) = 0$
+И при $t = 0 \Rightarrow \dfrac d {dt} (\star) = \dfrac {d\Phi} {dt} (f + th + s(t)h_0) = \partial_h \Phi(f) + s'(0) \partial_{h_0} \Phi(f) = 0$
 
-$\partial_h J(f) - \underbrace{\frac{\partial h_0 J(f)}{\partial h_0 \Phi(f)}}_{= \lambda} \partial_h \Phi(f) = 0$
+Теперь выразим $s'(0)$ и подставим в верхнее равенство: $\partial_h J(f) - \underbrace{\frac{\partial h_0 J(f)}{\partial h_0 \Phi(f)}}_{= \lambda} \partial_h \Phi(f) = 0$
 
+Тогда $\forall h \Rightarrow \partial_h (J - \lambda \Phi)(f) = 0$
 
-$\forall h \partial_h (J - \lambda \Phi)(f) = 0$
+\end{proof}
 
 \[
-    \int_0^1 \underbrace{f - \lambda \sqrt{1 + (f') ^ 2} dx}_{F(x, f, f')}
+    (J - \lambda \Phi)(f) = \int_0^1 \underbrace{f - \lambda \sqrt{1 + (f') ^ 2} dx}_{F(x, f, f')}
+\]
+
+По уравнению Эйлера-Лагранжа: $\partial_2 F (...) - \frac{d}{dx} \partial_3 F (...) = 0$. То есть мы минимизируем функционал, чтобы выполнилась теорема сверху.
+
+Тогда получим:
+
+\[
+    1 - \frac{d}{dx} \left(-\lambda \frac{f'}{\sqrt{1 + (f')^2}}\right) = 0 \Rightarrow -\lambda \frac{f'}{\sqrt{1 + (f') ^ 2}} = x + c
+\]
+
+Выразим $f'$:
+
+\[
+    \Leftrightarrow \frac{f'}{\sqrt{1 + (f') ^ 2}} = -\frac{(x + c)}{\lambda} \Leftrightarrow \frac{(f') ^ 2}{1 + (f') ^ 2} = \frac{(x + c) ^ 2}{\lambda ^ 2} \Leftrightarrow
 \]
 
 \[
-    \partial_2 F (...) - \frac{d}{dx} \partial_3 F (...) = 0 
+    \Leftrightarrow \frac{1}{(f') ^ 2} = \frac{\lambda ^ 2}{(x + c) ^ 2} - 1 \Leftrightarrow f'(x) = \sqrt{\frac{(x + c) ^ 2}{\lambda ^ 2 - (x + c) ^ 2}} \Leftrightarrow
 \]
 
 \[
-    1 - \frac{d}{dx} (-\lambda \frac{f'}{\sqrt{1 + (f')^2}}) = 0
+    \Leftrightarrow f(x) = \bigint \sqrt{\frac{(x + c) ^ 2}{x ^ 2 - (x + c) ^ 2}} dx \Leftrightarrow f = -\sqrt{\lambda^2 - (x + c)^2} + c_1
 \]
 
-\[
-    \lambda \frac{f'}{\sqrt{1 + (f') ^ 2}} = x + c
-\]
-
-
-\[
-    \frac{f'}{\sqrt{1 + (f') ^ 2}} = -\frac{(x + c)}{\lambda}
-\]
-
-
-\[
-    \frac{(f') ^ 2}{1 + (f') ^ 2} = \frac{(x + c) ^ 2}{\lambda ^ 2}
-\]
-
-\[
-    \frac{1}{(f') ^ 2} = \frac{\lambda ^ 2}{(x + c) ^ 2} - 1
-\]
-
-\[
-    f'(x) = \sqrt{\frac{(x + c) ^ 2}{x ^ 2 - (x + c) ^ 2}}
-\]
-
-\[
-    f(x) = \int \sqrt{\frac{(x + c) ^ 2}{x ^ 2 - (x + c) ^ 2}}
-\]
-
-\[
-    y ^ 2 + (x + c) ^ 2 = \lambda ^ 2 
-\]
+Возьмем $\Rightarrow (f(x) - c_1) ^ 2 + (x + c) ^ 2 = \lambda ^ 2$. Получили график окружности, осталось выполнить все условия.
 \end{example}

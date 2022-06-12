@@ -36,14 +36,16 @@
     \Pi(f) = \int_0^1 f(x)\sqrt{1 + (f'(x)) ^ 2} dx \to \min
 \]
 
+Т.к. $\Pi = mgh$, а в нашем случае $h = f(x)$, а за вес мы тут берем просто длину цепочки.
+
 Ограничение на длину:
 
 \[
-    \Phi(f) = \int_0^1 \sqrt{1 + (f'(x))^2} dx = l
+    \Phi(f) = \int_0^1 \sqrt{1 + (f'(x))^2} dx - l = 0
 \]
 
 
-Метод множителей лагранжа говорит, что
+Метод множителей Лагранжа говорит, что
 $f$ --- условный локальный минимум 
 $\hence \exists \lambda : \forall h$ 
 допустимого приращения : $h(0) = h(1) = 0$ 
@@ -56,64 +58,55 @@ $\hence \exists \lambda : \forall h$
     (\Pi - \lambda \Phi)(f) = \int_0^1 F(x, f(x), f'(x)) dx
 \]
 
-\[
-    F(x, u, v) = (u - \lambda) \sqrt{1 + v ^ 2}
-\]
+Тогда: $F(x, u, v) = (u - \lambda) \sqrt{1 + v ^ 2}$
 
 (1) $\hence$ Ур. Эйлера-Лагранжа
 
 Заметим, что $F$ не зависит от x, то есть $F = F(u, v)$
 
 \[
-    \partial_2 F - \frac{d}{dx} \partial_3 F = 0 \hence F - f' \partial_3 F = c
+    (\star) = \partial_2 F - \frac{d}{dx} \partial_3 F = 0 \hence F - f' \partial_3 F = ci
 \]
 
-Проверка:
+Это мы просто угадали, давайте проверим:
 
 \[
     F - f' \partial_3 F = c \quad \bigg | \frac{d}{dx}
 \]
 
+Посмотрим на дифференциал: $\frac d {dx} F = \partial_2 F \cdot f' + \partial_3 F \cdot f''$ и $\frac d {dx} (- f' \cdot \partial_3 F) = -f'' \cdot \partial_3 F - f' \frac d {dx} (\partial_3 F)$
+
 \[
-    \partial_2 F f' + \partial_3 F \cdot f'' - f'' \cdot \partial_3 F - f' \frac{d}{dx}(\partial_3 F) = 0
+    \partial_2 F f' + \partial_3 F \cdot f'' - f'' \cdot \partial_3 F - f' \frac{d}{dx}(\partial_3 F) = 0 \Leftrightarrow
 \]
 
 
 \[
-    \partial_2 F f' - f' \frac{d}{dx}(\partial_3 F) = 0
+    \Leftrightarrow \partial_2 F f' - f' \frac{d}{dx}(\partial_3 F) = 0
 \]
 
 \[
-    (f(x) - \lambda) \sqrt{1 + (f'(x)) ^ 2} - f'(x) \cdot (f(x) - \lambda) \cdot \frac{f'(x)}{\sqrt{1 + (f'(x)) ^ 2}} = c
+    \Rightarrow (\star) = (f(x) - \lambda) \sqrt{1 + (f'(x)) ^ 2} - f'(x) \cdot (f(x) - \lambda) \cdot \frac{f'(x)}{\sqrt{1 + (f'(x)) ^ 2}} = c \Rightarrow
 \]
 
 \[
-    \frac{1}{\sqrt{1 + (f')^2}} = (\frac{c}{f - \lambda})
-\]
-
-
-\[
-    \frac{1}{1 + (f')^2} = (\frac{c}{f - \lambda}) ^ 2
+    \Rightarrow \frac{1}{\sqrt{1 + (f')^2}} = \frac{c}{f - \lambda} \Rightarrow \frac{1}{1 + (f')^2} = (\frac{c}{f - \lambda}) ^ 2 \Rightarrow 1 + (f') ^ 2 = \left(\frac{f - \lambda}{c}\right) ^ 2 \Rightarrow
 \]
 
 \[
-    1 + (f') ^ 2 = (\frac{f - \lambda}{c}) ^ 2
+    \Rightarrow f' = \sqrt{\frac{(f -  \lambda)  ^ 2 - c ^ 2}{c ^ 2}} \Rightarrow \frac{f'}{\sqrt{(f - \lambda) ^ 2 - c ^ 2}} = \frac{1}{c}
 \]
 
 \[
-    f' = \sqrt{\frac{(f -  \lambda)  ^ 2 - c ^ 2}{c ^ 2}}
+    \Rightarrow \int \frac{f'}{\sqrt{(f - \lambda) ^ 2 - c ^ 2}} dx = \int \frac{1}{c} dx \Rightarrow
 \]
 
 \[
-    \frac{f'}{\sqrt{(f - \lambda) ^ 2 - c ^ 2}} = \frac{1}{c}
+    \Rightarrow \int \frac {df} {\sqrt{(f - \lambda)^2 - c^2}} = \int \frac 1 c dx
 \]
 
 \[
-    \int \frac{df}{\sqrt{(f - \lambda) ^ 2 - c ^ 2}}= \int \frac{f'}{\sqrt{(f - \lambda) ^ 2 - c ^ 2}} dx = \int \frac{1}{c} dx
-\]
-
-\[
-    \log(f - \lambda + \sqrt{(f - \lambda) ^ 2 - c ^ 2}) = \frac{1}{c} + c_1
+    \log(f - \lambda + \sqrt{(f - \lambda) ^ 2 - c ^ 2}) = \frac{1}{c} x + c_1
 \]
 
 
