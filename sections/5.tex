@@ -16,9 +16,10 @@
 \end{definition}
 \begin{remark}
     Можно определять путь покоординатно:
-    $\gamma(t) = (\gamma_1(t),\dots, \gamma_m(t))$ 
-    Где $\gamma_i$~--- координатные функции.
+    $\gamma(t) = (\gamma_1(t),\dots, \gamma_m(t))$, где $\gamma_i$~--- координатные функции.
+    $\gamma$ --- непр. $\Longleftrightarrow$ все $\gamma_j$ --- непр.
 \end{remark}
+
 \begin{definition}
     Назовём два пути $\gamma_1\colon [a,b]\mapsto \R^m$ и
     $\gamma_2\colon [c,d]\mapsto \R^m$ эквивалентными,\\
@@ -34,14 +35,14 @@
 \end{remark}
 \begin{example}
     У носителя пути есть различные параметризации:
-    $(\cos x, \sin x), (x, \sqrt{1 - x^2})$(полуокружность)
+    $(\cos x, \sin x), (\sqrt{1 - y^2}, y)$(полуокружность)
 \end{example}
 \begin{remark}
     Зная параметризацию можно определить носитель кривой,
     начало и конец, но хочется понимать ещё про гладкость.
 \end{remark}
 \begin{definition}
-    $\gamma$ ~--- гладкий путь, если $\gamma_i\in C_1[a,b]$.\\
+    $\gamma$ ~--- гладкий путь, если $\gamma_i\in C'[a,b]$.\\
 \end{definition}
 \begin{definition}
     Гладкая кривая~--- кривая, у которой $\exists$ гладкий путь.
@@ -85,9 +86,9 @@
         l_{\theta}(\gamma_1) = l_{\varphi(\theta)}(\gamma_2)
     \]
 \end{proof}
-\begin{theorem}[Аддитивность пути]
+\begin{theorem}[Аддитивность длины]
     $\gamma\colon [a,b]\mapsto\R^m, c\in(a,b)$.
-    Пусть $\gamma_{-}=\gamma\big|_{[a,b]}, \gamma_{+} = \gamma\big|_{[b,c]}$.
+    Пусть $\gamma_{-}=\gamma\big|_{[a,b]}, \gamma_{+} = \gamma\big|_{[c,b]}$.
     Требуется доказать, что $l(\gamma)=l(\gamma_-) + l(\gamma_+)$
 \end{theorem}
 \begin{proof}
@@ -105,8 +106,8 @@
                 l_{\theta}(\gamma) =
                 \sum\limits_{i=1}^{n}\norm{\gamma(x_i) - \gamma(x_{i + 1})}=
                 \sum\limits_{i=1}^{k-1}\norm{\gamma(x_i) - \gamma(x_{i + 1})} + \norm{x_k - x_{k+1}} +
-                \sum\limits_{i=k+1}^{n-1}\norm{\gamma(x_i) - \gamma(x_{i + 1})}\le\\
-                \le\sum\limits_{i=1}^{k-1}\norm{\gamma(x_i) - \gamma(x_{i + 1})}
+                \sum\limits_{i=k+1}^{n-1}\norm{\gamma(x_i) - \gamma(x_{i + 1})} \leqslant\\
+                \leqslant \sum\limits_{i=1}^{k-1}\norm{\gamma(x_i) - \gamma(x_{i + 1})}
                 + \norm{x_k - c} + \norm{c - x_{k + 1}} +
                 \sum\limits_{i=k+1}^{n-1}\norm{\gamma(x_i) - \gamma(x_{i + 1})}=
                 l_{\theta_-}(\gamma) + l_{\theta_+}(\gamma)
@@ -147,20 +148,20 @@
      Пусть $m_{j,k}=\min\limits_{[t_{j-1},t_j]} \abs{\gamma_k'}$,
      $M_{j,k}=\max\limits_{[t_{j-1},t_j]}\abs{\gamma'_k}$.
      Тогда можно продолжить  следующим образом:
-     $$(t_j - t_{j-1})\sqrt{\sum\limits_{k=1}^{m}{m_{j,k}^2}}\leq
-     \abs{\gamma(t_j) - \gamma(t_{j-1})}\leq
+     $$(t_j - t_{j-1})\sqrt{\sum\limits_{k=1}^{m}{m_{j,k}^2}}\leqslant
+     \abs{\gamma(t_j) - \gamma(t_{j-1})}\leqslant
      (t_j - t_{j-1})\sqrt{\sum\limits_{k=1}^{m}{M_{j,k}^2}}$$
      С другой стороны:
-     $$(t_j - t_{j-1})\sqrt{\sum\limits_{k=1}^{m}{m_{j,k}^2}}\leq
-     \int\limits_{t_{j-1}}^{t_j}{\abs{\gamma'(t)}dt}\leq
+     $$(t_j - t_{j-1})\sqrt{\sum\limits_{k=1}^{m}{m_{j,k}^2}}\leqslant
+     \int\limits_{t_{j-1}}^{t_j}{\abs{\gamma'(t)}dt}\leqslant
      (t_j - t_{j-1})\sqrt{\sum\limits_{k=1}^{m}{M_{j,k}^2}}$$
      Суммируем по $j$:
      \[
-         \sum\limits_{}^{}{(t_j-t_{j-1})\sqrt{?}}\leq
+         \sum\limits_{}^{}{(t_j-t_{j-1})\sqrt{?}}\leqslant
          \begin{cases}
              l_{\theta}(\gamma)\\
              \int\limits_{a}^{b}{\abs{\gamma'(t)}dt}
-         \end{cases}\leq
+         \end{cases}\leqslant
          \sum\limits_{}^{}{(t_j-t_{j-1})\sqrt{?}}
      .\] 
      Заметим, что обе части стремятся к одному и тоже при
@@ -172,7 +173,7 @@
      Тогда $\abs{M_{j,k}-m_{j,k}}<\varepsilon$ если $t_j - t_{j-1}<\delta$.
      \[
          \sqrt{\sum\limits_{k=1}^{m}{M^2_{j,k}}}-
-         \sqrt{\sum\limits_{k=1}^{m}{m^2_{j,k}}} \leq
+         \sqrt{\sum\limits_{k=1}^{m}{m^2_{j,k}}} \leqslant
          \sqrt{\sum\limits_{k=1}^{m}{(M_{j,k} - m_{j,k})^2}}<
          \sqrt{m}\varepsilon
      .\] 
@@ -184,12 +185,12 @@
     \begin{enumerate}
         \item (Длина графика функции)\\
             Пусть $f\colon[a,b]\mapsto \R, f\in C^1[a,b], 
-            G_f=\{(x,f(x)) \mid x\in [a,b]\}\subseteq \R^2$.
+            \Gamma_f=\{(x,f(x)) \mid x\in [a,b]\}\subseteq \R^2$.
             Тогда длина графика функции равна:
-            $l(G_f)=\bigintss\limits_{a}^{b}{\sqrt{1 + (f'(x))^2}dx}$
+            $l(\Gamma_f)=\bigintss\limits_{a}^{b}{\sqrt{1 + (f'(x))^2}dx}$
         \item
             Есть функция 
-            $r\colon [\alpha, \beta]\mapsto \R_+, r\in C^1[\alpha, \beta]$
+            $r\colon [\alpha, \beta]\mapsto \R_+, r\in C^1[\alpha, \beta]$.
             Тогда можно запараметризовать эту кривую как:
             $(r(t)\cos t, r(t)\sin t)$, обозначим за координаты
             $x(t), y(t)$ соответственно.
@@ -289,17 +290,18 @@
     \begin{enumerate}
         \item$U$ ~--- непрерывно
         \item $U$ ~--- непрерывно в 0
-        \item $\exists C\colon \forall x\in X, \abs{\abs{Ux}}_Y\leq C\abs{\abs{x}}_X$
+        \item $\exists C\colon \forall x\in X, \abs{\abs{Ux}}_Y\leqslant C\abs{\abs{x}}_X$
     \end{enumerate}
 \end{theorem}
+\newpage
 \begin{proof}
     \begin{enumerate}
         \item $(1)\Rightarrow (2)$~--- очевидно
         \item  $(2)\Rightarrow (3)$
              $\forall \varepsilon > 0, \exists \delta > 0\colon
-             \forall x\colon \norm{x}\leq\delta, \norm{Ux}\leq \varepsilon$.
+             \forall x\colon \norm{x} \leqslant \delta, \norm{Ux} \leqslant \varepsilon$.
              $x \rightarrow \overline{x} = x\frac{\delta}{\norm{x}}
-             \Rightarrow \norm{U\overline{x}}\leq \varepsilon$ 
+             \Rightarrow \norm{U\overline{x}} \leqslant  \varepsilon$ 
              % TODO недоделано
         \item $(3)\Rightarrow(1)$
              % $\|U(x_1) - U(x_2)\| \leq C\|x_1 - x_2\|$~---
@@ -320,11 +322,11 @@
     \end{enumerate}
 \end{theorem}
 \begin{remark}
-    % TODO
+    Например $\norm{(x_1, \cdots, x_n)}_{x_1 \times \cdots \times x_n} = \norm{x_1}_{x_1} + \cdots + \norm{x_n}_{x_n}$ (или какая-то другая, так как они все эквивалентны в конечномернлом пространстве).
 \end{remark}
 \begin{definition}
     $U: X\rightarrow Y$ ~--- лно.
-    $\norm{U} = \inf\{C \mid \forall x\in X \norm{Ux}\leq C\norm{x}\}$
+    $\norm{U} = \inf\{C \mid \forall x\in X \hence \norm{Ux}\leq C\norm{x}\}$
 \end{definition}
 \begin{remark}
 $\inf$ достигается то есть: $\forall x\in X, \norm{Ux}\leq
@@ -334,5 +336,7 @@ $\inf$ достигается то есть: $\forall x\in X, \norm{Ux}\leq
     $U\colon C[a,b]\mapsto C[a,b]$, причём
     $(Uf)(x) = \bigintss\limits_{a}^{x}{f(t)dt}$.
     Хотим оценить.
-    % TODO
+    \[
+        \norm{Uf} \leqslant (b - a) \norm{f} \hence \norm{U} = b - a
+    \]
 \end{example}

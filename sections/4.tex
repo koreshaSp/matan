@@ -1,7 +1,10 @@
 \section*{Лекция 4 (10.03.2022)}
 \subsection{Признаки сравнения}
 \begin{theorem}[признаки сравнения]
-    $f \geqslant g \geqslant 0, f, g \in C[a,b)$
+
+    \quad
+
+       $ f \geqslant g \geqslant 0, f, g \in C[a,b)$
 
     \begin{enumerate}
         \item \[
@@ -15,10 +18,14 @@
     
 \end{theorem}
 
+\begin{remark}
+    Стрелочки далее в несобственных интегралах будем опускать, так как никакой разницы с собственными интегралами нет.
+\end{remark}
+
 \begin{proof}
     
     \[
-        \underbrace{F(B)}_{\text{\small ограничена, т.к. $\exists \lim_{B \to b-} F(B)$}} = \int_a^B f dx \leqslant \int_a^B g dx = G(B) \inc
+        \underbrace{F(B)}_{\text{\small ограничена, т.к. $\exists \lim_{B \to b-} F(B)$}} = \int_a^B f dx \geqslant \int_a^B g dx = G(B) \inc
     \]
 \end{proof}
 
@@ -26,16 +33,18 @@
 
 \begin{enumerate}
     \item \[
-        f, g \geqslant 0, g = O(f), x \to b- : \int_a^b f \text{ сх-ся} \hence \int_a^b g \text{сх-ся} \]
+        f, g \geqslant 0, g = O(f), x \to b- : \int_a^b f \text{ сх-ся} \hence \int_a^b g \text{ сх-ся} \]
     
     \item \[
         f, g \geqslant 0, f \sim g, x \to b- \hence \int_a^b f dx, \int_a^b g dx \text{ сх-ся и расх-ся одновременно}
     \]
 \end{enumerate}
 
+\newpage
 
-
-С какими функциями лучше всего сравнивать?
+\begin{motivation}
+    С какими функциями лучше всего сравнивать? --- со степенными, поэтому хорошо бы знать от каких степенных функций интеграл сходится.
+\end{motivation}
 
 \begin{examples}
 \begin{enumerate}
@@ -50,117 +59,11 @@
 
 \quad
 
-Как посчитать $\int_{-\pi / 2}^{\pi / 2}$ ? Если разбить на два интерграла $\int_{-\pi / 2}^{\pi / 2} = \int_{-\pi / 2}^{0} + \int_{0}^{\pi / 2}$ то ничего не выйдет, т.к. площадь будет бесконечной\\
+Как посчитать $\int_{-\pi / 2}^{\pi / 2} \tan x dx$ ? Если разбить на два интерграла $\int_{-\pi / 2}^{\pi / 2} \tan x dx = \int_{-\pi / 2}^{0} \tan x dx + \int_{0}^{\pi / 2} \tan x dx$ то ничего не выйдет, т.к. площадь будет бесконечной\\
 
 
 
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
-
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
-%uncomment if require: \path (0,412); %set diagram left start at 0, and has height of 412
-
-%Straight Lines [id:da7309751331486005] 
-\draw    (158,239) -- (403,239) ;
-\draw [shift={(405,239)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-%Straight Lines [id:da3867630169273685] 
-\draw    (263,323) -- (263,111) ;
-\draw [shift={(263,109)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-%Shape: Free Drawing [id:dp0003972503350864187] 
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5] [line join = round][line cap = round] (226,335) .. controls (226,311.07) and (240.21,267.59) .. (249,250) .. controls (252.31,243.39) and (268.03,238.95) .. (275,225) .. controls (283.37,208.26) and (285.54,184.38) .. (292,165) .. controls (296.8,150.59) and (301.32,119.92) .. (299,106) .. controls (298.22,101.3) and (298.91,91) .. (294,91) ;
-%Shape: Free Drawing [id:dp5201804636624221] 
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5] [line join = round][line cap = round] (212,239) .. controls (212,241.69) and (213,244.31) .. (213,247) ;
-%Shape: Free Drawing [id:dp5851255907231582] 
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5] [line join = round][line cap = round] (214,258) .. controls (214,260.69) and (214.9,264.1) .. (213,266) ;
-%Shape: Free Drawing [id:dp8815517761152026] 
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5] [line join = round][line cap = round] (212,273) .. controls (212,274) and (212,275) .. (212,276) ;
-%Shape: Free Drawing [id:dp80520049266068] 
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5] [line join = round][line cap = round] (211,284) .. controls (211,285.67) and (211,287.33) .. (211,289) ;
-%Shape: Free Drawing [id:dp316467359479106] 
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5] [line join = round][line cap = round] (212,294) .. controls (212,296.99) and (211,296.83) .. (211,299) ;
-%Shape: Free Drawing [id:dp2834485693922434] 
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5] [line join = round][line cap = round] (211,308) .. controls (212.7,308) and (212,311.3) .. (212,313) ;
-%Shape: Free Drawing [id:dp6159513818340512] 
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5] [line join = round][line cap = round] (215,321) .. controls (215,321.89) and (216.07,323.07) .. (217,324) ;
-%Shape: Free Drawing [id:dp7891080275243103] 
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5] [line join = round][line cap = round] (218,330) .. controls (219.05,330) and (219,331.95) .. (219,333) ;
-%Shape: Free Drawing [id:dp18224065945873258] 
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5] [line join = round][line cap = round] (305,93) .. controls (310.1,93) and (309,108.56) .. (309,111) ;
-%Shape: Free Drawing [id:dp9620245827848797] 
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5] [line join = round][line cap = round] (310,126) .. controls (310,138.47) and (307,153.28) .. (307,165) ;
-%Shape: Free Drawing [id:dp7133454851869357] 
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5] [line join = round][line cap = round] (306,173) .. controls (306,176.15) and (308,179.55) .. (308,183) ;
-%Shape: Free Drawing [id:dp12386328513908185] 
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5] [line join = round][line cap = round] (308,191) .. controls (308,193.36) and (309,195.64) .. (309,198) ;
-%Shape: Free Drawing [id:dp15587949383454502] 
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5] [line join = round][line cap = round] (310,206) .. controls (310,213.49) and (314,217.57) .. (314,225) ;
-%Shape: Free Drawing [id:dp0761643181265077] 
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=1.5] [line join = round][line cap = round] (313,236) .. controls (313,237) and (313,238) .. (313,239) ;
-%Shape: Free Drawing [id:dp2021663107106323] 
-\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (215,247) .. controls (222.42,242.55) and (230.34,240.83) .. (238,237) ;
-%Shape: Free Drawing [id:dp23152035679965066] 
-\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (217,252) .. controls (215.51,252) and (212.4,255.44) .. (216,254) .. controls (220.14,252.34) and (225.6,248) .. (230,248) ;
-%Shape: Free Drawing [id:dp17795499674994364] 
-\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (214,260) .. controls (224.04,260) and (235,250) .. (245,250) ;
-%Shape: Free Drawing [id:dp1865941792926743] 
-\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (214,265) .. controls (214,267.26) and (215.06,265.47) .. (216,265) .. controls (224.22,260.89) and (233.68,259.16) .. (242,255) ;
-%Shape: Free Drawing [id:dp8778727815000686] 
-\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (216,272) .. controls (223.06,272) and (232.25,266.86) .. (240,266) ;
-%Shape: Free Drawing [id:dp17239530417514104] 
-\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (218,278) .. controls (218,274.86) and (232.72,272.65) .. (235,272) ;
-%Shape: Free Drawing [id:dp3456646149006728] 
-\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (214,283) .. controls (217.14,279.86) and (229.38,278) .. (234,278) ;
-%Shape: Free Drawing [id:dp3339926968499365] 
-\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (211,298) .. controls (218.09,298) and (225.05,294) .. (232,294) ;
-%Shape: Free Drawing [id:dp9522557706863325] 
-\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (220,301) .. controls (226.85,301) and (233.04,297) .. (240,297) ;
-%Shape: Free Drawing [id:dp7452053877996763] 
-\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (208,309) .. controls (217.97,309) and (227.71,306) .. (237,306) ;
-%Shape: Free Drawing [id:dp9823721194238563] 
-\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (221,317) .. controls (226.37,317) and (231.19,313) .. (237,313) ;
-%Shape: Free Drawing [id:dp6933842797306785] 
-\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (215,286) .. controls (220.97,286) and (227.9,284.11) .. (234,283) ;
-%Shape: Free Drawing [id:dp25553510430657356] 
-\draw  [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (272,231) .. controls (278.79,231) and (287.88,235.94) .. (294,239) ;
-%Shape: Free Drawing [id:dp31019838318535986] 
-\draw  [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (281,220) .. controls (277.03,216.03) and (297,230.96) .. (297,237) ;
-%Shape: Free Drawing [id:dp9076135131209477] 
-\draw  [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (286,210) .. controls (286,212.12) and (305.7,228) .. (308,228) ;
-%Shape: Free Drawing [id:dp7971819088109766] 
-\draw  [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (287,198) .. controls (287,203.81) and (297.16,220) .. (302,220) ;
-%Shape: Free Drawing [id:dp5319968818602678] 
-\draw  [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (296,189) .. controls (301.59,194.59) and (303.47,204.47) .. (309,210) ;
-%Shape: Free Drawing [id:dp2660060573911053] 
-\draw  [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (291,170) .. controls (291,177.21) and (304,182.65) .. (304,190) ;
-%Shape: Free Drawing [id:dp947217522533529] 
-\draw  [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (299,160) .. controls (299,164.66) and (303.83,167.74) .. (306,171) ;
-%Shape: Free Drawing [id:dp8278283783958452] 
-\draw  [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (299,137) .. controls (301.82,137) and (308.36,151.04) .. (311,155) ;
-%Shape: Free Drawing [id:dp4359165448328909] 
-\draw  [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (304,121) .. controls (304,117.44) and (305.56,123.56) .. (306,124) .. controls (308.54,126.54) and (311.17,129.17) .. (314,132) ;
-%Shape: Free Drawing [id:dp7797802405551274] 
-\draw  [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (300,101) .. controls (300,106.54) and (306.74,110.16) .. (311,113) ;
-%Shape: Free Drawing [id:dp7454151199683327] 
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (294,268) .. controls (294,271.89) and (291.85,286.95) .. (298,289) .. controls (303.1,290.7) and (305.49,282.53) .. (307,279) .. controls (307.59,277.63) and (309,273.51) .. (309,275) .. controls (309,290) and (309.25,305) .. (309,320) .. controls (308.89,326.47) and (311.01,336.6) .. (305,339) .. controls (299.18,341.33) and (292.8,326.8) .. (292,325) .. controls (287.62,315.15) and (292.84,299) .. (305,299) ;
-%Shape: Free Drawing [id:dp8508397273539994] 
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (326,292) .. controls (332.34,292) and (338.66,291) .. (345,291) ;
-%Shape: Free Drawing [id:dp4877929387816199] 
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (324,296) .. controls (332,296) and (340,296) .. (348,296) ;
-%Shape: Free Drawing [id:dp9111208578093893] 
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (372,252) .. controls (372,270.58) and (359.31,313) .. (385,313) ;
-%Shape: Free Drawing [id:dp7724522325014598] 
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (355,285) .. controls (363.77,285) and (375.17,287) .. (385,287) ;
-%Shape: Free Drawing [id:dp6809009336292745] 
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (405,287) .. controls (401.28,287) and (397.93,286.14) .. (395,292) .. controls (394.33,293.35) and (393.14,301.43) .. (396,300) .. controls (401.25,297.37) and (410,284) .. (410,284) .. controls (410,284) and (407.16,296.58) .. (407,298) .. controls (406.08,306.27) and (404.85,342.58) .. (398,346) .. controls (392.28,348.86) and (389.21,337.42) .. (388,335) .. controls (383.92,326.83) and (382.85,307) .. (396,307) ;
-%Shape: Free Drawing [id:dp8276969647642894] 
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (423,284) .. controls (423,290.39) and (433.98,306.72) .. (437,312) .. controls (438.47,314.58) and (440.81,322) .. (444,322) ;
-%Shape: Free Drawing [id:dp598325833870565] 
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (437,287) .. controls (434.57,287) and (431.47,288.92) .. (430,291) .. controls (422.11,302.18) and (412.07,315.85) .. (406,328) ;
-
-
-
-
-\end{tikzpicture}
-
+\includegraphics[width=6.0in]{images/diagram-20220613.png}
 
 
 В таком случае заводят интерграл в смысле главного значения
@@ -171,9 +74,9 @@ $v.p. \int_{\pi / 2}^{\pi / 2} tgx dx = \lim_{B\to \pi / 2} \int_{-B}^B = 0$
 
 $\but$ в $v.p. $ нельзя делать замену переменной, т.к. предполагается, что окресность симметричная
 
-\item \[
-    \int_{10}^{\infty} x^\al (\log x) ^ \be \text{ основная идея 'удавливание логарифма'}
-    \]
+\item 
+$\int\limits_{10}^{\infty} x^\al (\log x) ^ \be$  основная идея 'удавливание логарифма'
+    
 
 \begin{enumerate}
     \item  $\al < -1, \al = -1 - \varepsilon, x ^ \al (\log x) ^\be = x ^ {-1 - \varepsilon / 2} \cdot \underbrace{x ^ {-\varepsilon / 2} (\log x) ^ \be}_{\text{огр. на $[10, +\infty)$}} \leqslant C \cdot x ^ {-1 - \varepsilon / 2} \hence \text{сходится}$
@@ -188,28 +91,13 @@ $\but$ в $v.p. $ нельзя делать замену переменной, �
 
 \quad
 
-$\int_0^\infty \frac{sinx}{x} dx$ сходится ли?
+\begin{motivation}
+    $\int_0^\infty \frac{sinx}{x} dx$ (интеграл Дирихле) сходится ли?
+
+    \includegraphics[width=6.0in]{images/diagram-20220614.png}
+\end{motivation}
 
     
-
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
-
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
-%uncomment if require: \path (0,412); %set diagram left start at 0, and has height of 412
-
-%Straight Lines [id:da45685719020165094] 
-\draw    (135,229) -- (477,229) ;
-\draw [shift={(479,229)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-%Straight Lines [id:da6318090955802496] 
-\draw    (259,337) -- (259,63) ;
-\draw [shift={(259,61)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-%Shape: Free Drawing [id:dp38358030787495656] 
-\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5] [line join = round][line cap = round] (258,180) .. controls (265.01,180) and (272.73,177.87) .. (279,181) .. controls (289.22,186.11) and (298.74,211.46) .. (301,225) .. controls (303.22,238.34) and (303.18,259.73) .. (316,264) .. controls (320.77,265.59) and (328.35,258.44) .. (332,256) .. controls (349.05,244.63) and (346.68,210.89) .. (364,208) .. controls (379.36,205.44) and (386.05,222.05) .. (393,229) .. controls (396.57,232.57) and (397.43,239.91) .. (404,241) .. controls (410.32,242.05) and (417.73,235.8) .. (419,232) .. controls (420.18,228.45) and (421.52,220.44) .. (425,220) .. controls (446.51,217.31) and (439.82,238.27) .. (451,242) .. controls (459.85,244.95) and (458.48,228.22) .. (459,223) .. controls (459.07,222.26) and (459.26,221.09) .. (460,221) .. controls (469.61,219.8) and (471.2,224) .. (474,231) .. controls (475.23,234.08) and (478,235.8) .. (478,238) ;
-
-
-
-
-\end{tikzpicture}
 
 
 \begin{theorem}[признаки Дирихле и Абеля]
@@ -222,7 +110,7 @@ $\int_0^\infty \frac{sinx}{x} dx$ сходится ли?
 
 
 \begin{theorem}[признак Абеля]
-    $\underbrace{\int_a^{\to b} f dx}_{\Leftrightarrow \exists \lim_{x \to b-} F(x)}$ сходится, $g$ --- монот. и огр. $\hence \int_a^{\to b} fg dx $ сх-ся
+    $\underbrace{\int_a^{\to b} f dx}_{\Leftrightarrow \exists \lim_{x \to b-} F(x)}$ сх-ся, $g$ --- монот. и огр. $\hence \int_a^{\to b} fg dx $ сх-ся
 \end{theorem}
 
 
@@ -231,75 +119,75 @@ $\int_0^\infty \frac{sinx}{x} dx$ сходится ли?
         \int_a^B fg dx = \int_a^B g dF = Fg \bigg| _a ^ B - \int_a^B F g' dx 
     \]
 
-    Хотим устремить $B \to b-$
-    
-    Посмотрим на двойную подстановку
+    Хотим устремить $B \to b-$. Посмотрим на двойную подстановку.
     
     (п.Д.) $F$ --- ограничено в $b-$, $g(x) \to 0 \hence F(x)g(x) \to 0, $ при $x \to b-$
 
     (п.А.) $F$ имеет предел, $g(x)$ тоже имеет предел $\exists \lim\limits_{x \to b-} F, \lim\limits_{x  \to b-} g \hence \exists \lim_{x\to b-} Fg$
 
-    Следовательно, и в признаке Дирихле и в признаке Абеля двойная подстановка определена
+    Следовательно, и в признаке Дирихле, и в признаке Абеля двойная подстановка определена.
 
     Теперь посмотрим на $\int_a^B Fg' dx$.
 
-    (п.Д.) $\int_a^B \abs{Fg'} dx$, $g'$ не меняет знак, $F$ ограничена.
+    (п.Д.) $g'$ не меняет знак, $F$ ограничена. Будем изучать абсолютную сходимость $\int\limits_a^B Fg' dx$.
 
     \[
-        \int_a^B \abs{Fg'} dx \leqslant \sup \abs{F} \int_a^B \abs{g'} dx = \int_a^B \abs{Fg'} dx \leqslant \sup \abs{F} \cdot \abs{g(B) - g(a)} \to \sup \abs{F} \cdot \abs{0 - g(a)}
+        \int_a^B \abs{Fg'} dx \leqslant \sup \abs{F} \int_a^B \abs{g'} dx = \sup \abs{F} \cdot \abs{g(B) - g(a)} \to \sup \abs{F} \cdot \abs{0 - g(a)}, B \to b-
     \]
 
-    $\hence $ есть абсолютная сходимость $\int_a^B Fg' dx$
+    $\hence $ есть абсолютная сходимость $\int_a^B Fg' dx$.
 
-    (п.А.) $\int_a^B \abs{Fg'} dx$, $g'$ не меняет знак, $F$ ограничена.
-
+    (п.А.) $g'$ не меняет знак, $F$ ограничена. Будем изучать абсолютную сходимость $\int\limits_a^B Fg' dx$. 
+    Тогда по аналогиии:
 
     \[
-        \int_a^B \abs{Fg'} dx \leqslant \sup \abs{F} \int_a^B \abs{g'} dx = \int_a^B \abs{Fg'} dx \leqslant \sup \abs{F} \cdot \abs{g(B) - g(a)} \to \sup \abs{F} \cdot \abs{g(b-) - g(a)}
+        \int_a^B \abs{Fg'} dx \leqslant \sup \abs{F} \int_a^B \abs{g'} dx = \sup \abs{F} \cdot \abs{g(B) - g(a)} \to \sup \abs{F} \cdot \abs{g(b-) - g(a)}, B \to b-
     \]
+
+    $\hence $ есть абсолютная сходимость $\int_a^B Fg' dx$.
 
 \end{proof}
 
 
 \begin{examples}
-\begin{enumerate}
-    \item \[
-        \int_{10}^{+\infty} \frac{\sin x}{x ^ \alpha} dx
-    \]
-
-    \begin{remark}
-        $
-        \begin{cases}
-            \alpha > 1 \hence  \text{ абсолютная сходимость} \\
-            \alpha \in (0, 1) \hence \text{ условная сходимость } \int_{10}^{+\infty} \frac{\abs{\sin x}}{x ^ \alpha} dx \geqslant \int_{10}^{+\infty} \frac{\sin ^ 2 x}{x ^ \alpha} dx = \underbrace{\int_{10}^{+\infty} \frac{1 - \cos 2x}{2 x ^ \alpha} dx}_{\text{расх. + сх.}}
-        \end{cases}
-        $
-    \end{remark}
     
+\begin{enumerate}
+    \item 
+    $\but$ не стоит думать про интегралы, как про ряды. Контрпример:
 
-$\left. 
-    \begin{array}{lr}
-    \sin x \text{ имеет ограниченную первообразную} \\
-    \alpha > 0 \hence \frac{1}{x ^ \alpha} \dec 0
-    \end{array}
- \right\} \hence \alpha > 0 \hence $ интеграл сходится
+$\int\limits_{10}^{+\infty} \sin(x^2) dx = C \cdot \int_{?}^{+\infty} \frac{\sin y}{\sqrt{y}} dy$ и т.к. $\alpha > 0$ он сходится, хотя общий член к нулю не стремится.
+\newpage
+    \item $
+        \int\limits_{10}^{+\infty} \frac{\sin x}{x ^ \alpha} dx \text{ сх-ся ?}
+    $
 
-\quad
+    \begin{itemize}
+        \item $\left. 
+            \begin{array}{lr}
+            \sin x \text{ имеет ограниченную первообразную} \\
+            \alpha > 0 \hence \frac{1}{x ^ \alpha} \dec 0
+            \end{array}
+         \right\} \hence \alpha > 0 \hence $ интеграл сходится
 
-$\but$ не стоит думать про интегралы, как про ряды. Контрпример:
+         \item $\al \leqslant 0$ --- по критерию Коши расходится
+    \end{itemize}
 
-$\int_{10}^{+\infty} \sin(x^2) dx = C \cdot \int_{?}^{+\infty} \frac{\sin y}{\sqrt{y}} dy$ и т.к. $\alpha > 0$ он сходится, хотя общий член к нулю не стремится.
+    \item $
+    \int\limits_{10}^{+\infty} \frac{\sin x}{x ^ \alpha} dx \text{ сх-ся абсолютно ?}
+    $
 
+    \begin{itemize}
+        \item $\alpha > 1 \hence$  абсолютная сходимость
+        \item $\alpha \in (0, 1) \hence$ условная сходимость
+        
+        \[
+            \int_{10}^{+\infty} \frac{\abs{\sin x}}{x ^ \alpha} dx \geqslant \int_{10}^{+\infty} \frac{\sin ^ 2 x}{x ^ \alpha} dx = \underbrace{\int_{10}^{+\infty} \frac{1 - \cos 2x}{2 x ^ \alpha} dx}_{\text{расх. + сх.}}
+        \]
+    \end{itemize}
 
-\quad
-
-$\al \geqslant 0$ --- Критерий Коши
-
-\quad 
-
-\quad
-
-    \item $\int_{10}^{\infty} \underbrace{\frac{\sin x}{x ^ \alpha}}_{f} \cdot \underbrace{\arctan \sqrt{x}}_{g}$. Заметим, что $\int f$ сходится, а $g$ --- монотонна и ограничена $\hence$ по признаку Абеля сходится.
+    \item $\int_{10}^{\infty} \underbrace{\frac{\sin x}{x ^ \alpha}}_{f} \cdot \underbrace{\arctan \sqrt{x}}_{g} dx$. Заметим, что $\int\limits_{10}^{\infty} f dx$ сходится, а $g$ --- монотонна и ограничена
+    
+    $\hence$ по признаку Абеля сходится при $\al > 0$.
 \end{enumerate}
     
 
@@ -367,107 +255,111 @@ $\al \geqslant 0$ --- Критерий Коши
 
 $S(\widetilde{P}_f) = \frac{1}{2} \int_\al^\be (f(\phi))^2 d\phi$
 
-\begin{enumerate}
-    \item Уверуем в площадь сектора
-    
+\begin{proof}
+    \begin{enumerate}
+        \item Уверуем в площадь сектора
+        
 
 
+
+        \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+        \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+        %uncomment if require: \path (0,412); %set diagram left start at 0, and has height of 412
+        
+        %Shape: Axis 2D [id:dp6700788822304291] 
+        \draw  (176,257) -- (464,257)(204.8,95) -- (204.8,275) (457,252) -- (464,257) -- (457,262) (199.8,102) -- (204.8,95) -- (209.8,102)  ;
+        %Straight Lines [id:da06852563223272257] 
+        \draw    (356,205) -- (204.8,257) ;
+        %Straight Lines [id:da9246611817647475] 
+        \draw    (263,145) -- (204.8,257) ;
+        %Curve Lines [id:da6989609572657072] 
+        \draw    (263,145) .. controls (308,139) and (333,132) .. (356,205) ;
+        
+        % Text Node
+        \draw (233,215.4) node [anchor=north west][inner sep=0.75pt]    {$\varphi $};
+        % Text Node
+        \draw (322,226.4) node [anchor=north west][inner sep=0.75pt]    {$R$};
+        
+        
+        \end{tikzpicture}
+        
+        $S = \frac{\phi}{2 \pi} \pi R^2 =  \frac{\phi}{2} R^2$
+
+
+        \item Строим дробление
+
+        \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+        
+        \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+        %uncomment if require: \path (0,412); %set diagram left start at 0, and has height of 412
+        
+        %Shape: Axis 2D [id:dp6700788822304291] 
+        \draw  (176,257) -- (464,257)(204.8,95) -- (204.8,275) (457,252) -- (464,257) -- (457,262) (199.8,102) -- (204.8,95) -- (209.8,102)  ;
+        %Straight Lines [id:da06852563223272257] 
+        \draw    (356,205) -- (204.8,257) ;
+        %Straight Lines [id:da9246611817647475] 
+        \draw    (263,145) -- (204.8,257) ;
+        %Curve Lines [id:da6989609572657072] 
+        \draw    (263,145) .. controls (303,115) and (276,216) .. (356,205) ;
+        %Straight Lines [id:da8056749445450382] 
+        \draw    (289,154) -- (204.8,257) ;
+        %Straight Lines [id:da9648917490356489] 
+        \draw    (307,192) -- (204.8,257) ;
+        
+        
+        
+        
+        \end{tikzpicture}
+        
+        $\alpha = \phi_0 < \phi_1 < ... < \phi_n = \be$
+
+        
 
     \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 
     \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
     %uncomment if require: \path (0,412); %set diagram left start at 0, and has height of 412
-    
+
     %Shape: Axis 2D [id:dp6700788822304291] 
     \draw  (176,257) -- (464,257)(204.8,95) -- (204.8,275) (457,252) -- (464,257) -- (457,262) (199.8,102) -- (204.8,95) -- (209.8,102)  ;
     %Straight Lines [id:da06852563223272257] 
     \draw    (356,205) -- (204.8,257) ;
     %Straight Lines [id:da9246611817647475] 
-    \draw    (263,145) -- (204.8,257) ;
+    \draw    (289,186) -- (204.8,257) ;
     %Curve Lines [id:da6989609572657072] 
-    \draw    (263,145) .. controls (308,139) and (333,132) .. (356,205) ;
-    
+    \draw    (289,186) .. controls (329,156) and (276,216) .. (356,205) ;
+    %Straight Lines [id:da8968556069693085] 
+    \draw    (293,182) -- (329,215) ;
+    %Straight Lines [id:da37934960247256855] 
+    \draw    (304,178) -- (356,205) ;
+
     % Text Node
-    \draw (233,215.4) node [anchor=north west][inner sep=0.75pt]    {$\varphi $};
+    \draw (223,179.4) node [anchor=north west][inner sep=0.75pt]    {$\phi _{j+1}$};
     % Text Node
-    \draw (322,226.4) node [anchor=north west][inner sep=0.75pt]    {$R$};
-    
-    
+    \draw (300,230.4) node [anchor=north west][inner sep=0.75pt]    {$\phi _{j}$};
+    % Text Node
+    \draw (365,192.4) node [anchor=north west][inner sep=0.75pt]    {$\max f$};
+    % Text Node
+    \draw (336,220.4) node [anchor=north west][inner sep=0.75pt]    {$\min f$};
+
+
     \end{tikzpicture}
-    
-    $S = \frac{\phi}{2 \pi} \pi R^2 =  \frac{\phi}{2} R^2$
 
+    \[
+        \underbrace{\sum_{j=1}^n \frac{\left(\min\limits_{[\phi_{j-1},\phi_j]} f \right) ^ 2 (\phi_j - \phi_{j - 1})}{2} \leqslant S(\widetilde{P}_f) \leqslant \sum_{j=1}^n \frac{\left(\max\limits_{[\phi_{j-1},\phi_j]} f \right) ^ 2 (\phi_j - \phi_{j - 1})}{2}}_{\to \frac{1}{2} \int_\al^\be f^2 d\phi}
+    \]
 
-    \item Строим дробление
+    \end{enumerate}
+\end{proof}
 
-    \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
-    
-    \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
-    %uncomment if require: \path (0,412); %set diagram left start at 0, and has height of 412
-    
-    %Shape: Axis 2D [id:dp6700788822304291] 
-    \draw  (176,257) -- (464,257)(204.8,95) -- (204.8,275) (457,252) -- (464,257) -- (457,262) (199.8,102) -- (204.8,95) -- (209.8,102)  ;
-    %Straight Lines [id:da06852563223272257] 
-    \draw    (356,205) -- (204.8,257) ;
-    %Straight Lines [id:da9246611817647475] 
-    \draw    (263,145) -- (204.8,257) ;
-    %Curve Lines [id:da6989609572657072] 
-    \draw    (263,145) .. controls (303,115) and (276,216) .. (356,205) ;
-    %Straight Lines [id:da8056749445450382] 
-    \draw    (289,154) -- (204.8,257) ;
-    %Straight Lines [id:da9648917490356489] 
-    \draw    (307,192) -- (204.8,257) ;
-    
-    
-    
-    
-    \end{tikzpicture}
-    
-    $\alpha = \phi_0 < \phi_1 < ... < \phi_n = \be$
-
-    
-
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
-
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
-%uncomment if require: \path (0,412); %set diagram left start at 0, and has height of 412
-
-%Shape: Axis 2D [id:dp6700788822304291] 
-\draw  (176,257) -- (464,257)(204.8,95) -- (204.8,275) (457,252) -- (464,257) -- (457,262) (199.8,102) -- (204.8,95) -- (209.8,102)  ;
-%Straight Lines [id:da06852563223272257] 
-\draw    (356,205) -- (204.8,257) ;
-%Straight Lines [id:da9246611817647475] 
-\draw    (289,186) -- (204.8,257) ;
-%Curve Lines [id:da6989609572657072] 
-\draw    (289,186) .. controls (329,156) and (276,216) .. (356,205) ;
-%Straight Lines [id:da8968556069693085] 
-\draw    (293,182) -- (329,215) ;
-%Straight Lines [id:da37934960247256855] 
-\draw    (304,178) -- (356,205) ;
-
-% Text Node
-\draw (223,179.4) node [anchor=north west][inner sep=0.75pt]    {$\phi _{j+1}$};
-% Text Node
-\draw (300,230.4) node [anchor=north west][inner sep=0.75pt]    {$\phi _{j}$};
-% Text Node
-\draw (365,192.4) node [anchor=north west][inner sep=0.75pt]    {$\max f$};
-% Text Node
-\draw (336,220.4) node [anchor=north west][inner sep=0.75pt]    {$\min f$};
-
-
-\end{tikzpicture}
-
-\[
-    \underbrace{\sum_{j=1}^n \frac{(\min_{\phi_{j-1},\phi_j} f) ^ 2 (\phi_j - \phi_{j - 1})}{2} \leqslant S(\widetilde{P}_f) \leqslant \sum_{j=1}^n \frac{(\max_{\phi_{j-1},\phi_j} f) ^ 2 (\phi_j - \phi_{j - 1})}{2}}_{\to \frac{1}{2} \int_\al^\be f^2 d\phi}
-\]
-
-\end{enumerate}
 
 \newpage
 
 \item $\gamma(t) = (x(t), y(t)), t \in [a, b]$
 
 
+\quad
 
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 
@@ -491,9 +383,12 @@ $S(\widetilde{P}_f) = \frac{1}{2} \int_\al^\be (f(\phi))^2 d\phi$
 
 \end{tikzpicture}
 
-Хотим считать площадь
+Хотим считать площадь.
 
 \quad
+
+Пример параметризации:
+
 
 % Pattern Info
  
@@ -612,13 +507,13 @@ pattern radius = 1pt}
 
 
 
-$S_{\text{нижн.}} = \int_A^B g(x) dx = \int_{t_0}^{t_1} y(x(t)) x'(t) dt$ (сделали замену переменной) $ = \int_{t_0}^{t_1} y(t) x'(t) dt$
+$S_{\text{нижн.}} = \int_A^B g(x) dx = \int_{t_0}^{t_1} g(x(t)) x'(t) dt$ (сделали замену переменной) $ = \int_{t_0}^{t_1} y(t) x'(t) dt$
 
 $S_{\text{верх.}} = -\int_{t_1}^{t_2} y(t) x'(t) dt$
 
-$S = - \int_a^b y(t) x'(t) dt = - xy \bigg |_a ^ b + \int_a^b y'(t) x(t) dt $
+$S = S_{\text{верх.}}  - S_{\text{нижн.}} = - \int_a^b y(t) x'(t) dt = - xy \bigg |_a ^ b + \int_a^b y'(t) x(t) dt $
 
-$\but$ На восьмерке сломается, т.к. есть самопересечения
+$\but$ На восьмерке сломается, т.к. есть самопересечения и площадь будет равна 0.
 
 
 
@@ -637,6 +532,7 @@ $\but$ На восьмерке сломается, т.к. есть самопе�
 
 \item Вычисление объемов
 
+\quad
 
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 
@@ -673,6 +569,7 @@ $\but$ На восьмерке сломается, т.к. есть самопе�
 
 \end{tikzpicture}
 
+\quad 
 $T \subset \{ (x, y, z) | x \in [a, b]\}$
 
 $T(x) = \{ (y, z) | (x, y, z) \in T \}$ --- сечение T
@@ -742,11 +639,13 @@ $V_{\text{цилиндра}} = h \cdot S(\Phi)$
 
 Если предположить, что $\forall \delta \subset [a, b] $ среди сечений соотв. $x \in \delta$ есть наибольшее и наименьшее по включению, то формулу доказать можно.
 
-$x_*(\delta), x^*(\delta)$ --- абсцисы минимального и максимального сечений. $ \hence$ $(x_j - x_{j - 1}) \cdot S(T(x_ *[x_{j - 1}, x_j])) \leqslant V(\text{блинчика}) \leqslant (x_j - x_{j - 1}) \cdot S(T(x^*[x_{j - 1}, x_j]))$. Складываем и получаем интегральную сумму. 
+$x_*(\delta), x^*(\delta)$ --- абсцисы минимального и максимального сечений. 
 
-$\but$ это работает в очень специфических ситуациях. Зато для тел вращения все хорошо.
+$ \hence$ $(x_j - x_{j - 1}) \cdot S(T(x_ *[x_{j - 1}, x_j])) \leqslant V(\text{блинчика}) \leqslant (x_j - x_{j - 1}) \cdot S(T(x^*[x_{j - 1}, x_j]))$. Складываем и получаем интегральную сумму. 
 
-$T = \{ (x, y, z) | \sqrt(y ^ 2 + z ^ 2) \leqslant f(x) \}, f \in C[a, b], f \geqslant 0$
+$\but$ Это работает в очень специфических ситуациях (так как, например, гладкость поверхности не гарантирует непрерывности площади). Зато для тел вращения все хорошо.
+
+$T = \{ (x, y, z) | \sqrt{y ^ 2 + z ^ 2} \leqslant f(x) \}, f \in C[a, b], f \geqslant 0$
 
 
 
@@ -820,9 +719,14 @@ $S_{\text{пов}} = \int_a^b 2\pi f$  --- неверная формула
 
 $S_{\text{пов}} = \int_a^b 2\pi f \sqrt{1 + (f')^2}$  --- верная формула
 
+\newpage
+
 \example (Интеграл Эйлера-Пуассона) $\int_{-\infty}^{+\infty} e ^ {-x^2} dx = I$
 
 
+Вращаем относительно оси y. Получаем тело вращения.
+
+\quad
 
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 
@@ -841,10 +745,9 @@ $S_{\text{пов}} = \int_a^b 2\pi f \sqrt{1 + (f')^2}$  --- верная фор
 \end{tikzpicture}
 
 
-Вращаем отн. оси y
 
 
-Сечем по y
+Сечем по y.
 
 
 
@@ -872,24 +775,26 @@ $S_{\text{пов}} = \int_a^b 2\pi f \sqrt{1 + (f')^2}$  --- верная фор
 
 \end{tikzpicture}
 
-$\pi \int_0^1 (\sqrt(-\log y)) ^ 2 dy = \pi \int_0^1 -\log y dy = \pi (y - y \log y ) \bigg | _0^1 = \pi$
+$V = \pi \int_0^1 (\sqrt{-\log y}) ^ 2 dy = \pi \int_0^1 -\log y dy = \pi (y - y \log y ) \bigg | _0^1 = \pi$
  
 
-Теперь нарежем параллельно оси y
+Теперь нарежем параллельно оси y.
 
 
 Тогда сечение будет иметь вид
-$0 \leqslant y \leqslant e ^ {-(x ^ 2 + z ^ 2)}$
+$0 \leqslant y \leqslant e ^ {-(x ^ 2 + z ^ 2)}$.
 
 $T(a) = \{ (y, z) : 0 \leqslant y \leqslant e^{-(x ^ 2 + z ^ 2)}\}$
 
-$S(T(a)) = \int_{-infty}^{\infty} e ^ {-a ^ 2 + z ^ 2} dz = e ^ {-a ^ 2} I$
+$S(T(a)) = \int_{-\infty}^{+\infty} e ^ {-a ^ 2 + z ^ 2} dz = e ^ {-a ^ 2} I$
 
 $V = \int_{-\infty}^{+\infty} S(T(x)) dx = I \int_{-\infty}^{+\infty} e ^ {- x ^ 2} dx = I ^ 2$
 
+$I ^ 2 = \pi \hence I = \sqrt{\pi} $
+
 \end{enumerate}
 
-
+\newpage
 \begin{motivation}
         
     Допустим, мы хотим посчитать длину кривой.
