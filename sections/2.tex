@@ -316,7 +316,7 @@ pattern radius = 1pt}
     \[
         \begin{gathered}
             \int_0^{a} e^x dx = \,? , \,\,\, \tau = \left\{ 0, \frac{a}{n}, \frac{2a}{n}, \ldots, \frac{na}{n} \right\}, \,\,\, \theta = \left\{ 0, \frac{a}{n}, \ldots , \frac{n - 1}{n} a \right\}\\
-            S_{\tau, \theta} f = \sum_{j = 1}^n f \left( \frac{a_{j - 1}}{n} \right)(x_j - x_{j - 1}) 
+            S_{\tau, \theta} f = \sum_{j = 1}^n f \left( \frac{a(j - 1)}{n} \right)(x_j - x_{j - 1}) 
             = \frac{a}{n} \cdot \left( 1 + e ^ {\frac{1}{n}a} + \ldots + e ^{\frac{n - 1}{n} a} \right) 
             = \frac{a}{n} \cdot \frac{e ^ {\frac{na}{n}} - 1}{e ^ {\frac{a}{n}} - 1} \to e^a - 1
         \end{gathered}
@@ -349,7 +349,7 @@ pattern radius = 1pt}
         \begin{gathered}
             \prod_{j = 1}^n \left(1 - 2a \cos{\frac{\pi (j - 1)}{n} + a ^ 2}\right)=
             \prod_{j = 1}^n \left(a - e ^ {\frac{-\pi (j - 1)}{n} i }\right)\left(a - e ^ {\frac{\pi (j - 1)}{n} i }\right)=\\
-            =\left[(z^{2n} - 1) = \prod\limits_{j=0}^{2n}{z - e^{i\frac{j \pi}{n}}}\right]=
+            =\left[(z^{2n} - 1) = \prod\limits_{j=0}^{2n - 1 }{z - e^{i\frac{j \pi}{n}}}\right]=
             \frac{(a ^ {2n} - 1) \cdot (a - 1)}{(a + 1)} 
         \end{gathered}
     \]
@@ -378,7 +378,7 @@ pattern radius = 1pt}
             Последнее можно преобразовать по формуле $x^n - y^n = (x - y)(x^{n - 1} + x^{n - 2}y + \dots + y^{n - 1})$.
             \[
                 \ceq \frac{\pi}{n}\cdot \log\left((a^{2n - 1}+a^{2n - 2} + \dots + 1)(a + 1)\right) = 
-                \frac{\pi}{n}\log(2n) \underset{n\to\infty}{\to} 0
+                \frac{\pi}{n}\log(4n) \underset{n\to\infty}{\to} 0
             \] 
         \item $a = -1$\\
             Из рассуждения для общего случая для оснащения $\theta$.

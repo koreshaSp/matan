@@ -22,7 +22,7 @@
     \norm{U} = \sup_{\norm{x}= 1 }{\frac{\norm{Ux}}{\norm{x}}}, \text{ но не максимум, т.к. сфера не обязательно компактна}
 \]
 \\
-\exercise  $\norm{U} = \sup_{\norm{x} < 1}{\norm{Ux}} = \sup_{\norm{x} \leqslant 1} \norm{Ux}$
+\exercise  $\norm{U} = \sup\limits_{\norm{x} < 1}{\norm{Ux}} = \sup\limits_{\norm{x} \leqslant 1} \norm{Ux}$
 \\
 \begin{remark}
     $
@@ -34,7 +34,7 @@
     \]
     
     \[
-        \hence \forall x_1, ..., x_m \norm{U(x_1, ... , x_m)} \leqslant \norm{U} \cdot \norm{x_1} ... \norm{x_m}
+        \hence \forall x_1, ..., x_m,  \norm{U(x_1, ... , x_m)} \leqslant \norm{U} \cdot \norm{x_1} ... \norm{x_m}
     \]
 
     \[
@@ -131,7 +131,7 @@
     Выберем произвольную фундаментальную последовательность $\{U_k \in L(X, Y)\}$ и докажем, что она сходится к некоторому $U$,
     тем самым доказав, что $L(X,Y)$~--- полное пространство.
 
-    Будем делать это следующим образом: определим $U(x) = \lim_{n\to \infty}(U_n x)$ и докажем для него следующие свойства:
+    Будем делать это следующим образом: определим $U(x) = \lim\limits_{n\to \infty}(U_n x)$ и докажем для него следующие свойства:
     \begin{enumerate}
         \item
             $\norm{U_n - U} \underset{n\to\infty}{\to} 0$
@@ -246,7 +246,7 @@
 
         $\cfrac{\norm{(A_1 - A_2)h}}{\norm{h}} \xrightarrow{h \to 0} 0$
     
-        Берём $h_0 - fix, h = t \cdot h_0, t \to 0, t - $ скаляр
+        Берём $h_0 - fix, h = t \cdot h_0, t \to 0, t$ --- скаляр
 
         $\cfrac{\norm{(A_1 - A_2)(t \cdot h_0)}}{\norm{t \cdot h_0}}  
         = \cfrac{\norm{(A_1 - A_2)(h_0)}}{\norm{h_0}} \xrightarrow{t \to 0} 0 \hence 
@@ -276,18 +276,13 @@
 
         $= g(f(x_0)) + \underbrace{dg(f(x_0)) df(x_0)}_{\in L(X, Z)} h + \underbrace{dg(f(x_0))(o(h)) + o(f(x_0 + h) - f(x_0))}_{?\ceq o(h)}$
 
-        $\norm{dg(f(x_0))} \leqslant \norm{dg(f(x_0))} \cdot \underbrace{\norm{o(h)}}_{=o(h)}$
+        $\norm{dg(f(x_0))(o(h))} \leqslant \norm{dg(f(x_0))} \cdot \underbrace{\norm{o(h)}}_{=o(h)}$
 
         $\norm{f(x_0 + h) - f(x_0)} \leqslant C \norm{h} \hence \ceq o(h)$
     \end{proof}
 
     \item (дифференциал обратного отображения)
     
-    $U \subset X, V \subset Y, f : U \to V $ --- биекция, $f $ --- непр. в $(\cdot)\, x_0$, $f^{-1}$ --- непр. в $(\cdot)\, f(x_0) = y_0$ 
-
-    $f$ дифф в $(\cdot) \, x_0$
-
-    $\exists (df(x_0))^{-1} \in L(Y, X)$
-
+    $U \subset X, V \subset Y, f : U \to V $ --- биекция, $f $ --- непр. в $(\cdot)\, x_0$, $f^{-1}$ --- непр. в $(\cdot)\, f(x_0) = y_0$, $f$ дифф в $(\cdot) \, x_0$, $\exists (df(x_0))^{-1} \in L(Y, X)$
     $\hence f^{-1}$ дифф в $(\cdot)\, y_0$ и $df^{-1}(y_0) = (df(x_0)) ^ {-1}$
 \end{properties}
