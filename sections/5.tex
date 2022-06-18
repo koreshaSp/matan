@@ -42,7 +42,7 @@
     начало и конец, но хочется понимать ещё про гладкость.
 \end{remark}
 \begin{definition}
-    $\gamma$ ~--- гладкий путь, если $\gamma_i\in C'[a,b]$.\\
+    $\gamma$ ~--- гладкий путь, если $\gamma_i\in C^1[a,b]$.
 \end{definition}
 \begin{definition}
     Гладкая кривая~--- кривая, у которой $\exists$ гладкий путь.
@@ -53,7 +53,7 @@
 \end{remark}
 \subsection{Длина кривой}
 По факту, хотим подробить нашу кривую на маленькие отрезочки
-и засуммировать их, давайте подумаем как это сделать аккуратно.\\
+и просуммировать их, давайте подумаем как это сделать аккуратно.\\
 \quad
 \begin{definition}
     $\gamma\colon [a, b]\mapsto \R^m$~--- путь.
@@ -88,11 +88,10 @@
 \end{proof}
 \begin{theorem}[Аддитивность длины]
     $\gamma\colon [a,b]\mapsto\R^m, c\in(a,b)$.
-    Пусть $\gamma_{-}=\gamma\big|_{[a,b]}, \gamma_{+} = \gamma\big|_{[c,b]}$.
+    Пусть $\gamma_{-}=\gamma\big|_{[a,c]}, \gamma_{+} = \gamma\big|_{[c,b]}$.
     Требуется доказать, что $l(\gamma)=l(\gamma_-) + l(\gamma_+)$
 \end{theorem}
 \begin{proof}
-    % TODO
     Докажем неравенство в две стороны.
     \begin{itemize}
         \item
@@ -264,8 +263,8 @@
             $(Df)(x) = f'(x), D\colon X\mapsto Y$ тоже
             линейное отображение.
         \item
-            $X_1 = X_2 = \dots X_n = \R = Y$. Тогда
-            $U(x_1,\dots, x_n) = x_1\cdot \dots \cdot x_n$~---
+            $X_1 = X_2 = \dots = X_n = \R = Y$. Тогда
+            $U(x_1,\dots, x_n) = x_1 \ldots x_n$~---
             полилинейное отображение.
         \item
            $X_1 = \R^m, X_2 = \R^m, Y = \R$. Тогда
@@ -300,10 +299,16 @@
         \item  $(2)\Rightarrow (3)$
              $\forall \varepsilon > 0, \exists \delta > 0\colon
              \forall x\colon \norm{x} \leqslant \delta, \norm{Ux} \leqslant \varepsilon$.
-             $x \rightarrow \overline{x} = x\frac{\delta}{\norm{x}}
-             \Rightarrow \norm{U\overline{x}} \leqslant  \varepsilon$ 
-             % TODO недоделано
-        \item $(3)\Rightarrow(1)$
+             Возьмём произвольное $x$ и сожмём его так, чтобы он лежал 
+             в $\delta$ окрестности нуля.
+             \[
+                 \overline{x} = x\frac{\delta}{\norm{x}} \Rightarrow
+                 \left[\norm{\overline{x}} \le \delta\right] 
+                 \Rightarrow \norm{U\overline{x}} \leqslant  \varepsilon
+                 \Rightarrow \frac{\delta}{\norm{x}}\norm{Ux} \leqslant \varepsilon
+                 \Rightarrow \norm{Ux} \le \frac{\varepsilon}{\delta} \norm{x}
+             \]
+         \item $(3)\Rightarrow(1)$
              % $\|U(x_1) - U(x_2)\| \leq C\|x_1 - x_2\|$~---
              липшецевость  $\Rightarrow$ непрерывное.
     \end{enumerate}
@@ -322,21 +327,24 @@
     \end{enumerate}
 \end{theorem}
 \begin{remark}
-    Например $\norm{(x_1, \cdots, x_n)}_{x_1 \times \cdots \times x_n} = \norm{x_1}_{x_1} + \cdots + \norm{x_n}_{x_n}$ (или какая-то другая, так как они все эквивалентны в конечномернлом пространстве).
+    Например $\norm{(x_1, \cdots, x_n)}_{x_1 \times \cdots \times x_n} = \norm{x_1}_{x_1} + \cdots + \norm{x_n}_{x_n}$ (или какая-то другая, так как они все эквивалентны в конечномерном пространстве).
 \end{remark}
 \begin{definition}
     $U: X\rightarrow Y$ ~--- лно.
     $\norm{U} = \inf\{C \mid \forall x\in X \hence \norm{Ux}\leq C\norm{x}\}$
 \end{definition}
 \begin{remark}
-$\inf$ достигается то есть: $\forall x\in X, \norm{Ux}\leq
-    \norm{U}\cdot \norm{x}$
+$\inf$ достигается, а именно:
+\[
+    \forall x\in X, \norm{Ux}\leq \norm{U}\cdot \norm{x} \Rightarrow \norm{U} \geq \frac{\norm{Ux}}{\norm{x}}
+\]
 \end{remark}
 \begin{example}
     $U\colon C[a,b]\mapsto C[a,b]$, причём
     $(Uf)(x) = \bigintss\limits_{a}^{x}{f(t)dt}$.
-    Хотим оценить.
+Хотим оценить, считая, что норма в пространстве непрерывных функций это $\inf\limits_{[a,b]} f$.
     \[
+        \int_{a}^{x} f(t)~dt \leqslant \max(f) \cdot (x - a) \Rightarrow
         \norm{Uf} \leqslant (b - a) \norm{f} \hence \norm{U} = b - a
     \]
 \end{example}
