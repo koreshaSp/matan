@@ -35,14 +35,14 @@
 \end{proof}
 
 \begin{theorem}
-    Если в условии теоремы \link{о неявном отображении} потребовать непрерывность $G$ и $\partial y G$ не только в точке $(x_0, y_0)$, но и в целой окрестности, то построенная $f$ будет непрерывна в некоторой окрестности $x_0$.
+   % Если в условии теоремы \link{о неявном отображении} потребовать непрерывность $G$ и $\partial y G$ не только в точке $(x_0, y_0)$, но и в целой окрестности, то построенная $f$ будет непрерывна в некоторой окрестности $x_0$.
 \end{theorem}
 \begin{proof}
     Если $(x_1, y_1)$ близка к $(x_0, y_0)$, тогда $V = \partial y G(x_1, y_1) - \partial y G(x_0, y_0) \stackrel{(x_1, y_1) \to (x_0, y_0)}{\longrightarrow} 0$, отсюда по лемме $\exists (\partial y G(x_1, y_1))^{-1} \in L(Z, Y) \Rightarrow (x_1, y_1)$ удовлетворяет условиям теоремы о неявном отображении и $f$ непрерывна в точке $x_1$.
 \end{proof}
 
 \begin{theorem}[О дифференцировании неявного отображения.]
-    Если в дополнение к условиям теоремы \link{о неявном отображении} выполнено условие дифф $G$ в точке $(x_0, y_0)$, то $f$ дифференцируема в точке $x_0$, и $d f(x_0) = - (\partial y G(x_0, y_0))^{-1} \partial x G(x_0, y_0)$
+    % Если в дополнение к условиям теоремы \link{о неявном отображении} выполнено условие дифф $G$ в точке $(x_0, y_0)$, то $f$ дифференцируема в точке $x_0$, и $d f(x_0) = - (\partial y G(x_0, y_0))^{-1} \partial x G(x_0, y_0)$
 \end{theorem}
 \begin{proof}
     $G(x,y) = G(x_0, y_0) + \partial x G(x_0, y_0) (x - x_0) + \partial y G(x_0, y_0) (y - y_0) + o (\norm{x - x_0} + \norm{y - y_0})$.\\
@@ -52,7 +52,7 @@
         f(x) - f(x_0) = - (\partial y G(x_0, y_0))^{-1} \partial x G(x_0, y_0) (x - x_0) + (\partial y G(x_0, y_0))^{-1}o(\ldots)
     \end{equation}
     Хотим $\norm{y - y_0} \leqslant C \cdot \norm{x - x_0} \Rightarrow o(\norm{x - x_0}) = o(\norm{x - x_0} + \norm{y - y_0})$\\
-    $\ref{*} \Rightarrow \norm{y - y_0} \leqslant C_1 \norm{x - x_0} + C_2\epsilon (\norm{x - x_0} + \norm{y - y_0}) \ \forall \epsilon > 0$, где\\
+    % $\ref{*} \Rightarrow \norm{y - y_0} \leqslant C_1 \norm{x - x_0} + C_2\epsilon (\norm{x - x_0} + \norm{y - y_0}) \ \forall \epsilon > 0$, где\\
     $\begin{aligned}
     C_1 &= \norm{(\partial y G(x_0, y_0))^{-1})} \cdot \norm{\partial x G(x_0, y_0)} \\
     C_2 &= \norm{(\partial y G(x_0, y_0))^{-1})}
@@ -67,7 +67,7 @@
     $F \colon Y \to X \quad F(y_0) = x_0 \quad F$ дифференцируема в окрестности точки $y_0$, $Y$ - полное, $\exists (d F(y_0))^{-1} \in L(X, Y) \Rightarrow \exists U, V$ -- окрестности $x_0, y_0 \colon F \colon V \to U -$ биекция, т. е. $\exists F^{-1} = f$, а так же $(dF^{-1})(x_0) = (d F(y_0))^{-1}$
 \end{theorem}
 \begin{proof}
-    $G \colon X \times Y \to X$, $G(x, y) = x - F(y)$, заметим что для такого $G$ выполнены условия теоремы \link{о неявном отображении}: $\partial y G(x_0, y_0) = -d F(y_0)$, $G(x_0, y_0) = 0$, так же очевидно, что $G$ и $\partial y G$ в точке $(x_0, y_0)$.\\
+    % $G \colon X \times Y \to X$, $G(x, y) = x - F(y)$, заметим что для такого $G$ выполнены условия теоремы \link{о неявном отображении}: $\partial y G(x_0, y_0) = -d F(y_0)$, $G(x_0, y_0) = 0$, так же очевидно, что $G$ и $\partial y G$ в точке $(x_0, y_0)$.\\
     Тогда $\exists U$ -- окрестность $x_0$, $V$ -- окрестность $y_0 \colon x = F(y) \Leftrightarrow G(x, y) = 0 \quad (x, y) \in U \times V \Leftrightarrow y = f(x) \quad x \in U$.\\
     Заметим, что мы еще не получили биекцию, так как из равносильности следует только инъективность $f$, так как она не насыщает все точки образа. С этим можно побороться, если взять вместо $V := f(U)$, но тогда нужно доказать, что $y_0$ было внутренней для $f(U)$.\\
     Тогда давайте посмотрим на дифференциал $f$, $df(x_0) = -(\partial y G(x_0, y_0))^{-1} \partial x G(x_0, y_0) = (d F(y_0))^{-1} \Rightarrow \exists (d f(x_0))^{-1} = d F(x_0) \in L(Y, X)$.\\

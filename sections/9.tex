@@ -75,8 +75,8 @@ $L_0 = \{f \in C^2[0, x_{\star}], f(0) = f(x_{\star}) = 0\}$
 
 \[\begin{aligned}
     \frac{mv^2}{2} = mgf(x) \Rightarrow v(x) = \sqrt{2gf(x)} \\
-	\text{Расстояние ~---} s(x) = \sqrt{1 + (f'(x))^2} \\
-	\text{Время ~---} t(x) = \sqrt{\frac{1 + (f'(x))^2}{2gf(x)}}
+	\text{Расстояние ~--- ~} s(x) = \sqrt{1 + (f'(x))^2} \\
+	\text{Время ~--- ~} t(x) = \sqrt{\frac{1 + (f'(x))^2}{2gf(x)}}
 \end{aligned}\]
 
 Отсюда,
@@ -186,6 +186,8 @@ $T(f) = \bigint_0^{x_{\star}} \sqrt{\dfrac{1 + (f'(x))^2}{x}}dx$\\
 $F(x, y, z) = \sqrt{\dfrac{1 + z^2}{x}}, \ \partial_2F = 0, \ \partial_3F = \dfrac{z}{\sqrt{x}\sqrt{1 + z^2}}$.\\
 $\odv{}{x}(\dfrac{f'}{\sqrt{x}\sqrt{1 + (f')^2}}) = 0 \Rightarrow \dfrac{f'}{\sqrt{x}\sqrt{1 + (f')^2}} = C \Rightarrow \dfrac{(f')^2}{1 + (f')^2} = C^2x \Rightarrow \dfrac1{(f')^2} = \dfrac1{C^2x} - 1 \Rightarrow f'(x) = \sqrt{\dfrac{cx}{1 - cx}} \Rightarrow f(x) = \bigint_0^x\sqrt{\dfrac{cu}{1 - cu}}du$\\
 
+Циклоида. Ее кусок --- это ответ на задачу о брахистохроне.
+
 $\left\{\begin{aligned}
 x(t) &= t - \sin t \\
 y(t) &= 1 - \cos t
@@ -251,7 +253,7 @@ $\bigint_a^bf\sqrt{1 + (f')^2} \to \min$
 \draw    (155,121.81) .. controls (163,57.81) and (280,41.81) .. (293,121.81) ;
 
 % Text Node
-\draw (217,65.4) node [anchor=north west][inner sep=0.75pt]    {$f$};
+\draw (217,50.4) node [anchor=north west][inner sep=0.75pt]    {$f$};
 
 
 \end{tikzpicture}
