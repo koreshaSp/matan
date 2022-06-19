@@ -42,7 +42,7 @@
     начало и конец, но хочется понимать ещё про гладкость.
 \end{remark}
 \begin{definition}
-    $\gamma$ ~--- гладкий путь, если $\gamma_i\in C'[a,b]$.\\
+    $\gamma$ ~--- гладкий путь, если $\gamma_i\in C^1[a,b]$.
 \end{definition}
 \begin{definition}
     Гладкая кривая~--- кривая, у которой $\exists$ гладкий путь.
@@ -53,7 +53,7 @@
 \end{remark}
 \subsection{Длина кривой}
 По факту, хотим подробить нашу кривую на маленькие отрезочки
-и засуммировать их, давайте подумаем как это сделать аккуратно.\\
+и просуммировать их, давайте подумаем как это сделать аккуратно.\\
 \quad
 \begin{definition}
     $\gamma\colon [a, b]\mapsto \R^m$~--- путь.
@@ -88,11 +88,10 @@
 \end{proof}
 \begin{theorem}[Аддитивность длины]
     $\gamma\colon [a,b]\mapsto\R^m, c\in(a,b)$.
-    Пусть $\gamma_{-}=\gamma\big|_{[a,b]}, \gamma_{+} = \gamma\big|_{[c,b]}$.
+    Пусть $\gamma_{-}=\gamma\big|_{[a,c]}, \gamma_{+} = \gamma\big|_{[c,b]}$.
     Требуется доказать, что $l(\gamma)=l(\gamma_-) + l(\gamma_+)$
 \end{theorem}
 \begin{proof}
-    % TODO
     Докажем неравенство в две стороны.
     \begin{itemize}
         \item
@@ -302,11 +301,16 @@
             Определение непрерывности в 0:
              $\forall \varepsilon > 0, \exists \delta > 0\colon
              \forall x\colon \norm{x} \leqslant \delta, \norm{Ux} \leqslant \varepsilon$.
-
-             Берем произвольный $x \rightarrow \overline{x} = x\frac{\delta}{\norm{x}}
-             \Rightarrow \norm{U\overline{x}} \leqslant  \varepsilon \Leftrightarrow \frac{\delta}{\norm{x}} \cdot \norm{Ux} \leqslant \varepsilon \Leftrightarrow \norm{Ux} \leqslant \frac{\varepsilon}{\delta}  \norm{x}$.
              
-             Тогда берем произвольный $\varepsilon$, строим для него $\delta$ и получаем $C = \frac{\varepsilon}{\delta}$. 
+             Возьмём произвольное $x$ и сожмём его так, чтобы он лежал 
+             в $\delta$ окрестности нуля.
+             \[
+                 \overline{x} = x\frac{\delta}{\norm{x}} \Rightarrow
+                 \left[\norm{\overline{x}} \le \delta\right] 
+                 \Rightarrow \norm{U\overline{x}} \leqslant  \varepsilon
+                 \Rightarrow \frac{\delta}{\norm{x}}\norm{Ux} \leqslant \varepsilon
+                 \Rightarrow \norm{Ux} \le \frac{\varepsilon}{\delta} \norm{x}
+             \] 
         \item $(3)\Rightarrow(1)$
 
             $\norm{U(x_1 - x_2)} \leqslant C \norm{x_1 - x_2} \Longleftrightarrow \norm{U(x_1) - U(x_2)} \leqslant C\norm{x_1 - x_2}$ --- 
@@ -338,14 +342,17 @@
     $\norm{U} = \inf\{C \mid \forall x\in X \hence \norm{Ux}\leqslant C\norm{x}\}$ --- норма отображения.
 \end{definition}
 \begin{remark}
-$\inf$ достигается то есть: $\forall x\in X, \norm{Ux}\leqslant
-    \norm{U}\cdot \norm{x}$
+$\inf$ достигается, а именно:
+\[
+    \forall x\in X, \norm{Ux}\leq \norm{U}\cdot \norm{x} \Rightarrow \norm{U} \geq \frac{\norm{Ux}}{\norm{x}}
+\]
 \end{remark}
 \begin{example}
     $U\colon C[a,b]\mapsto C[a,b]$, причём
     $(Uf)(x) = \bigintss\limits_{a}^{x}{f(t)dt}$.
-    Хотим оценить.
+Хотим оценить, считая, что норма в пространстве непрерывных функций это $\inf\limits_{[a,b]} f$.
     \[
+        \int_{a}^{x} f(t)~dt \leqslant \max(f) \cdot (x - a) \Rightarrow
         \norm{Uf} \leqslant (b - a) \norm{f} \hence \norm{U} = b - a
     \]
 \end{example}
