@@ -143,10 +143,53 @@ $f(x) - \lambda = ch(\frac{1}{c} x + c_1)$
 
 \end{tikzpicture}
 
+Чуть подробней рисунок:
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,398); %set diagram left start at 0, and has height of 398
+
+%Shape: Free Drawing [id:dp5644333455476203]
+\draw  [line width=3] [line join = round][line cap = round] (104.7,80.11) .. controls (100.86,73.41) and (94.27,70.45) .. (88.11,66.36) .. controls (64.34,50.61) and (58.53,53.94) .. (37.15,75.98) .. controls (17.12,96.62) and (7.76,125.45) .. (2.78,154.31) .. controls (0.3,168.68) and (-2.93,185.05) .. (2.78,198.28) .. controls (8.23,210.93) and (8.97,225.95) .. (20.56,234.01) .. controls (55.31,258.19) and (91.81,235.06) .. (108.26,196.91) .. controls (108.68,195.93) and (117.3,175.51) .. (117.74,169.43) .. controls (119.06,151.14) and (117,137.55) .. (113,121.33) .. controls (109.52,107.22) and (105.98,91.37) .. (101.15,77.36) .. controls (100.28,74.83) and (99.75,69.11) .. (97.59,69.11) ;
+%Shape: Free Drawing [id:dp2401264637801579]
+\draw  [line width=3] [line join = round][line cap = round] (640.67,52.5) .. controls (618.04,37.41) and (562.64,54.55) .. (550.67,78.5) .. controls (533.67,112.49) and (534.33,149.05) .. (536.67,186.5) .. controls (538.04,208.4) and (536.87,239.83) .. (548.67,259.5) .. controls (555.46,270.82) and (571.03,280.77) .. (580.67,286.5) .. controls (585.56,289.41) and (591.26,290.7) .. (596.67,292.5) .. controls (602.23,294.35) and (608.67,297.04) .. (614.67,297.5) .. controls (657.24,300.77) and (678.67,252.48) .. (682.67,216.5) .. controls (684.46,200.34) and (684.08,194.64) .. (684.67,172.5) .. controls (684.75,169.48) and (686.04,166.5) .. (685.67,163.5) .. controls (684.9,157.35) and (683.11,150.46) .. (682.67,144.5) .. controls (680.62,116.91) and (681.21,85.18) .. (664.67,64.5) .. controls (656.96,54.87) and (647.46,52.3) .. (639.67,44.5) ;
+%Curve Lines [id:da8597516204810098]
+\draw    (82.67,64.5) .. controls (134.33,104) and (196.67,112.5) .. (315.67,108.5) .. controls (434.67,104.5) and (573.74,64.44) .. (593.67,49.5) ;
+%Curve Lines [id:da4978076695105529]
+\draw    (54.67,245.5) .. controls (107.67,215.5) and (184.67,238.5) .. (304.67,234.5) .. controls (424.67,230.5) and (526.67,217.5) .. (561.67,274.5) ;
+%Shape: Free Drawing [id:dp9534265890845768]
+\draw  [line width=3] [line join = round][line cap = round] (53.67,145.5) .. controls (54,145.17) and (54.46,144.92) .. (54.67,144.5) .. controls (55.91,142.01) and (52.63,149.52) .. (54.67,148.5) .. controls (62.31,144.68) and (50.03,141.22) .. (53.67,148.5) .. controls (55.07,151.3) and (59.63,140.18) .. (55.67,141.5) .. controls (54.57,141.87) and (51.07,147.3) .. (52.67,148.5) .. controls (61.05,154.79) and (54.67,137.21) .. (54.67,147.5) ;
+%Shape: Free Drawing [id:dp699713796386491]
+\draw  [line width=3] [line join = round][line cap = round] (611.67,164.5) .. controls (611.67,158.5) and (610.6,168.56) .. (612.67,166.5) .. controls (613.62,165.55) and (615.96,163.08) .. (614.67,160.5) .. controls (613.58,158.33) and (609.69,166.01) .. (610.67,166.5) .. controls (614.55,168.44) and (619.72,162.5) .. (614.67,162.5) ;
+%Straight Lines [id:da6339576808980325]
+\draw    (259.67,108.5) -- (259.67,234.5) ;
+%Straight Lines [id:da9010372368357584]
+\draw    (299.67,110.5) -- (299.67,236.5) ;
+%Straight Lines [id:da9709762459426552]
+\draw    (258.67,130.5) -- (299.67,130.5) ;
+
+% Text Node
+\draw (116,69.4) node [anchor=north west][inner sep=0.75pt]    {$f( x)$};
+% Text Node
+\draw (48,251.4) node [anchor=north west][inner sep=0.75pt]    {$0$};
+% Text Node
+\draw (615,305.4) node [anchor=north west][inner sep=0.75pt]    {$1$};
+% Text Node
+\draw (238.87,194.17) node [anchor=north west][inner sep=0.75pt]  [rotate=-272.32]  {$2\pi f( x)$};
+% Text Node
+\draw (242,82.4) node [anchor=north west][inner sep=0.75pt]    {$\sqrt{1\ +\ ( f'( x))^{2}}$};
+
+
+\end{tikzpicture}
+
+
+Нам даны два основания(окружности), и надо их соединить кривой линией так, чтобы при вращении получалась поверхность с минимальной площадью.
+
 Площадь поверхности:
 
 \[
-    S(f) = \int_0^1 2 \Pi f(x) \sqrt{1 + (f'(x)) ^ 2} dx
+    S(f) = \int_0^1 2 \pi f(x) \sqrt{1 + (f'(x)) ^ 2} dx
 \]
 
 
@@ -181,11 +224,11 @@ $f(x) - \lambda = ch(\frac{1}{c} x + c_1)$
     $x_*, x_*' \hence \rho(U(x_*), U(x_*')) < \rho(x_*, x_*')$
 \end{proof}
 
-\follow $(X, \rho)$ --- полное метрическое пространство, $U : X \to X$, но $\exists n : U ^ n$ --- сжимающее отображение $\hence \exists! $ неподвижная точка для $U$
+\follow $(X, \rho)$ --- полное метрическое пространство, $U : X \to X$, но $\exists n : U ^ n$ --- сжимающее отображение $\hence \exists! $ неподвижная точка для $U$. То есть само по себе $U$ возможно и не сжимающее, но в какой то степени становится сжимающим.
 
 
 \begin{proof}
-    Для $U ^ n$ есть сжимающая точка $x_*$
+    Для $U ^ n$ есть сжимающая точка $x_*$. Покажем от противного, что $x_*$ является неподвижной для $U$. Если это не так, что значит можно двигать $x_*$ $n$ раз и получить цикл. 
 
 
 
@@ -230,12 +273,14 @@ $f(x) - \lambda = ch(\frac{1}{c} x + c_1)$
     
     \end{tikzpicture}
 
-$\hence U ^ n$ имеет > 1  неподвижной точки
+    $\hence U ^ n$ имеет > 1  неподвижной точки(т.к. все точки на цикле -- неподвижны)
 \end{proof}
 
 \subsubsection*{Дифференциальные уравнения}
 
-Однородное дифференциальное уравнение первого порядка $f'(x) = F(f(x), x), F(f', f, x) = 0$
+\begin{definition}
+    Однородное дифференциальное уравнение первого порядка имеет вид: $f'(x) = F(f(x), x)$, либо же $F(f', f, x) = 0$
+\end{definition}
 
 Рассмотрим уравнения:
 
@@ -247,11 +292,7 @@ $f'(x) = A(x) f(x) + B(x), f \in C^1[a, b], f(a) = 0$
         f(x) = \int_a^x A(t)f(t)+B(t) dt
     \]
 
-    Хотим найти неподвижные точки $U$
-
-    \[
-        U : f \to \int_a ^ x A(t) f(t) + B(t) dt
-    \]
+    Тогда пусть $U : f \to \bigint_a ^ x A(t) f(t) + B(t) dt$. Теперь мы хотим найти неподвижные точки $U$.
 
     $X = \{ f \in C[a, b] , f(a) = 0 \}$ --- полное метрическое пространство
 
@@ -259,7 +300,7 @@ $f'(x) = A(x) f(x) + B(x), f \in C^1[a, b], f(a) = 0$
         \norm{Uf_1 - Uf_2} = \max_{x \in [a, b]} \abs{\int_a^x A(t)f_1(t) - A(t) f_2(t) dt} \leqslant (b - a) \max \abs{A} \cdot \norm{f_1 - f_2} \leqslant M \cdot (b - a) \cdot \norm{f_1 - f_2}
     \]
 
-    Поэтому отображение $U$ не сжимающее.
+    Буквой $M$ обозначили $\abs{A}$. Как видно ~--- отображение $U$ не сжимающее.
 
     \[
         \norm{U ^ n f_1 - U^n f_2} = ?
@@ -272,20 +313,20 @@ $f'(x) = A(x) f(x) + B(x), f \in C^1[a, b], f(a) = 0$
     \]
 
     \[
-        U_0 ^ n f(x) =  \int_a^x  ... \int_a^{t_3} A(t_2) (\int_0^{t_2} A(t_1) (\int_0^{t_1} A(t) f(t) dt ) dt_1) dt_2 ... dt_{n - 1}
+        U_0 ^ n f(x) =  \int_a^x  ... \int_a^{t_3} A(t_2) (\int_a^{t_2} A(t_1) (\int_a^{t_1} A(t) f(t) dt ) dt_1) dt_2 ... dt_{n - 1}
     \]
 
     \[
         \norm{U_0 ^ n (f_1 - f_2) } \leqslant \norm{f_1 - f_2} \cdot M ^ n \cdot \max_{x \in [a,b]} \underbrace{\abs{ \int_a^x \int_a^{t_{n - 1}} ... \int_a^{t_1} dt dt_1 ... dt_{n-1}}}_{\frac{(x - a) ^ n}{n !}} \leqslant \norm{f_1 - f_2} \cdot \frac{M ^ n \cdot (b - a) ^ n}{n !}
     \]
 
-    $\hence \exists n : \frac{M ^ n (b -a)}{n !} < 1$
+    $\hence \exists n : \frac{M ^ n (b - a)^n}{n !} < 1$
 
     $
         U ^ n (f_1) - U^n(f_2) = U_0 ^ n (f_1) - U_0 ^ n (f_2) \hence U ^ n
     $ сжимающее
 
-    $\hence \exists! f_* : f_*(x) = \int_a^x A(t) f_*(t) + B(t) dt, f_*(a) = 0, f_* \in C[a, b]$.
+    $\hence \exists! f_* : f_*(x) = \bigint_a^x A(t) f_*(t) + B(t) dt, f_*(a) = 0, f_* \in C[a, b]$.
     
     Но если $A, B \in C[a, b] \hence f_* \in C^1 [a, b]$
 \end{enumerate}
