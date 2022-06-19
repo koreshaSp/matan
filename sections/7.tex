@@ -46,7 +46,7 @@ $\hence f^{-1}$ дифф. в $(\cdot) y_0$ и $df^{-1}(y_0) = (df(x_0))^{-1}$
 \begin{enumerate}
     \item (постоянное отображение) $f: X \to Y$, $f(x) \equiv y_0 \hence \forall x df(x) = 0$
     \item (линейное) $f \in L(X, Y), df(x) = f$, $(df(x)h = f(h))$
-    \item (композиция c лин.) $f : X \to Y, f$ дифф. в $(\cdot) x_0$ $A \in L(Y, Z)$ 
+    \item (композиция c лин.) $f : X \to Y, f$ дифф. в $(\cdot) x_0$, $A \in L(Y, Z)$ 
         $ \hence d(A \circ f)(x_0) = Adf(x_0)$
     \item $f : X \to Y_1 \times Y_2 \times ... \times Y_n$, $f(x) = (f_1(x), f_2(x), ..., f_n(x))$, $f_j$ --- координатные отображения $f$
     
@@ -176,6 +176,8 @@ $d_{x_j}f(a) \in L(x_j, Y)$
 
     $\underbrace{f(a + h) - f(a)}_{ = df(a)h + o(h)} = \phi_1(a_1 + h_1) - \phi_1(a_1) \hence \phi_1$ дифф. в $(\cdot) a_1$ и 
     $\underbrace{d_{\phi_1}(a_1)h_1}_{\partial_{x_1} f(a)h_1} = df(a)(h_1, 0, 0, ...)$  
+
+    Далее просто представляем $h = (h_1, 0, ..., 0) + (0, h_2, 0, ..., 0) + ...$ и получаем искомую сумму.
 \end{proof}
 
 \underline{Очень важный частный случай}

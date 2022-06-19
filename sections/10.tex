@@ -4,9 +4,9 @@
 
 \begin{enumerate}
     \item (Самая простая ситуация)
-    
+	\begin{definition}
     \[
-        f : \R^m \to \R, \text{ дифференцируема} \hence \exists \frac{\partial f}{\partial x_j} : \R ^m \to \R 
+        f : \R^m \to \R, \text{ дифференцируема на всем } \R^m \hence \exists \frac{\partial f}{\partial x_j} : \R ^m \to \R 
     \]
 
     Может оказаться, что $\frac{\partial f}{\partial x_j}$ дифф. $\hence \exists \frac{\partial }{\partial x_k} \left( \frac{\partial f}{\partial x_j} \right)$ --- вторая частная производная
@@ -20,6 +20,7 @@
     \[
         \frac{\partial ^ pf}{\partial x_{i_p} ... \partial x_{i_1}} \text{ --- производная p-го порядка}
     \]
+	\end{definition}
 
     \begin{theorem}
         $f: \R ^ m \to \R, x \in \R ^m, $ существуют частные проивзодные $\frac{\partial ^ 2f}{\partial x_k \partial x_j}$ и $\frac{\partial ^ 2 f}{\partial x_j \partial x_k}$ в окр. $(\cdot)$ x и оказались непр. в $(\cdot)$ x $\hence \frac{\partial ^ 2f}{\partial x_k \partial x_j} = \frac{\partial ^ 2 f}{\partial x_j \partial x_k}$.
@@ -73,7 +74,7 @@
 \]
 
 \[
-    \phi'(\theta_2) = \frac{\partial f}{\partial x_2} (x_1 + h_1, x_2 + \theta_2 h_2) \cdot h_2 - \frac{\partial f}{\partial x_2}(x_1, x_2 + \theta_2 h_2) \cdot h_2 \overset{\exists \theta_1}{=} \frac{\partial}{\partial x_1} (\frac{\partial f}{\partial x_2}) (x_1 + \theta_1 \cdot h_1, x_2 + \theta_2 h_2) h_2 h_1
+    \phi'(\theta_2) = \frac{\partial f}{\partial x_2} (x_1 + h_1, x_2 + \theta_2 h_2) \cdot h_2 - \frac{\partial f}{\partial x_2}(x_1, x_2 + \theta_2 h_2) \cdot h_2 \overset{\exists \theta_1}{=} \frac{\partial}{\partial x_1} \left (\frac{\partial f}{\partial x_2}\right ) (x_1 + \theta_1 \cdot h_1, x_2 + \theta_2 h_2) h_2 h_1
 \]
 
 \[
@@ -82,17 +83,20 @@
 
 По аналогии можно получить, что 
 \[
-    \frac{F(h_1, h_2)}{h_1 h_2} \to \frac{\partial ^ 2 f}{\partial x_2 \partial x_1}(x)
+	\frac{F(h_1, h_2)}{h_1 h_2} \underset{h \to 0}{\to} \frac{\partial ^ 2 f}{\partial x_2 \partial x_1}(x)
 \]
     \end{proof}
 
     \follow\, Если у функции существуют непрерывные проивзодные $n$-ого порядка $\hence  \frac{\partial ^n f}{\partial x_{i_n}... \partial x_{i_1}} (x) = \frac{\partial ^ n f}{\partial x_{\sigma(n)} ... \partial x_{i_{\sigma(1)}} } \forall \sigma \in S_n$
 
-    \item $f : X \to Y$, f дифференцируема на X (в окрестности $(\cdot) x$)
+    \item 
+	\begin{definition}
+	
+	$f : X \to Y$, f дифференцируема на X (в окрестности $(\cdot) x$)
     
     $df : X \to L(X, Y)$ может оказаться, что $df$ дифференцируема в $\point$ x.
 
-    $d(df)(x) = L(X; L(X, Y)) = L(X, X ; Y)$ --- пространство непрерывных билинейных отображений из $X \times X $ в Y.
+    $d(df)(x) = L(X; L(X, Y)) \cong L(X, X ; Y)$ --- пространство непрерывных билинейных отображений из $X \times X $ в Y.
     
     $d(df)(x) = d^2 f(x)$ --- второй диференциал $f$ в $\point$ x.
 
@@ -101,16 +105,17 @@
     По индукции определяется $n$-ый дифференциал.
 
     $d ^ n f(x) \in L(\underbrace{X, X, ... , X}_{n}; Y)$
+	\end{definition}
 
 
-    \underline{Связь с производными по векторам}
+	\begin{theorem}[Связь с производными по векторам]
 
     \[
         df(x) h = \frac{\partial f}{\partial h}(x) = \lim_{t \to 0} \frac{f(x + th) - f(x)}{t} \Longleftrightarrow  f(x + th) - f(x) = df(x) th + o(t)
     \]
 
     \[
-        d ^ 2 f(x) (h_1, h_2) = (d(df) (x) h_1) h_2 = (\frac{\partial}{\partial h_1} (df)(x)) h_2 = \left(\lim_{t \to 0} \frac{df(x + th_1) - df(x)}{t} \right) h_2 \ceq
+        d ^ 2 f(x) (h_1, h_2) = (d(df) (x) h_1) h_2 = \left (\frac{\partial}{\partial h_1} (df)(x)\right) h_2 = \left(\lim_{t \to 0} \frac{df(x + th_1) - df(x)}{t} \right) h_2 \ceq
     \]
 
     \[
@@ -121,7 +126,7 @@
     \] 
 
     \begin{remark}
-        $A_n \to A_0$ в $L(X, Y) \hence \forall h A_n h \to A_0 h $, т.к. $\norm{A_n h - A_0 h} \leqslant \norm{A_n - A_0} \cdot \norm{h}$
+        $A_n \to A_0$ в $L(X, Y) \hence \forall h, A_n h \to A_0 h $, т.к. $\norm{A_n h - A_0 h} \leqslant \norm{A_n - A_0} \cdot \norm{h}$
     \end{remark}
 
     \[
@@ -131,6 +136,8 @@
     \[
         d ^ n f(x) (h_1, ..., h_n) = \frac{\partial }{\partial h_1} \left( \frac{\partial}{\partial h_2} \left(... \left(\frac{\partial f}{\partial h_n} \right)\right) \right)(x)
     \]
+
+	\end{theorem}
 
     \begin{theorem}[симметричность формы $n$-ого дифференциала]
         
@@ -161,13 +168,13 @@
         \draw    (100,179) -- (383,179) ;
         
         % Text Node
-        \draw (61,240.4) node [anchor=north west][inner sep=0.75pt]    {$( x_{1} ,x_{2})$};
+        \draw (61,240.4) node [anchor=north west][inner sep=0.75pt]    {$x$};
         % Text Node
-        \draw (388,99.4) node [anchor=north west][inner sep=0.75pt]    {$( x_{1} +h_{1} ,x_{2} +h_{2})$};
+        \draw (388,99.4) node [anchor=north west][inner sep=0.75pt]    {$x+th_1+th_2$};
         % Text Node
-        \draw (385,235.4) node [anchor=north west][inner sep=0.75pt]    {$( x_{1} +h_{1} ,x_{2})$};
+        \draw (385,235.4) node [anchor=north west][inner sep=0.75pt]    {$x+th_1$};
         % Text Node
-        \draw (58,98.4) node [anchor=north west][inner sep=0.75pt]    {$( x_{1} ,x_{2} +h_{2})$};
+        \draw (58,98.4) node [anchor=north west][inner sep=0.75pt]    {$h+th_2$};
         % Text Node
         \draw (37,169.4) node [anchor=north west][inner sep=0.75pt]    {$x\ +\ tv$};
         % Text Node
@@ -181,7 +188,7 @@
 
 
 \[
-    v \,||\, h_2, \norm{v} \leqslant \norm{h_2}     
+	v \,||\, h_2 \text{ и } \norm{v} \leqslant \norm{h_2}     
 \]
 
 \[
@@ -201,17 +208,21 @@
 \]
 
 \[
-    \norm{F(h_1, h_2, t) - t ^ 2 d ^ 2 f(x) (h_1, h_2)} = \norm{\phi(h_2) - \phi(0) - \underbrace{t^2 d^2 f(x) (h1) h_2}_{d \phi(theta_2 h_2) = (df(x + \theta_2 h_2 t + t h_1) - df(x + \theta_2 h_2 t)) t}} \leqslant
+	\norm{F(h_1, h_2, t) - t ^ 2 d ^ 2 f(x) (h_1, h_2)} = \norm{\phi(h_2) - \phi(0) - t^2 d^2 f(x) (h1) h_2} \leqslant
 \]
 
-\[ \leqslant \sup_{\theta_2 \in (0, 1) } \norm{d\phi(\theta_2  h_2) - t^2 d^2 f(x) (h_1)} \norm{h_2} \ceq
+\[ \text{(теорема о конечном приращении)} \leqslant \sup_{\theta_2 \in (0, 1) } \norm{\underbrace{d\phi(\theta_2  h_2)}_{d\phi(\theta_2h_2)=(df(x+\theta_2h_2t+th_1)-df(x+\theta_2h_2t))t} - t^2 d^2 f(x) (h_1)} \norm{h_2} \ceq
 \]
 
 
 \[
-    \ceq \abs{t} \norm{h_2} sup_{\theta_2} \norm{\underbrace{df(x + \theta_2 h_2 t + t h_1) - df(x + \theta_2 h_2 t)}_{=d (df) (x + \theta_2 h_2 t) t h_1 + o(t h_1)} - t d(df)(x)h_1}
+    \ceq \abs{t} \norm{h_2} \sup_{\theta_2} \norm{\underbrace{df(x + \theta_2 h_2 t + t h_1) - df(x + \theta_2 h_2 t)}_{=d (df) (x + \theta_2 h_2 t) t h_1 + o(t h_1)} - t d(df)(x)h_1} =
 \]
 
+\[
+	=\left[\text{по непрерывности } d(df)(x) \right] = \abs{t}^2 \norm{h_2} \sup_{\theta_2} \norm{o(1) \cdot h1} = o(t^2), t \to 0	
+\]
+ Альтернативный вариант, еще раз применяем теорему о конечном приращении:
 \[
     \leqslant \abs{t} \norm{h_2} \sup_{\theta_2}  \sup_{\theta_1} \norm{
         d(df)(x + \theta_2 h_2 t \theta_1 t h_1) - d(df)(x)
@@ -220,7 +231,7 @@
 
 
 \[
-    \frac{F(h_1, h_2, t)}{t ^ 2} \underset{t \to 0} {\to} d^2 f(x) (h_1, h_2)
+    \Rightarrow \frac{F(h_1, h_2, t)}{t ^ 2} \underset{t \to 0} {\to} d^2 f(x) (h_1, h_2)
 \]
     \end{proof}
 \end{enumerate}
@@ -234,7 +245,7 @@
 \[
     d^n f(x) (h_1, ..., h_n) = 
     d ^ n f(x) \left(\sum_{j = 1}^m h_1^{(j)}e_j, ..., \sum_{j = 1}^m h_n^{(j)} e_j \right) = 
-    \sum_{1 \leqslant j_1 \leqslant ... \leqslant j_n \leqslant m} \underbrace{d^n f(x) (e_{j_1}, ... ,e_{j_n})}_{\frac{\partial ^ n f}{\partial x_{j_1} ... \partial x_{j_n}}(x) } h_1^{(j_1)} \cdot ... \cdot h_n ^ {(j_m)}
+    \sum_{1 \leqslant j_1 \dots j_n \leqslant m} \underbrace{d^n f(x) (e_{j_1}, ... ,e_{j_n})}_{\frac{\partial ^ n f}{\partial x_{j_1} ... \partial x_{j_n}}(x) } h_1^{(j_1)} \cdot ... \cdot h_n ^ {(j_n)}
 \]
 
 $
@@ -278,7 +289,7 @@ $
      \frac{\partial ^ n}{(\partial x_1) ^ {\al_1} ... (\partial x_m) ^ {\al_m}} (x) (h ^ {(1)}) ^ {\al_1} \cdot ... \cdot (h ^ {(m)}) ^ {\al_m}
 \]
 \[     
-     = \sum \frac{n !}{\al !} \frac{\partial ^ n f(x)}{\partial x ^ \al} h ^ \al
+	 = \sum_{\abs{\al} = n} \frac{n !}{\al !} \frac{\partial ^ n f(x)}{\partial x ^ \al} h ^ \al
 \]
 
 $\al$ --- мультииндекс
@@ -308,21 +319,27 @@ $H(x) = (\frac{\partial ^ 2 f}{\partial x_i \partial x_j}(x))$
 
 $\langle H(x) h, h \rangle \geqslant 0 \Longleftrightarrow \frac{\partial ^2 f}{\partial h^2}(x) \geqslant 0$
 
-\begin{theorem}[Формула Тейлора]
-    $f : \R ^ m \to \R$, $f$ $n$ раз непрерывно дифференцируема на $[x, x + h]$.
+\subsection{Многомерная формула Тейлора}
 
-    $f(x + h) = f(x) + \sum_{k = 1} ^ n \frac{d ^ k f(x) h ^ k}{k !} + \frac{d ^ {n + 1} f(x + \theta h) h ^ {n + 1}}{(n + 1)!}$, $\exists \theta \in (0, 1)$
+\begin{theorem}[Формула Тейлора]
+    $f : \R ^ m \to \R$, $f$ ~--- $n + 1$ раз непрерывно дифференцируема на $[x, x + h]$.
+
+	\[
+		f(x + h) = f(x) + \sum_{k = 1} ^ n \frac{d ^ k f(x) h ^ k}{k !} + \frac{d ^ {n + 1} f(x + \theta h) h ^ {n + 1}}{(n + 1)!}, \exists \theta \in (0, 1)
+	\]
 \end{theorem}
 
 \begin{proof}
-    $\phi(t) = f(x + th)$, $\phi$ $n + 1$ раз дифференцируема на $[0, 1]$
+    $\phi(t) = f(x + th)$, $\phi$ $n + 1$ раз дифференцируема на $[0, 1] \Rightarrow$
 
-    $\underbrace{\phi(1)}_{f(x + h)} = \underbrace{\phi(0)}_{f(x)} + \sum_{k = 1} ^ n \frac{\phi^{(k)} (0)}{k !} + \frac{\phi^{(n + 1)}(\theta)}{(n + 1)!}$
+	\[
+		\underbrace{\phi(1)}_{f(x + h)} = \underbrace{\phi(0)}_{f(x)} + \sum_{k = 1} ^ n \frac{\phi^{(k)} (0)}{k !} + \frac{\phi^{(n + 1)}(\theta)}{(n + 1)!}
+	\]
 
 
     \[
         \phi^{(k)}(t) = d^{(k)} f(x + th) h ^ k
     \]
 
-    А далее упражнение :)
+    Пояснение на следующей лекции.
 \end{proof}

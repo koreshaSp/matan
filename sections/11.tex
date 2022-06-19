@@ -1,10 +1,13 @@
 \section*{Лекция 11 (28.04.2022)}
+\begin{proof}
+	Продолжение доказательства формулы Тейлора.
 
-$\phi(t) = f(x + th)$ и хотим проверить, что $\phi^{(n)}(t) = d^n f(x + th) h ^ n$
+	$\phi(t) = f(x + th)$ и хотим проверить, что $\phi^{(n)}(t) = d^n f(x + th) h ^ n$
 
-$\phi^{(n)}(t) = \left( \frac{\partial}{\partial h} \right) ^ n f(x + th) = d^n f(x + th) h ^ n$
+	$\phi^{(n)}(t) = \left( \frac{\partial}{\partial h} \right) ^ n f(x + th) = d^n f(x + th) h ^ n$
 
-Следовательно любая формула Тейлора одномерная переписывается в многомерье.
+	Следовательно любая формула Тейлора одномерная переписывается в многомерье.
+\end{proof}
 
 \subsection{Геометрические наблюдения}
 
@@ -103,9 +106,13 @@ pattern radius = 1pt}
 
 \end{tikzpicture}
 
-На поверхности можно определить систему координат --- криволинейные координаты
+\begin{definition}
+    На поверхности можно определить систему координат --- криволинейные координаты
+\end{definition}
 
-координаты линии --- образ множеств $x = const, y = const$
+\begin{definition}
+    координаты линии --- образ множеств $x = const, y = const$
+\end{definition}
 
 Если есть путь $\gamma[a, b] \to U $ в $U$ $\hence$ $(\gamma, f \circ \gamma)$ --- путь на поверхности.
 
@@ -156,40 +163,46 @@ $ = f(x_0, y_0) + \left \langle \nabla f(x_0, y_0), \begin{pmatrix}
 
 \quad
 
-\underline{ Касательные векторы } \\
-
 \begin{definition}
+    Касательный вектор ~--- это либо $1$, либо $2$.
    \begin{enumerate}
        \item элементы касательной плоскости
        \item касательные векторы к гладким путям на поверхности
     \end{enumerate}
-
-    $(1) \Longleftrightarrow (2)$
 \end{definition}
 
-$\ola$ 
+\begin{theorem}
+    $(1) \Longleftrightarrow (2)$
+\end{theorem}
 
-Берем $\gamma(t) = (x(t), y(t))$ путь в $U$, по нему строим путь на поверхности 
+\begin{proof}
 
-$(\gamma(t), f(\gamma(t))) = (x(t), y(t), f(x(t), y(t))) \rightarrow$ касательный вектор
+    $\ola$ 
 
-$(x'(t), y'(t), \frac{\partial f}{\partial x}(x(t), y(t)) x'(t) + \frac{\partial f}{\partial y} (x(y), y(t)) y'(t) = (x'(t), y'(t), df(\cdots) \begin{pmatrix}
-    x'(t)\\
-    y'(t)
-\end{pmatrix})$
+    Берем $\gamma(t) = (x(t), y(t))$ путь в $U$, по нему строим путь на поверхности 
 
-$\ora$
+    $(\gamma(t), f(\gamma(t))) = (x(t), y(t), f(x(t), y(t))) \rightarrow$ касательный вектор
 
-$(u, v, df(x_0, y_0)\begin{pmatrix}
-    u\\
-    v
-\end{pmatrix}) $ --- касательный вектор
+    $(x'(t), y'(t), \frac{\partial f}{\partial x}(x(t), y(t)) x'(t) + \frac{\partial f}{\partial y} (x(t), y(t)) y'(t)) = (x'(t), y'(t), df(\cdots) \begin{pmatrix}
+        x'(t)\\
+        y'(t)
+    \end{pmatrix})$
 
-Рассматриваем $\gamma(t) = (x_0 + ut, y_0 + vt)$ и все получится.
+    $\ora$
+
+    $(u, v, df(x_0, y_0)\begin{pmatrix}
+        u\\
+        v
+    \end{pmatrix}) $ --- касательный вектор
+
+    Рассматриваем $\gamma(t) = (x_0 + ut, y_0 + vt)$ и все получится.
+\end{proof}
 
 \quad
 
-\underline{Нормаль к поверхности} = нормаль к касательной плоскости\\
+\begin{definition}
+    Нормаль к поверхности ~--- это нормаль к касательной плоскости
+\end{definition}
 
 $\vec{n} (x_0, y_0) = \begin{pmatrix}
     \nabla f(x_0, y_0)\\
@@ -197,7 +210,7 @@ $\vec{n} (x_0, y_0) = \begin{pmatrix}
 \end{pmatrix}$, т.к. скалярное произведение с $\begin{pmatrix}
     x\\
     y\\
-    \langle \nabla f , \begin{pmatrix}
+    \langle \nabla f(x_0, y_0) , \begin{pmatrix}
         x\\
         y
     \end{pmatrix}\rangle
@@ -221,17 +234,18 @@ $\dim T_{x_0}f = m$
 
 Пространство нормалей --- $(T_{x_0} f) ^ {\perp}$, вопрос, есть ли что-то лучше?
 
-\subsection{Теорема о неявном отображении}
+\section{Теорема о неявном отображении}
 
-\begin{theorem}[о сжимающем отображении]
-$
-        f : X \to X, X \text{ --- полное метрическое пространство}
-$
-\[
-    \exists \gamma < 1, \forall x_1, x_2 \in X, \rho(f(x_1), f(x_2)) \leqslant \gamma \rho(x_1, x_2) \hence \exists ! x_{*} \text{ --- неподвижная точка } \in X, f(x_{*}) = x_{*}.
-\]
+\begin{theorem}[о сжимающем отображении(теорема Банаха)]
+       $ f : X \to X$, --- полное метрическое пространство.
+
+       $\exists \gamma < 1: \forall x_1, x_2 \in X, \rho(f(x_1), f(x_2)) \leqslant \gamma \rho(x_1, x_2) \hence \exists ! x_{*} \in X$  ~--- неподвижная точка $: f(x_*) = x_*$
 
 \end{theorem}
+
+\begin{proof}
+    Надо брать точки $x_0, f(x_0), f(f(x_0)) \dots$ и показать, что они сходятся к $x_*$, единственность очевидна. Упражнение.
+\end{proof}
 
 
 Идея: $x ^ 2 + y ^ 2 - 1 = 0$ --- не график функции. 
@@ -319,6 +333,8 @@ $\{ (x_1, \cdots, x_m, y_1, \cdots, y_n) | \text{ удовлетвор. сист
     $g_x : B \to B$ --- сжимающее отображение $\hence \forall x\,\, \exists! \,\, y : g_x(y) = y \Longleftrightarrow G(x, y) = 0$. Тогда этот единственный $y$ и есть $f(x)$.
 
     $V = B_{2\varepsilon}(y_0), U = B_{\min(\delta, \Delta)}(x_0)$
+
+    Непрерывность $f$ следует из того, что мы можем уменьшать размеры шариков и получать тоже самое отображение $f$. Тем самым приближая $f(x)$ к $f(x_0)$
 \end{proof}
 
 \begin{remark}

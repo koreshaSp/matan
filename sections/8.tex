@@ -316,14 +316,19 @@ $\norm{\partial_{x_j} f(a) - \partial_{x_j}f(b)} \leqslant \norm{df(a) - df(b)} 
 \newpage
 \subsection{Экстремумы. Часть I}
 
-$f : U \text{ --- откр.} \subset X \to \R$, a --- точка Экстремума, $f$ дифф в $(\cdot) a \hence df(a) = 0$
+\begin{statement}
+	$f : U \text{ --- откр.} \subset X \to \R$, a --- точка экстремума, $f$ дифф в $(\cdot) a \hence df(a) = 0$
+\end{statement}
+\begin{proof}
+	$f(a + h) = f(a) + df(a)h + o(h)$
 
-$f(a + h) = f(a) + df(a)h + o(h)$
+	Если $\exists h_0 : df(a) h_0 \neq 0 \hence $ a --- не экстремум, т.к.:
 
-Если $\exists h_0 : df(a) h_0 \neq 0 \hence $ a --- не экстремум
-
-$f(a + th_0) = f(a) + \underbrace{t df(a) h_0}_{\neq 0} + o(t), $ a точка экстремума и существует произв. по верктору $\vec{v}$ в $(\cdot)a \hence \frac{\partial f}{\partial \vec{v}}(a) = 0$
-
+	$f(a + th_0) = f(a) + t \underbrace{df(a) h_0}_{\neq 0} + o(t), $ \\
+\end{proof}
+\begin{remark}
+	Тогда, если $a$ -- точка экстремума и существует произв. по вектору $\vec{v}$ в $(\cdot)a \hence \frac{\partial f}{\partial \vec{v}}(a) = 0$
+\end{remark}
 
 \begin{example}
 \begin{enumerate}
@@ -332,7 +337,7 @@ $f(a + th_0) = f(a) + \underbrace{t df(a) h_0}_{\neq 0} + o(t), $ a точка �
 
     $a \in H, f(x) = \norm{x - a}, x \in L$
 
-    $f \to \min$
+    Хотим $f^2 \to \min$. Квадрат нужен только для удобства, от этого минимум не изменится.
 
 
 
@@ -367,12 +372,12 @@ $f(a + th_0) = f(a) + \underbrace{t df(a) h_0}_{\neq 0} + o(t), $ a точка �
 \end{tikzpicture}
 
 \begin{statement}
-    $x^* $ --- точка минимума $\hence x^* - a \perp l \forall l \in L \Longleftrightarrow \langle x^* - a , l \rangle = 0 $ 
+		$x^* $ --- точка минимума $\hence (x^* - a) \perp l, \forall l \in L \Longleftrightarrow \langle x^* - a , l \rangle = 0 $ 
 \end{statement}
 
 \begin{proof}
     \[ 
-        0 = \frac{\partial f}{\partial l}(x^*) = \lim_{t \to 0} \frac{f^2(x^* + tl) - f^2(x^*)}{t} = \lim_{t \to 0} \frac{\langle x^* - a + tl, x^* - a + tl \rangle - \langle x^* - a, x^ * - a\rangle}{t}  = 2 Re \langle l, x ^ * - a \rangle
+        0 = \frac{\partial f^2}{\partial l}(x^*) = \lim_{t \to 0} \frac{f^2(x^* + tl) - f^2(x^*)}{t} = \lim_{t \to 0} \frac{\langle x^* - a + tl, x^* - a + tl \rangle - \langle x^* - a, x^ * - a\rangle}{t}  = 2 \langle l, x ^ * - a \rangle
     \]
 \end{proof}
 

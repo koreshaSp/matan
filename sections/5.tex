@@ -263,8 +263,8 @@
             $(Df)(x) = f'(x), D\colon X\mapsto Y$ тоже
             линейное отображение.
         \item
-            $X_1 = X_2 = \dots = X_n = \R = Y$. Тогда
-            $U(x_1,\dots, x_n) = x_1 \ldots x_n$~---
+            $X_1 = X_2 = \dots X_n = \R = Y$. Тогда
+            $U(x_1,\dots, x_n) = x_1\cdot ... \cdot x_n$~---
             полилинейное отображение.
         \item
            $X_1 = \R^m, X_2 = \R^m, Y = \R$. Тогда
@@ -276,7 +276,7 @@
             $[x_1,x_2]$~--- линейное отображение,
             полилинейное отображение.
         \item
-            $X_1 = \dots = X_m = \R^m$. Тогда 
+            $X_1 = \dots = X_m = \R^m, Y = \R$. Тогда 
             $U(x_1,\dots, x_m) = \det(x_1, \dots, x_m)$ 
             полилинейное отображение.
     \end{enumerate}
@@ -296,9 +296,12 @@
 \begin{proof}
     \begin{enumerate}
         \item $(1)\Rightarrow (2)$~--- очевидно
-        \item  $(2)\Rightarrow (3)$
+        \item  $(2)\Rightarrow (3)$ 
+        
+            Определение непрерывности в 0:
              $\forall \varepsilon > 0, \exists \delta > 0\colon
              \forall x\colon \norm{x} \leqslant \delta, \norm{Ux} \leqslant \varepsilon$.
+             
              Возьмём произвольное $x$ и сожмём его так, чтобы он лежал 
              в $\delta$ окрестности нуля.
              \[
@@ -307,9 +310,10 @@
                  \Rightarrow \norm{U\overline{x}} \leqslant  \varepsilon
                  \Rightarrow \frac{\delta}{\norm{x}}\norm{Ux} \leqslant \varepsilon
                  \Rightarrow \norm{Ux} \le \frac{\varepsilon}{\delta} \norm{x}
-             \]
-         \item $(3)\Rightarrow(1)$
-             % $\|U(x_1) - U(x_2)\| \leq C\|x_1 - x_2\|$~---
+             \] 
+        \item $(3)\Rightarrow(1)$
+
+            $\norm{U(x_1 - x_2)} \leqslant C \norm{x_1 - x_2} \Longleftrightarrow \norm{U(x_1) - U(x_2)} \leqslant C\norm{x_1 - x_2}$ --- 
              липшецевость  $\Rightarrow$ непрерывное.
     \end{enumerate}
 \end{proof}
@@ -320,18 +324,22 @@
         \item
             $U$ ~--- непрерывно
         \item 
-            $U$ ~--- непрерывно в 0
+            $U$ ~--- непрерывно в $0 = 0 \times ... \times 0$
         \item
-            $\exists C\colon \norm{U(X_1,\dots, X_n)} \leq
+            $\exists C\colon \norm{U(X_1,\dots, X_n)} \leqslant
             C\norm{x_1}\cdot\ldots\cdot\norm{x_n}$
     \end{enumerate}
 \end{theorem}
 \begin{remark}
-    Например $\norm{(x_1, \cdots, x_n)}_{x_1 \times \cdots \times x_n} = \norm{x_1}_{x_1} + \cdots + \norm{x_n}_{x_n}$ (или какая-то другая, так как они все эквивалентны в конечномерном пространстве).
+    Какая норма в пространстве $X_1 \times ... \times X_n$? Можно взять любую разумную норму, связанную с нормами в пространстве $X_1, ..., X_n$.
+    Например, $\norm{(x_1, \cdots, x_n)}_{X_1 \times \cdots \times X_n} = \norm{x_1}_{X_1} + \cdots + \norm{x_n}_{X_n}$ (или какая-то другая, так как они все эквивалентны в конечномерном пространстве).
 \end{remark}
+\begin{proof}
+    Аналогично предыдущему. 
+\end{proof}
 \begin{definition}
     $U: X\rightarrow Y$ ~--- лно.
-    $\norm{U} = \inf\{C \mid \forall x\in X \hence \norm{Ux}\leq C\norm{x}\}$
+    $\norm{U} = \inf\{C \mid \forall x\in X \hence \norm{Ux}\leqslant C\norm{x}\}$ --- норма отображения.
 \end{definition}
 \begin{remark}
 $\inf$ достигается, а именно:

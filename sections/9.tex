@@ -1,38 +1,38 @@
 \section*{Лекция 9 (14.04.2022)}
 \begin{enumerate}
-    \item[1] $L$ -- афинное множество. $L = L_0 + a$, где $L_0$ -- линейное множество, $a \in H$.\\
-    $L = \{l + a \mid l \in L_0\}$
+	\item[1] $H$ ~--- полное пространство, со скалярным произведением(Гильбертово)
+	
+		$L$ -- афинное множество. $L = L_0 + a$, где $L_0$ -- линейное множество, $a \in H$.\\
+    	$L = \{l + a \mid l \in L_0\}$
 
-    %
-    \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
+   		\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
-    \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
-        %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
-
-        %Shape: Ellipse [id:dp5594136254073829]
-        \draw   (284.61,95.02) .. controls (249.48,72.92) and (236.85,55) .. (256.39,55) .. controls (275.94,55) and (320.27,72.92) .. (355.39,95.02) .. controls (390.52,117.13) and (403.15,135.05) .. (383.61,135.05) .. controls (364.06,135.05) and (319.73,117.13) .. (284.61,95.02) -- cycle ;
-        %Straight Lines [id:da5192526291436679]
-        \draw    (320,95.02) -- (259,165.05) ;
-        \draw [shift={(259,165.05)}, rotate = 131.06] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
-        \draw [shift={(320,95.02)}, rotate = 131.06] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
-        %Shape: Ellipse [id:dp6088740304242628]
-        \draw   (201.24,163.02) .. controls (121.84,125.46) and (85.58,95) .. (120.25,95) .. controls (154.93,95) and (247.4,125.46) .. (326.8,163.02) .. controls (406.19,200.59) and (442.45,231.05) .. (407.78,231.05) .. controls (373.11,231.05) and (280.64,200.59) .. (201.24,163.02) -- cycle ;
-        %Straight Lines [id:da35141840892191256]
-        \draw    (100,121) ;
+   		\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+       		%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+       		%Shape: Ellipse [id:dp5594136254073829]
+       		\draw   (284.61,95.02) .. controls (249.48,72.92) and (236.85,55) .. (256.39,55) .. controls (275.94,55) and (320.27,72.92) .. (355.39,95.02) .. controls (390.52,117.13) and (403.15,135.05) .. (383.61,135.05) .. controls (364.06,135.05) and (319.73,117.13) .. (284.61,95.02) -- cycle ;
+       		%Straight Lines [id:da5192526291436679]
+       		\draw    (320,95.02) -- (259,165.05) ;
+       		\draw [shift={(259,165.05)}, rotate = 131.06] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+       		\draw [shift={(320,95.02)}, rotate = 131.06] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+	        %Shape: Ellipse [id:dp6088740304242628]
+       		\draw   (201.24,163.02) .. controls (121.84,125.46) and (85.58,95) .. (120.25,95) .. controls (154.93,95) and (247.4,125.46) .. (326.8,163.02) .. controls (406.19,200.59) and (442.45,231.05) .. (407.78,231.05) .. controls (373.11,231.05) and (280.64,200.59) .. (201.24,163.02) -- cycle ;
+	        %Straight Lines [id:da35141840892191256]
+    		\draw    (100,121) ;
 
 
-        % Text Node
-        \draw (401,187) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle L_{0}$};
-        % Text Node
-        \draw (366,86) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle L$};
-        % Text Node
-        \draw (272,160) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle O$};
+		    % Text Node
+       		\draw (401,187) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle L_{0}$};
+	        % Text Node
+       		\draw (366,86) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle L$};
+	        % Text Node
+	        \draw (272,160) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle O$};
 
-    \end{tikzpicture}
+	 	\end{tikzpicture}
 
-    $f(x) = \norm{x_0 - x}^2$, $x_0 \in L_0$\\
-    $y_0$ -- точка минимума, необходимое условие точки минимума -- $x_0 - y_0 \perp L_0$\\
-    $df(y_0) \colon L_0 \to \R$, $L_0$ -- множество допустимых приращений.
+	    $f(x) = \norm{x_0 - x}^2$, $x_0 \in L_0$\\
+   	 	$y_0$ -- точка минимума, необходимое условие точки минимума -- $x_0 - y_0 \perp L_0$\\
+    	$df(y_0) \colon L_0 \to \R$, $L_0$ -- множество допустимых приращений.
 
 \end{enumerate}
 
@@ -75,13 +75,13 @@ $L_0 = \{f \in C^2[0, x_{\star}], f(0) = f(x_{\star}) = 0\}$
 
 \[\begin{aligned}
     \frac{mv^2}{2} = mgf(x) \Rightarrow v(x) = \sqrt{2gf(x)} \\
-    s(x) = \sqrt{1 + (f'(x))} \\
-    t(x) = \sqrt{\frac{1 + (f'(x))^2}{2gf(x)}}
+	\text{Расстояние ~---} s(x) = \sqrt{1 + (f'(x))^2} \\
+	\text{Время ~---} t(x) = \sqrt{\frac{1 + (f'(x))^2}{2gf(x)}}
 \end{aligned}\]
 
 Отсюда,
 \[
-    T(f) = \lim_{|\tau| \to 0} \sum_{i = 1}^n T(x_i) = \int_0^{x_{\star}} \sqrt{\frac{1 + (f'(x))^2}{2gf(x)}}
+    T(f) = \lim_{|\tau| \to 0} \sum_{i = 1}^n T(x_i) = \int_0^{x_{\star}} \sqrt{\frac{1 + (f'(x))^2}{2gf(x)}} dx
 \]
 
 Модификация:
@@ -113,7 +113,7 @@ $L_0 = \{f \in C^2[0, x_{\star}], f(0) = f(x_{\star}) = 0\}$
 
 \end{tikzpicture}
 
-Заметим, что все аналогично, поэтому $T(f) = \int_0^{x_{\star}} \sqrt{\frac{1 + (f'(x))^2}{2gx}}$
+Заметим, что все аналогично, поэтому $T(f) = \int_0^{x_{\star}} \sqrt{\frac{1 + (f'(x))^2}{2gx}} dx$
 
 Здесь мы представим, что на физику нам пофиг, теперь $g = \dfrac12$.
 
@@ -134,11 +134,11 @@ $J(f) = \bigint_a^b F(x, f(x), f'(x)) dx$, где $F \colon \R^3 \to \R, F \in C
 $f$ -- экстремаль (экстремум функционала) $\Rightarrow dJ(f) = 0$, в частности, производные по всем направлениям обязательно нулевые.\\
 
 Обозначим за $\left\{\begin{aligned}
-J_1(f)(x) &= F(x, f(x), f'(x)), J_1 \colon L \to C[a, b] \\
+J_1(f) &= F(\cdot, f(\cdot), f'(\cdot)), J_1 \colon L \to C[a, b] \\
 J_2(g) &= \int_a^bg(x) dx, J_2 \colon C[a, b] \to \R
 \end{aligned}\right. \Rightarrow J = J_2 \circ J_1$\\
-$dJ(f) = J_2 \circ dJ_1(f)$, \\
-$\dfrac{\partial J_1}{\partial h}(f) = dJ_1(f)h = \lim\limits_{t \to 0} \dfrac{J_1(ft + h) - J_1(f)}{t} = \lim\limits_{t \to 0} \dfrac{F(\cdot, f(\cdot) + th(\cdot), f'(\cdot)+th'(\cdot)) - F(\cdot, f(\cdot), f'(\cdot))}{t} \ceq$
+$dJ(f) = J_2 \circ dJ_1(f)$, т.к. $J_2$ -- линейное\\
+$\dfrac{\partial J_1}{\partial h}(f) = dJ_1(f)h = \lim\limits_{t \to 0} \dfrac{J_1(f + t \cdot h) - J_1(f)}{t} = \lim\limits_{t \to 0} \dfrac{F(\cdot, f(\cdot) + th(\cdot), f'(\cdot)+th'(\cdot)) - F(\cdot, f(\cdot), f'(\cdot))}{t} \ceq$
 
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
@@ -169,12 +169,12 @@ $\dfrac{\partial J_1}{\partial h}(f) = dJ_1(f)h = \lim\limits_{t \to 0} \dfrac{J
 
 \[J(f + th) = J(f) + tdJ(f)h + o(f)\]
 
-$\ceq \partial_2 F(\cdot, f(\cdot), f'(\cdot))h(\cdot) + \partial_3 F(\cdot, f(\cdot), f'(\cdot))h'(\cdot)$\\
+$\ceq \lim\limits_{t \to 0} \dfrac {F(\cdot, f(\cdot) + th(\cdot), f'(\cdot) + th'(\cdot) - F(\cdot, f(\cdot), f'(\cdot) + th'(\cdot)}{t} + \dfrac{F(\cdot, f(\cdot), f'(\cdot) + th'(\cdot) - F(\cdot, f(\cdot), f'(\cdot))}{t} \\ \stackrel{\theta \in [0, th(\cdot)]}{=} \partial_2 F(\cdot, f(\cdot) + \theta, f'(\cdot) + th'(\cdot))h(\cdot) + \frac{d}{dh'} F(\cdot, f(\cdot), f'(\cdot)) \stackrel{t = 0}{=} \partial_2 F(\cdot, f(\cdot), f'(\cdot))h(\cdot) + \partial_3 F(\cdot, f(\cdot), f'(\cdot))h'(\cdot)$\\
 $dJ(f)(h) = \bigint_a^b(\partial_2 F(x, f(x), f'(x))h(x) - \partial_3 F(x, f(x), f'(x))h'(x)) dx$
 
-$f$ -- экстремаль $\Rightarrow \forall h \in L_0 dJ(f)h = 0 \Rightarrow$\\
-$dJ(f)h = \bigint_a^b(\partial_2 F(x, f(x), f'(x)) - \odv{}{x}(\partial_3F(x, f(x), f'(x))h(x))) dx + (\ldots) h\bigg|_a^b = 0$\\
-$\bigint_a^bghdx = 0\ \forall h \in L_0 \Rightarrow g = 0$.
+$f$ -- экстремаль $\Rightarrow \forall h \in L_0 \Rightarrow dJ(f)h = 0$, тогда дифференцируем по частям второе слагаемое, получим:\\
+$dJ(f)h = \bigint_a^b(\partial_2 F(x, f(x), f'(x) - \odv{}{x}(\partial_3F(x, f(x), f'(x)))h(x) dx + \underbrace{(\ldots) h\bigg|_a^b}_{=0} = 0$\\
+Получим выражение такого вида ~--- $\bigint_a^bghdx = 0\ ,\forall h \in L_0 \Rightarrow g = 0$(ведь можно взять $h$ так, чтобы $g$ везде была $> 0$(кроме нулей $g$)).
 
 Отсюда получаем, что
 \[\partial_2F(x, f(x), f'(x)) = \odv{}{x}\partial_3F(x, f(x), f'(x))\]
@@ -261,7 +261,7 @@ $\bigint_a^bf \to \max$.
 
 \subsection{Градиентный спуск}
 
-Экстремальное свойство градиента: $f \colon \R^n \to \R$\\
+Основан на экстремальном свойстве градиента: $f \colon \R^n \to \R$\\
 $\dfrac{\partial f}{\partial h}(x_0) = \langle \nabla f(x_0), h \rangle \Rightarrow \dfrac{\partial f}{\partial h}(x_0)$ максимально в направлении $\nabla f(x_0)$ и минимально в противоположном.
 
 Простейший алгоритм поиска минимума:\\
